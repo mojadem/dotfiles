@@ -16,5 +16,7 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 
+zoxide init fish | source
+
 starship init fish | source
 enable_transience
