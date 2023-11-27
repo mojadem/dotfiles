@@ -17,3 +17,4 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 
 starship init fish | source
+enable_transience
