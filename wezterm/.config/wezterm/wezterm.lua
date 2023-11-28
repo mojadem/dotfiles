@@ -5,6 +5,8 @@ config.font = wezterm.font 'Hack'
 
 config.color_scheme = 'Gruvbox Material (Gogh)'
 
+config.default_cursor_style = "SteadyBar"
+
 -- config.enable_tab_bar = false
 
 config.window_decorations = "RESIZE"
