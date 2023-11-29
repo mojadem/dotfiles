@@ -3,7 +3,7 @@ local config = {}
 
 config.font = wezterm.font 'Hack'
 
-config.color_scheme = 'Gruvbox Material (Gogh)'
+config.color_scheme = 'Gruvbox Dark (Gogh)'
 
 config.default_cursor_style = "SteadyBar"
 
