@@ -5,23 +5,22 @@ switch (uname)
         alias bat="batcat"
 end
 
-export (envsubst < $HOME/.dotfiles/xdg.env)
-export (envsubst < $HOME/.dotfiles/variables.env)
+export (envsubst < $HOME/.config/env/xdg.env)
+export (envsubst < $HOME/.config/env/variables.env)
 
-fish_add_path -g $PNPM_HOME $CARGO_HOME/bin
+fish_add_path -g $PNPM_HOME $CARGO_HOME/bin $GOPATH/bin
 
 alias ls="eza --icons --oneline --group-directories-first"
 alias la="ls -a"
 alias ll="ls -al --git"
 
-abbr gitst git status
-abbr gita. git add .
-abbr gitcm git commit -m
-abbr gitcam git commit -am
-abbr gitco git checkout
+fzf_configure_bindings --directory=\cf --history=\ch --variables=\ce --git_log= --git_status= --processes=
+set fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --color=always
+set fzf_fd_opts --follow
 
-set fzf_fd_opts --hidden
-set fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --color=always --all 
+bind --mode insert -k nul accept-autosuggestion
+bind --mode insert \cr refresh
+bind --mode insert \cg lazygit
 
 starship init fish | source
 enable_transience
