@@ -14,13 +14,14 @@ alias ls="eza --icons --oneline --group-directories-first"
 alias la="ls -a"
 alias ll="ls -al --git"
 
+abbr lg lazygit
+
 fzf_configure_bindings --directory=\cf --history=\ch --variables=\ce --git_log= --git_status= --processes=
 set fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --color=always
 set fzf_fd_opts --follow
 
 bind --mode insert -k nul accept-autosuggestion
 bind --mode insert \cr refresh
-bind --mode insert \cg lazygit
 
 starship init fish | source
 enable_transience
