@@ -12,10 +12,10 @@ config.default_cursor_style = 'SteadyBar'
 config.window_decorations = 'RESIZE'
 
 config.window_padding = {
-  left = '3cell',
-  right = '3cell',
-  top = '1.5cell',
-  bottom = '1.5cell',
+  left = '2cell',
+  right = '2cell',
+  top = '1cell',
+  bottom = '1cell',
 }
 
 return config
