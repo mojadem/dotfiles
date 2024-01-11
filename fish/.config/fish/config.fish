@@ -11,6 +11,7 @@ export (envsubst < $HOME/.config/env/variables.env)
 fish_add_path -g $PNPM_HOME $CARGO_HOME/bin $GOPATH/bin
 
 alias ls="eza --icons --oneline --group-directories-first"
+alias lt="ls -T"
 alias la="ls -a"
 alias ll="ls -al --git"
 
