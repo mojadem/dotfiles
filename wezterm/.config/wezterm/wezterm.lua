@@ -7,6 +7,8 @@ config.color_scheme = 'Gruvbox Dark (Gogh)'
 
 config.default_cursor_style = 'SteadyBar'
 
+config.window_close_confirmation = 'NeverPrompt'
+
 -- config.enable_tab_bar = false
 
 config.window_decorations = 'RESIZE'
