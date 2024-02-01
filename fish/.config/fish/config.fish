@@ -1,6 +1,7 @@
 switch (uname)
     case Darwin
         eval (/opt/homebrew/bin/brew shellenv)
+	    abbr cdsem cd /Users/mojadem/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/PSU/sem8
     case Linux
         alias bat="batcat"
 end
@@ -16,13 +17,13 @@ alias la="ls -a"
 alias ll="ls -al --git"
 
 abbr lg lazygit
+abbr r refresh
 
 fzf_configure_bindings --directory=\cf --history=\ch --variables=\ce --git_log= --git_status= --processes=
 set fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --color=always
 set fzf_fd_opts --follow
 
 bind --mode insert -k nul accept-autosuggestion
-bind --mode insert \cr refresh
 
 starship init fish | source
 enable_transience
