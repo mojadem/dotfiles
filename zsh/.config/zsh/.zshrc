@@ -1,4 +1,8 @@
-export $(envsubst < $HOME/.dotfiles/variables.env)
+export $(envsubst < $HOME/.config/env/xdg.env)
+export $(envsubst < $HOME/.config/env/variables.env)
 
-export HISTFILE="$XDG_STATE_HOME"/zsh/history 
+autoload -Uz compinit
+compinit
 
+export HISTFILE=$XDG_STATE_HOME/zsh/history
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
