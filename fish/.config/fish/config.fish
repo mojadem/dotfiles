@@ -1,9 +1,9 @@
-switch (uname)
-    case Darwin
+switch (hostname)
+    case MJDMA.local
         eval (/opt/homebrew/bin/brew shellenv)
 	    abbr cdsem cd /Users/mojadem/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/PSU/sem8
-    case Linux
-        alias bat="batcat"
+    # case Linux
+    #     alias bat="batcat"
 end
 
 export (envsubst < $HOME/.config/env/xdg.env)
