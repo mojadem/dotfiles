@@ -1,7 +1,7 @@
 switch (hostname)
     case MJDMA.local
         eval (/opt/homebrew/bin/brew shellenv)
-	    abbr cdsem cd /Users/mojadem/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/PSU/sem8
+	    abbr cdsem "cd /Users/mojadem/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/PSU/sem8"
     case MJDPC
         alias bat="batcat"
 end
@@ -9,7 +9,7 @@ end
 export (envsubst < $HOME/.config/env/xdg.env)
 export (envsubst < $HOME/.config/env/variables.env)
 
-fish_add_path -g $PNPM_HOME $CARGO_HOME/bin $GOPATH/bin
+fish_add_path -g $CARGO_HOME/bin $GOPATH/bin
 
 if status is-interactive
     alias ls="eza --icons --oneline --group-directories-first"
@@ -18,7 +18,8 @@ if status is-interactive
     alias ll="ls -al --git"
 end
 
-abbr lg lazygit
+abbr cdgit "cd (git rev-parse --show-toplevel)"
+abbr lg "lazygit"
 
 fzf_configure_bindings --directory=\cf --history=\ch --variables=\ce --git_log= --git_status= --processes=
 set fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --color=always
