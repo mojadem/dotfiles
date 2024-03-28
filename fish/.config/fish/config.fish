@@ -1,8 +1,8 @@
-switch (hostname)
-    case MJDMA.local
+switch (uname)
+    case Darwin
         eval (/opt/homebrew/bin/brew shellenv)
 	    abbr cdsem "cd /Users/mojadem/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/PSU/sem8"
-    case MJDPC
+    case '*'
         alias bat "batcat"
 end
 
@@ -23,7 +23,7 @@ abbr lg "lazygit"
 
 abbr !! --position anywhere --function last_history_item
 
-fzf_configure_bindings --directory=\cf --history=\ch --variables=\ce --git_log= --git_status= --processes=
+fzf_configure_bindings --directory=\cf --history=\ch --variables=\ce --processes=\cp --git_log= --git_status=
 set fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --color=always
 set fzf_fd_opts --follow
 
