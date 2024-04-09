@@ -1,4 +1,4 @@
 all:
-	stow --restow --verbose */
+	stow --restow --verbose --dotfiles */
 delete:
-	stow --delete --verbose */
+	stow --delete --verbose --dotfiles */
