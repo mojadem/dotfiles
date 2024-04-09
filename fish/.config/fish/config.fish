@@ -20,6 +20,7 @@ end
 
 abbr cdgit "cd (git rev-parse --show-toplevel)"
 abbr lg "lazygit"
+abbr py "python3"
 
 abbr !! --position anywhere --function last_history_item
 
