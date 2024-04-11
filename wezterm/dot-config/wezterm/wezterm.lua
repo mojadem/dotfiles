@@ -58,7 +58,7 @@ config.key_tables = {
   },
   workspace = {
     { key = 'n', action = act.SwitchToWorkspace { spawn = { cwd = '~' } } },
-    { key = 's', action = act.ShowLauncherArgs { flags = 'WORKSPACES' } },
+    { key = 's', action = act.ShowLauncherArgs { flags = 'WORKSPACES|FUZZY' } },
     { key = 'd', action = act.SwitchToWorkspace { name = 'default' } },
     {
       key = 'r',
