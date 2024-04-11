@@ -38,12 +38,18 @@ config.leader = { key = 'Space', mods = 'CMD|SHIFT' }
 config.keys = {
   { key = 't', mods = 'LEADER', action = act.ActivateKeyTable { name = 'tab' } },
   { key = 'w', mods = 'LEADER', action = act.ActivateKeyTable { name = 'workspace' } },
+  { key = '-', mods = 'LEADER', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
+  { key = '/', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  { key = 'f', mods = 'LEADER', action = act.TogglePaneZoomState },
+  { key = 'q', mods = 'LEADER', action = act.CloseCurrentPane { confirm = true } },
+  { key = 'p', mods = 'LEADER', action = act.PaneSelect },
+  { key = 'r', mods = 'LEADER', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
 }
 
 config.key_tables = {
   tab = {
     { key = 'n', action = act.SpawnTab 'CurrentPaneDomain' },
-    { key = 's', action = act.ShowTabNavigator },
+    { key = 's', action = act.ShowLauncherArgs { flags = 'TABS|FUZZY' } },
     {
       key = 'r',
       action = act.PromptInputLine {
@@ -59,7 +65,6 @@ config.key_tables = {
   workspace = {
     { key = 'n', action = act.SwitchToWorkspace { spawn = { cwd = '~' } } },
     { key = 's', action = act.ShowLauncherArgs { flags = 'WORKSPACES|FUZZY' } },
-    { key = 'd', action = act.SwitchToWorkspace { name = 'default' } },
     {
       key = 'r',
       action = act.PromptInputLine {
@@ -72,6 +77,18 @@ config.key_tables = {
         end),
       },
     },
+  },
+  resize_pane = {
+    { key = 'h', action = act.AdjustPaneSize { 'Left', 1 } },
+    { key = 'H', mods = 'SHIFT', action = act.AdjustPaneSize { 'Left', 5 } },
+    { key = 'j', action = act.AdjustPaneSize { 'Down', 1 } },
+    { key = 'J', mods = 'SHIFT', action = act.AdjustPaneSize { 'Down', 5 } },
+    { key = 'k', action = act.AdjustPaneSize { 'Up', 1 } },
+    { key = 'K', mods = 'SHIFT', action = act.AdjustPaneSize { 'Up', 5 } },
+    { key = 'l', action = act.AdjustPaneSize { 'Right', 1 } },
+    { key = 'L', mods = 'SHIFT', action = act.AdjustPaneSize { 'Right', 5 } },
+    { key = 'Escape', action = 'PopKeyTable' },
+    { key = 'Enter', action = 'PopKeyTable' },
   },
 }
 
