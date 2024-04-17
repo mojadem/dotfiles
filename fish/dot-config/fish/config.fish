@@ -1,9 +1,9 @@
 switch (uname)
     case Darwin
         eval (/opt/homebrew/bin/brew shellenv)
-	    abbr cdsem "cd /Users/mojadem/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/PSU/sem8"
+        abbr cdsem "cd /Users/mojadem/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/PSU/sem8"
     case '*'
-        alias bat "batcat"
+        alias bat batcat
 end
 
 export (envsubst < $HOME/.config/env/xdg.env)
@@ -19,12 +19,12 @@ if status is-interactive
 end
 
 abbr cdgit "cd (git rev-parse --show-toplevel)"
-abbr lg "lazygit"
-abbr py "python3"
+abbr lg lazygit
+abbr py python3
 
 abbr !! --position anywhere --function last_history_item
 
-fzf_configure_bindings --directory=\cf --history=\ch --variables=\ce --processes=\cp --git_log= --git_status=
+fzf_configure_bindings --directory=\cf --history=\ch --variables=\ce --processes= --git_log= --git_status=
 set fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --color=always
 set fzf_fd_opts --follow
 

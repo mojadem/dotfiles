@@ -15,7 +15,7 @@ config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
 
 wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
-  return { { Attribute = { Intensity = 'Bold' } }, { Text = ' ' .. tab.tab_index .. ' ' } }
+  return { { Attribute = { Intensity = 'Bold' } }, { Text = ' ' .. tab.tab_index + 1 .. ' ' } }
 end)
 
 wezterm.on('update-right-status', function(window, pane)
