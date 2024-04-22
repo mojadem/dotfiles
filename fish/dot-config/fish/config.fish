@@ -22,8 +22,6 @@ abbr cdgit "cd (git rev-parse --show-toplevel)"
 abbr lg lazygit
 abbr py python3
 
-abbr !! --position anywhere --function last_history_item
-
 fzf_configure_bindings --directory=\cf --history=\ch --variables=\ce --processes= --git_log= --git_status=
 set fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --color=always
 set fzf_fd_opts --follow
