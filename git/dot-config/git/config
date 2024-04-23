@@ -8,3 +8,14 @@
 	defaultBranch = main
 [commit]
 	gpgsign = true
+[core]
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
+[delta]
+  navigate = true
+  syntax-theme = gruvbox-dark
