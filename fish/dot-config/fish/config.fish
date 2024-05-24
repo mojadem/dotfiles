@@ -2,8 +2,6 @@ switch (uname)
     case Darwin
         eval (/opt/homebrew/bin/brew shellenv)
         abbr cdsem "cd /Users/mojadem/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/PSU/sem8"
-    case '*'
-        alias bat batcat
 end
 
 export (envsubst < $HOME/.config/env/xdg.env)

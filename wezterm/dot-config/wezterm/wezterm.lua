@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 -- defaults
 config.color_scheme = 'Gruvbox Dark (Gogh)'
 config.default_cursor_style = 'SteadyBar'
-config.font = wezterm.font { family = 'Fira Code', scale = 1.2 }
+config.font = wezterm.font 'Fira Code'
 config.window_close_confirmation = 'AlwaysPrompt'
 config.window_decorations = 'RESIZE'
 
@@ -14,11 +14,11 @@ config.window_decorations = 'RESIZE'
 config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
 
-wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
+wezterm.on('format-tab-title', function(tab)
   return { { Attribute = { Intensity = 'Bold' } }, { Text = ' ' .. tab.tab_index + 1 .. ' ' } }
 end)
 
-wezterm.on('update-right-status', function(window, pane)
+wezterm.on('update-right-status', function(window)
   local status = window:active_workspace()
 
   if window:active_key_table() then
@@ -33,7 +33,7 @@ wezterm.on('update-right-status', function(window, pane)
 end)
 
 -- keys
-config.leader = { key = 'Space', mods = 'CMD|SHIFT' }
+config.leader = { key = 'a', mods = 'CTRL' }
 
 config.keys = {
   { key = 't', mods = 'LEADER', action = act.ActivateKeyTable { name = 'tab' } },
@@ -54,7 +54,7 @@ config.key_tables = {
       key = 'r',
       action = act.PromptInputLine {
         description = wezterm.format { { Text = 'Renaming tab title...' } },
-        action = wezterm.action_callback(function(window, pane, line)
+        action = wezterm.action_callback(function(window, _, line)
           if line then
             window:active_tab():set_title(line)
           end
@@ -69,7 +69,7 @@ config.key_tables = {
       key = 'r',
       action = act.PromptInputLine {
         description = wezterm.format { { Text = 'Renaming workspace title...' } },
-        action = wezterm.action_callback(function(window, pane, line)
+        action = wezterm.action_callback(function(_, _, line)
           if line then
             wezterm.mux.rename_workspace(wezterm.mux.get_active_workspace(), line)
             wezterm.emit 'update-right-status'
@@ -92,11 +92,15 @@ config.key_tables = {
   },
 }
 
--- mux
-config.unix_domains = {
-  { name = 'unix' },
-}
+-- platforms
+if wezterm.target_triple:find 'darwin' then
+  local mac = require 'mac'
+  mac.apply_to_config(config)
+end
 
-config.default_gui_startup_args = { 'connect', 'unix' }
+if wezterm.target_triple:find 'windows' then
+  local windows = require 'windows'
+  windows.apply_to_config(config)
+end
 
 return config
