@@ -1,7 +1,6 @@
 switch (uname)
     case Darwin
         eval (/opt/homebrew/bin/brew shellenv)
-        abbr cdsem "cd /Users/mojadem/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/PSU/sem8"
 end
 
 export (envsubst < $HOME/.config/env/xdg.env)
@@ -26,5 +25,3 @@ set fzf_fd_opts --follow
 
 bind --mode insert -k nul accept-autosuggestion
 
-starship init fish | source
-enable_transience
