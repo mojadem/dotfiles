@@ -3,6 +3,9 @@ switch (uname)
         eval (/opt/homebrew/bin/brew shellenv)
 end
 
+set -g fish_key_bindings fish_vi_key_bindings
+set -g fish_greeting
+
 export (envsubst < $HOME/.config/env/xdg.env)
 export (envsubst < $HOME/.config/env/variables.env)
 
