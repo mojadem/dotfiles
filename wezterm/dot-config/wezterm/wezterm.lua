@@ -33,7 +33,7 @@ wezterm.on('update-right-status', function(window)
 end)
 
 -- keys
-config.leader = { key = 'a', mods = 'CTRL' }
+config.leader = { key = 'k', mods = 'CTRL' }
 
 config.keys = {
   { key = 't', mods = 'LEADER', action = act.ActivateKeyTable { name = 'tab' } },

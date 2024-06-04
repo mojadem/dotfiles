@@ -1,7 +1,6 @@
 set fisher_path $__fish_user_data_dir/fisher
 
 if not test -d $fisher_path
-    echo creating $fisher_path
     mkdir $fisher_path
 end
 
@@ -10,13 +9,4 @@ set fish_function_path $fish_function_path[1] $fisher_path/functions $fish_funct
 
 for file in $fisher_path/conf.d/*.fish
     source $file
-end
-
-if not set -q installing_fisher && not type -q fisher
-    set -gx installing_fisher true
-    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source
-    fisher update
-    tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time=No --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Few icons' --transient=Yes
-    commandline -f repaint
-    set -e installing_fisher
 end

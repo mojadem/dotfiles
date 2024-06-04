@@ -1,30 +1,47 @@
-switch (uname)
-    case Darwin
-        eval (/opt/homebrew/bin/brew shellenv)
-end
-
-set -g fish_key_bindings fish_vi_key_bindings
-set -g fish_greeting
-
+# env
 export (envsubst < $HOME/.config/env/xdg.env)
 export (envsubst < $HOME/.config/env/variables.env)
 
+# path
 fish_add_path -g $CARGO_HOME/bin $GOPATH/bin
 
-if status is-interactive
-    alias ls "eza --icons --oneline --group-directories-first"
-    alias lt "ls --tree"
-    alias la "ls -a"
-    alias ll "ls -al --git"
-end
+# fish
+fish_vi_key_bindings
+set fish_greeting
 
-abbr cdgit "cd (git rev-parse --show-toplevel)"
+set fish_vi_force_cursor
+set fish_cursor_default block
+set fish_cursor_insert line
+set fish_cursor_replace_one underscore
+set fish_cursor_replace underscore
+set fish_cursor_external line
+set fish_cursor_visual block
+
+bind --mode insert -k nul accept-autosuggestion
+bind --mode default yy fish_clipboard_copy
+bind --mode insert \cN history-search-forward
+bind --mode insert \cP history-search-backward
+
+# commands
+alias ls "eza --icons --oneline --group-directories-first"
+alias lt "ls --tree"
+alias la "ls -a"
+alias ll "ls -al --git"
+
+abbr gitroot "cd (git rev-parse --show-toplevel)"
 abbr lg lazygit
 abbr py python3
 
-fzf_configure_bindings --directory=\cf --history=\ch --variables=\ce --processes= --git_log= --git_status=
-set fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --color=always
-set fzf_fd_opts --follow
+# plugins
+if type -q fisher
+    fzf_configure_bindings --directory=\cf --history=\ch --variables=\ce --processes= --git_log= --git_status=
+    set fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --color=always
+    set fzf_fd_opts --follow
+else
+    echo 'fisher not installed, run setup_fisher'
+end
 
-bind --mode insert -k nul accept-autosuggestion
-
+# machine
+if test -e ~/.profile.fish
+    source ~/.profile.fish
+end
