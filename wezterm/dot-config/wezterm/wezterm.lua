@@ -15,7 +15,14 @@ config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
 
 wezterm.on('format-tab-title', function(tab)
-  return { { Attribute = { Intensity = 'Bold' } }, { Text = ' ' .. tab.tab_index + 1 .. ' ' } }
+  local title = tostring(tab.tab_index + 1)
+  if tab.tab_title and #tab.tab_title > 0 then
+    title = title .. ': ' .. tab.tab_title
+  end
+
+  local intensity = tab.is_active and 'Bold' or 'Normal'
+
+  return { { Attribute = { Intensity = intensity } }, { Background = { AnsiColor = 'Black' } }, { Text = ' ' .. title .. ' ' } }
 end)
 
 wezterm.on('update-right-status', function(window)
@@ -38,12 +45,16 @@ config.leader = { key = 'k', mods = 'CTRL' }
 config.keys = {
   { key = 't', mods = 'LEADER', action = act.ActivateKeyTable { name = 'tab' } },
   { key = 'w', mods = 'LEADER', action = act.ActivateKeyTable { name = 'workspace' } },
+  { key = 'r', mods = 'LEADER', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
   { key = '-', mods = 'LEADER', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
   { key = '/', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
   { key = 'f', mods = 'LEADER', action = act.TogglePaneZoomState },
   { key = 'q', mods = 'LEADER', action = act.CloseCurrentPane { confirm = true } },
   { key = 'p', mods = 'LEADER', action = act.PaneSelect },
-  { key = 'r', mods = 'LEADER', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
+  { key = 'h', mods = 'LEADER', action = act.ActivatePaneDirection 'Left' },
+  { key = 'j', mods = 'LEADER', action = act.ActivatePaneDirection 'Down' },
+  { key = 'k', mods = 'LEADER', action = act.ActivatePaneDirection 'Up' },
+  { key = 'l', mods = 'LEADER', action = act.ActivatePaneDirection 'Right' },
 }
 
 config.key_tables = {
@@ -61,6 +72,8 @@ config.key_tables = {
         end),
       },
     },
+    { key = 'h', action = act.MoveTabRelative(-1) },
+    { key = 'l', action = act.MoveTabRelative(1) },
   },
   workspace = {
     { key = 'n', action = act.SwitchToWorkspace { spawn = { cwd = '~' } } },
