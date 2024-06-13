@@ -15,9 +15,11 @@ config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
 
 wezterm.on('format-tab-title', function(tab)
-  local title = tostring(tab.tab_index + 1)
+  local title = tostring(tab.tab_index + 1) .. ': '
   if tab.tab_title and #tab.tab_title > 0 then
-    title = title .. ': ' .. tab.tab_title
+    title = title .. tab.tab_title
+  else
+    title = title .. tostring(tab.active_pane.title)
   end
 
   local intensity = tab.is_active and 'Bold' or 'Normal'
