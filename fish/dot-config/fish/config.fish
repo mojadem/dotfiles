@@ -21,6 +21,7 @@ bind --mode insert -k nul accept-autosuggestion
 bind --mode default yy fish_clipboard_copy
 bind --mode insert \cN history-search-forward
 bind --mode insert \cP history-search-backward
+bind --mode insert \cA expand-abbr
 
 # commands
 alias ls "eza --icons --oneline --group-directories-first"
@@ -31,6 +32,7 @@ alias ll "ls -al --git"
 abbr gitroot "cd (git rev-parse --show-toplevel)"
 abbr lg lazygit
 abbr py python3
+abbr wgit "wget https://raw.githubusercontent.com/"
 
 # plugins
 if type -q fisher
