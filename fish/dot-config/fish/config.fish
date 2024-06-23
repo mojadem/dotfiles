@@ -24,10 +24,7 @@ bind --mode insert \cP history-search-backward
 bind --mode insert \cA expand-abbr
 
 # commands
-alias ls "eza --icons --oneline --group-directories-first"
-alias lt "ls --tree"
-alias la "ls -a"
-alias ll "ls -al --git"
+alias ls "eza --icons --group-directories-first"
 
 abbr gitroot "cd (git rev-parse --show-toplevel)"
 abbr lg lazygit
