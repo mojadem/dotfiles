@@ -4,7 +4,7 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 
 -- defaults
-config.color_scheme = 'Gruvbox Dark (Gogh)'
+config.color_scheme = 'GruvboxDark'
 config.default_cursor_style = 'SteadyBar'
 config.font = wezterm.font 'Fira Code'
 config.window_close_confirmation = 'AlwaysPrompt'

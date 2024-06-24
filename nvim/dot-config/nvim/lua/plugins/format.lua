@@ -28,6 +28,8 @@ return {
         lua = { 'stylua' },
         fish = { 'fish_indent' },
         go = { 'gofumpt', 'golines' },
+        javascript = { 'prettier' },
+        javascriptreact = { 'prettier' },
         ['_'] = { 'trim_whitespace', 'trim_newlines' },
 
         -- You can use a sub-list to tell conform to run *until* a formatter
