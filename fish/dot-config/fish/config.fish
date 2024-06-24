@@ -3,7 +3,7 @@ export (envsubst < $HOME/.config/env/xdg.env)
 export (envsubst < $HOME/.config/env/variables.env)
 
 # path
-fish_add_path -g $CARGO_HOME/bin $GOPATH/bin
+fish_add_path -g $CARGO_HOME/bin $GOPATH/bin $XDG_DATA_HOME/nvim/mason/bin
 
 # fish
 fish_vi_key_bindings
