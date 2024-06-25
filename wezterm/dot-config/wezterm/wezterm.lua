@@ -27,7 +27,7 @@ config.colors = {
     },
 
     inactive_tab = {
-      bg_color = '#282828',
+      bg_color = '#1d2021',
       fg_color = '#a89984',
     },
   },
