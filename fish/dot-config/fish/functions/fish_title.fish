@@ -1,3 +1,5 @@
 function fish_title
-    echo (status current-command)
+    set -f dir (basename (pwd))
+    set -f process (status current-command)
+    echo "$dir $process"
 end

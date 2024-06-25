@@ -13,19 +13,24 @@ config.window_decorations = 'RESIZE'
 -- tab bar
 config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
+config.tab_max_width = 40
 
-wezterm.on('format-tab-title', function(tab)
-  local title = tostring(tab.tab_index + 1) .. ': '
-  if tab.tab_title and #tab.tab_title > 0 then
-    title = title .. tab.tab_title
-  else
-    title = title .. tostring(tab.active_pane.title)
-  end
+config.colors = {
+  tab_bar = {
+    background = '#282828',
 
-  local intensity = tab.is_active and 'Bold' or 'Normal'
+    active_tab = {
+      bg_color = '#282828',
+      fg_color = '#ebdbb2',
+      intensity = 'Bold',
+    },
 
-  return { { Attribute = { Intensity = intensity } }, { Background = { AnsiColor = 'Black' } }, { Text = ' ' .. title .. ' ' } }
-end)
+    inactive_tab = {
+      bg_color = '#282828',
+      fg_color = '#a89984',
+    },
+  },
+}
 
 wezterm.on('update-right-status', function(window)
   local status = window:active_workspace()
