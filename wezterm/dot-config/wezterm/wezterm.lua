@@ -14,6 +14,7 @@ config.window_decorations = 'RESIZE'
 config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
 config.tab_max_width = 40
+config.hide_tab_bar_if_only_one_tab = true
 
 config.colors = {
   tab_bar = {
