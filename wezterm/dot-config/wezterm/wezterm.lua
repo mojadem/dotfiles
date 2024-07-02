@@ -6,7 +6,8 @@ local config = wezterm.config_builder()
 -- defaults
 config.color_scheme = 'GruvboxDark'
 config.default_cursor_style = 'SteadyBar'
-config.font = wezterm.font 'Fira Code'
+config.font = wezterm.font 'Monaspace Neon'
+config.harfbuzz_features = { 'calt', 'ss01', 'ss02', 'ss03', 'ss06', 'ss07', 'ss09', 'liga' }
 config.window_close_confirmation = 'AlwaysPrompt'
 config.window_decorations = 'RESIZE'
 
@@ -18,7 +19,7 @@ config.hide_tab_bar_if_only_one_tab = true
 
 config.colors = {
   tab_bar = {
-    background = '#282828',
+    background = '#1d2021',
 
     active_tab = {
       bg_color = '#282828',
@@ -48,22 +49,26 @@ wezterm.on('update-right-status', function(window)
 end)
 
 -- keys
-config.leader = { key = 'k', mods = 'CTRL' }
+config.leader = { key = 'a', mods = 'CTRL' }
 
 config.keys = {
   { key = 't', mods = 'LEADER', action = act.ActivateKeyTable { name = 'tab' } },
   { key = 'w', mods = 'LEADER', action = act.ActivateKeyTable { name = 'workspace' } },
   { key = 'r', mods = 'LEADER', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
   { key = '-', mods = 'LEADER', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
-  { key = '/', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  { key = '|', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
   { key = 'f', mods = 'LEADER', action = act.TogglePaneZoomState },
   { key = 'q', mods = 'LEADER', action = act.CloseCurrentPane { confirm = true } },
   { key = 'p', mods = 'LEADER', action = act.PaneSelect },
-  { key = 'h', mods = 'LEADER', action = act.ActivatePaneDirection 'Left' },
-  { key = 'j', mods = 'LEADER', action = act.ActivatePaneDirection 'Down' },
-  { key = 'k', mods = 'LEADER', action = act.ActivatePaneDirection 'Up' },
-  { key = 'l', mods = 'LEADER', action = act.ActivatePaneDirection 'Right' },
+  { key = 'LeftArrow', mods = 'LEADER', action = act.ActivatePaneDirection 'Left' },
+  { key = 'RightArrow', mods = 'LEADER', action = act.ActivatePaneDirection 'Right' },
+  { key = 'UpArrow', mods = 'LEADER', action = act.ActivatePaneDirection 'Up' },
+  { key = 'DownArrow', mods = 'LEADER', action = act.ActivatePaneDirection 'Down' },
 }
+
+for i = 1, 9 do
+  table.insert(config.keys, { key = tostring(i), mods = 'CTRL', action = act.ActivateTab(i - 1) })
+end
 
 config.key_tables = {
   tab = {

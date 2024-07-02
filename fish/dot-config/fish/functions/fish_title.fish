@@ -1,16 +1,20 @@
 function fish_title
     if test (pwd) = $HOME
-        set -f dir '~'
+        set dir '~'
     else
-        set -f dir (basename (pwd))
+        set dir (basename (pwd))
     end
 
-    set -f process (status current-command)
+    set process (status current-command)
 
-    set -f dir (string shorten --max 15 $dir)
-    set -f process (string shorten --max 5 $process)
+    if test $process = fish
+        set process
+    end
 
-    set -f title "$dir $process"
+    set dir (string shorten --max 15 $dir)
+    set process (string shorten --max 5 $process)
+
+    set title "$dir $process"
 
     echo $title
 end
