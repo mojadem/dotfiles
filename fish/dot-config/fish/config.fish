@@ -29,6 +29,7 @@ alias ls "eza --icons --group-directories-first"
 abbr gitroot "cd (git rev-parse --show-toplevel)"
 abbr lg lazygit
 abbr py python3
+abbr pip pip3
 abbr wgit "wget https://raw.githubusercontent.com/"
 
 # plugins
