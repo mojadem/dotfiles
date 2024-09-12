@@ -2,6 +2,10 @@
 export (envsubst < $HOME/.config/env/xdg.env)
 export (envsubst < $HOME/.config/env/variables.env)
 
+if test -e $HOME/.config/env/local.env
+    export (envsubst < $HOME/.config/env/local.env)
+end
+
 # path
 fish_add_path -g $CARGO_HOME/bin $GOPATH/bin $XDG_DATA_HOME/nvim/mason/bin
 
@@ -26,7 +30,7 @@ bind --mode insert \cA expand-abbr
 # commands
 alias ls "eza --icons --group-directories-first"
 
-abbr gitroot "cd (git rev-parse --show-toplevel)"
+abbr root "cd (git rev-parse --show-toplevel)"
 abbr lg lazygit
 abbr py python3
 abbr pip pip3
@@ -42,6 +46,6 @@ else
 end
 
 # machine
-if test -e ~/.profile.fish
-    source ~/.profile.fish
+if test -e $__fish_config_dir/local.fish
+    source $__fish_config_dir/local.fish
 end
