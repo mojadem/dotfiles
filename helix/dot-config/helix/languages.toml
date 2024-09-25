@@ -1,0 +1,42 @@
+# astro.js
+[[language]]
+formatter = { command = "prettier", args = [
+  "--plugin",
+  "prettier-plugin-astro",
+  "--parser",
+  "astro",
+] }
+language-servers = ["astro-ls"]
+name = "astro"
+roots = ["package.json", "astro.config.mjs"]
+
+[language-server.astro-ls]
+args = ["--stdio"]
+command = "astro-ls"
+# TODO: bad path
+config = { typescript = { tsdk = "/opt/homebrew/Cellar/typescript/5.6.2/libexec/lib/node_modules/typescript/lib" } }
+
+# python
+[[language]]
+auto-format = true
+formatter = { command = "ruff", args = ["format", "-"] }
+language-servers = ["pyright", "ruff"]
+name = "python"
+
+[language-server.ruff]
+args = ["server"]
+command = "ruff"
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+
+# toml
+[[language]]
+auto-format = true
+formatter = { command = "taplo", args = [
+  "format",
+  "--option",
+  "reorder_keys=true",
+  "-",
+] }
+name = "toml"

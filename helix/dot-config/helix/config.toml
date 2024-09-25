@@ -1,0 +1,26 @@
+theme = "gruvbox"
+
+[editor]
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.statusline]
+left = [
+  "mode",
+  "spinner",
+  "version-control",
+  "file-name",
+  "spacer",
+  "read-only-indicator",
+  "file-modification-indicator",
+  "spacer",
+]
+
+[editor.statusline.mode]
+insert = "INSERT"
+normal = "NORMAL"
+select = "SELECT"
