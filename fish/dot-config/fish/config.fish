@@ -7,8 +7,7 @@ if test -e $HOME/.config/env/local.env
 end
 
 # path
-fish_add_path -g $CARGO_HOME/bin $GOPATH/bin $XDG_DATA_HOME/nvim/mason/bin
-
+fish_add_path -g $CARGO_HOME/bin $GOPATH/bin $PNPM_HOME
 # fish
 fish_vi_key_bindings
 set fish_greeting
