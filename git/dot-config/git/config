@@ -1,5 +1,5 @@
 [user]
-	name = Matt Dembiczak
+	name = Matt
 	email = dembiczakmatt@gmail.com
 	signingkey = ~/.ssh/id_ed25519.pub
 [gpg]
