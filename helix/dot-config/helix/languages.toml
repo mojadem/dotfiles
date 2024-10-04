@@ -1,5 +1,5 @@
-# astro.js
 [[language]]
+auto-format = true
 formatter = { command = "prettier", args = [
   "--plugin",
   "prettier-plugin-astro",
@@ -16,7 +16,6 @@ command = "astro-ls"
 # TODO: bad path
 config = { typescript = { tsdk = "/opt/homebrew/Cellar/typescript/5.6.2/libexec/lib/node_modules/typescript/lib" } }
 
-# python
 [[language]]
 auto-format = true
 formatter = { command = "ruff", args = ["format", "-"] }
@@ -30,13 +29,44 @@ command = "ruff"
 [language-server.pyright.config.python.analysis]
 typeCheckingMode = "basic"
 
-# toml
 [[language]]
 auto-format = true
-formatter = { command = "taplo", args = [
-  "format",
-  "--option",
-  "reorder_keys=true",
-  "-",
-] }
+formatter = { command = "taplo", args = ["format", "-"] }
 name = "toml"
+
+[[language]]
+formatter = { command = 'prettier', args = ["--parser", "html"] }
+name = "html"
+
+[[language]]
+formatter = { command = 'prettier', args = ["--parser", "json"] }
+name = "json"
+
+[[language]]
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+name = "css"
+
+[[language]]
+auto-format = true
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+name = "javascript"
+
+[[language]]
+auto-format = true
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+name = "typescript"
+
+[[language]]
+auto-format = true
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+name = "jsx"
+
+[[language]]
+auto-format = true
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+name = "tsx"
+
+[[language]]
+auto-format = true
+formatter = { command = 'prettier', args = ["--parser", "yaml"] }
+name = "yaml"

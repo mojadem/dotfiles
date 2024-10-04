@@ -2,6 +2,7 @@ theme = "gruvbox"
 
 [editor]
 color-modes = true
+rulers = [80]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -24,3 +25,6 @@ left = [
 insert = "INSERT"
 normal = "NORMAL"
 select = "SELECT"
+
+[editor.soft-wrap]
+enable = true
