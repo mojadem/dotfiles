@@ -20,7 +20,6 @@ set fish_cursor_replace underscore
 set fish_cursor_external line
 set fish_cursor_visual block
 
-bind --mode insert -k nul accept-autosuggestion
 bind --mode default yy fish_clipboard_copy
 bind --mode insert \cN history-search-forward
 bind --mode insert \cP history-search-backward
