@@ -70,3 +70,8 @@ name = "tsx"
 auto-format = true
 formatter = { command = 'prettier', args = ["--parser", "yaml"] }
 name = "yaml"
+
+[[language]]
+name = "lua"
+formatter = { command = "stylua", args = ["-"] }
+auto-format = true
