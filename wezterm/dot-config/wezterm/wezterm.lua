@@ -53,7 +53,7 @@ config.leader = { key = " ", mods = "CTRL" }
 
 config.keys = {
 	{ key = "t", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
-	{ key = "w", mods = "CTRL", action = act.CloseCurrentPane({ confirm = false }) },
+	{ key = "w", mods = "CTRL|SHIFT", action = act.CloseCurrentPane({ confirm = false }) },
 	{ key = "[", mods = "CTRL", action = act.ActivateTabRelative(-1) },
 	{ key = "]", mods = "CTRL", action = act.ActivateTabRelative(1) },
 	{ key = "[", mods = "CTRL|SHIFT", action = act.MoveTabRelative(-1) },
