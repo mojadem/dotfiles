@@ -6,8 +6,10 @@ if test -e $HOME/.config/env/local.env
     export (envsubst < $HOME/.config/env/local.env)
 end
 
+set -gx LS_COLORS (vivid generate gruvbox-dark)
+
 # path
-fish_add_path -g $CARGO_HOME/bin $GOPATH/bin $PNPM_HOME
+fish_add_path -g ~/.local/bin $CARGO_HOME/bin $GOPATH/bin $PNPM_HOME
 # fish
 fish_vi_key_bindings
 set fish_greeting
@@ -36,7 +38,7 @@ abbr wgit "wget https://raw.githubusercontent.com/"
 
 # plugins
 if type -q fisher
-    fzf_configure_bindings --directory=\cf --history=\ch --variables=\ce --processes= --git_log= --git_status=
+    fzf_configure_bindings --directory=\e\cF --history=\e\cH --variables=\e\cV --processes=\e\cP --git_log=\e\cL --git_status=\e\cS
     set fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --color=always
     set fzf_fd_opts --follow
 else
