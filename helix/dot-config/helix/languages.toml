@@ -66,6 +66,8 @@ language-servers = [
 formatter = { command = "prettier", args = [
   "--plugin",
   "prettier-plugin-svelte",
+  "--plugin",
+  "prettier-plugin-tailwindcss",
   "--parser",
   "svelte",
 ] }
@@ -92,4 +94,13 @@ auto-format = true
 [[language]]
 name = "lua"
 formatter = { command = "stylua", args = ["-"] }
+auto-format = true
+
+[[language]]
+name = "cpp"
+auto-format = true
+
+[[language]]
+name = "cmake"
+formatter = { command = "gersemi", args = ["-"] }
 auto-format = true
