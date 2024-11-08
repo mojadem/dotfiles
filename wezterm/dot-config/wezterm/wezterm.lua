@@ -51,6 +51,15 @@ end)
 -- keys
 config.leader = { key = " ", mods = "CTRL" }
 
+local function activatePaneDirection(window, pane, direction)
+	if util.basename(pane:get_foreground_process_name()) == "hx" then
+		wezterm.log_info("hx")
+		window:perform_action(act.SendKey({ key = direction .. "Arrow", mods = "CTRL" }), pane)
+	else
+		window:perform_action(act.ActivatePaneDirection(direction), pane)
+	end
+end
+
 config.keys = {
 	{ key = "t", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
 	{ key = "w", mods = "CTRL|SHIFT", action = act.CloseCurrentPane({ confirm = false }) },
@@ -58,6 +67,34 @@ config.keys = {
 	{ key = "]", mods = "CTRL", action = act.ActivateTabRelative(1) },
 	{ key = "[", mods = "CTRL|SHIFT", action = act.MoveTabRelative(-1) },
 	{ key = "]", mods = "CTRL|SHIFT", action = act.MoveTabRelative(1) },
+	{
+		key = "LeftArrow",
+		mods = "CTRL",
+		action = wezterm.action_callback(function(window, pane)
+			activatePaneDirection(window, pane, "Left")
+		end),
+	},
+	{
+		key = "RightArrow",
+		mods = "CTRL",
+		action = wezterm.action_callback(function(window, pane)
+			activatePaneDirection(window, pane, "Right")
+		end),
+	},
+	{
+		key = "UpArrow",
+		mods = "CTRL",
+		action = wezterm.action_callback(function(window, pane)
+			activatePaneDirection(window, pane, "Up")
+		end),
+	},
+	{
+		key = "DownArrow",
+		mods = "CTRL",
+		action = wezterm.action_callback(function(window, pane)
+			activatePaneDirection(window, pane, "Down")
+		end),
+	},
 	{ key = "t", mods = "LEADER", action = act.ActivateKeyTable({ name = "tab" }) },
 	{ key = "w", mods = "LEADER", action = act.ActivateKeyTable({ name = "workspace" }) },
 	{ key = "r", mods = "LEADER", action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
@@ -65,10 +102,6 @@ config.keys = {
 	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "f", mods = "LEADER", action = act.TogglePaneZoomState },
 	{ key = "p", mods = "LEADER", action = act.PaneSelect },
-	{ key = "LeftArrow", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
-	{ key = "RightArrow", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
-	{ key = "UpArrow", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
-	{ key = "DownArrow", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
 	{
 		key = "i",
 		mods = "LEADER",

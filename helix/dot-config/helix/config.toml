@@ -1,5 +1,11 @@
 theme = "gruvbox"
 
+[keys.normal]
+"C-left" = "jump_view_left"
+"C-right" = "jump_view_right"
+"C-up" = "jump_view_up"
+"C-down" = "jump_view_down"
+
 [editor]
 color-modes = true
 rulers = [80]
