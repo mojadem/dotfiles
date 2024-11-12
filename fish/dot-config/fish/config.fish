@@ -42,7 +42,7 @@ if type -q fisher
     set fzf_preview_dir_cmd eza --icons --oneline --group-directories-first --color=always
     set fzf_fd_opts --follow
 else
-    echo 'fisher not installed, run setup_plugins'
+    echo 'fisher not installed, run `setup plugins`'
 end
 
 # machine
