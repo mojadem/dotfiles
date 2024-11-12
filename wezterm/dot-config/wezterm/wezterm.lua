@@ -61,7 +61,7 @@ local function activatePaneDirection(window, pane, direction)
 end
 
 config.keys = {
-	{ key = "t", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
+	{ key = "t", mods = "CTRL|SHIFT", action = act.SpawnTab("CurrentPaneDomain") },
 	{ key = "w", mods = "CTRL|SHIFT", action = act.CloseCurrentPane({ confirm = false }) },
 	{ key = "[", mods = "CTRL", action = act.ActivateTabRelative(-1) },
 	{ key = "]", mods = "CTRL", action = act.ActivateTabRelative(1) },
