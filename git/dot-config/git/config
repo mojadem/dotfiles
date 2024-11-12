@@ -1,9 +1,7 @@
 [user]
 	name = Matt Dembiczak
 	email = dembiczakmatt@gmail.com
-	signingkey = ~/.ssh/id_ed25519.pub
-[gpg]
-	format = ssh
+	signingkey = dembiczakmatt@gmail.com
 [init]
 	defaultBranch = main
 [commit]
