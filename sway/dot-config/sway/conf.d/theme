@@ -1,0 +1,18 @@
+default_border pixel 1
+gaps inner 10
+
+set $bg #282828
+set $bg0_h #1d2021
+set $fg #ebdbb2
+set $green #b8bb26
+set $red cc241d
+
+output * bg $bg0_h solid_color
+
+# colors
+#
+# class border bg text indicator child_border
+client.focused $bg0_h $bg $fg $green $fg
+client.focused_inactive $bg0_h $bg $fg $green $bg0_h
+client.unfocused $bg0_h $bg $fg $green $bg0_h
+client.urgent $bg0_h $bg $fg $green $red
