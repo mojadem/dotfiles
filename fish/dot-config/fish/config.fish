@@ -7,6 +7,7 @@ if test -e $HOME/.config/env/local.env
 end
 
 set -gx LS_COLORS (vivid generate gruvbox-dark)
+set -gx GPG_TTY (tty)
 
 # path
 fish_add_path -g ~/.local/bin $CARGO_HOME/bin $GOPATH/bin $PNPM_HOME

@@ -16,7 +16,7 @@ function setup
             return 1
         end
 
-        mv $aider_env $PWD/.env
+        cp $aider_env $PWD/.env
         echo aider setup complete
         return
     end
