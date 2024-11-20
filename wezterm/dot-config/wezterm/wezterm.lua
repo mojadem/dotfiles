@@ -24,7 +24,6 @@ config.colors = {
 		active_tab = {
 			bg_color = "#282828",
 			fg_color = "#ebdbb2",
-			intensity = "Bold",
 		},
 
 		inactive_tab = {
@@ -51,51 +50,46 @@ end)
 -- keys
 config.leader = { key = " ", mods = "CTRL" }
 
+-- use same keybinds for switching pane in wezterm and helix
 local function activatePaneDirection(window, pane, direction)
 	if util.basename(pane:get_foreground_process_name()) == "hx" then
 		wezterm.log_info("hx")
-		window:perform_action(act.SendKey({ key = direction .. "Arrow", mods = "CTRL" }), pane)
+		window:perform_action(act.SendKey({ key = direction .. "Arrow", mods = "ALT" }), pane)
 	else
 		window:perform_action(act.ActivatePaneDirection(direction), pane)
 	end
 end
 
 config.keys = {
-	{ key = "t", mods = "CTRL|SHIFT", action = act.SpawnTab("CurrentPaneDomain") },
-	{ key = "w", mods = "CTRL|SHIFT", action = act.CloseCurrentPane({ confirm = false }) },
-	{ key = "[", mods = "CTRL", action = act.ActivateTabRelative(-1) },
-	{ key = "]", mods = "CTRL", action = act.ActivateTabRelative(1) },
-	{ key = "[", mods = "CTRL|SHIFT", action = act.MoveTabRelative(-1) },
-	{ key = "]", mods = "CTRL|SHIFT", action = act.MoveTabRelative(1) },
 	{
 		key = "LeftArrow",
-		mods = "CTRL",
+		mods = "ALT",
 		action = wezterm.action_callback(function(window, pane)
 			activatePaneDirection(window, pane, "Left")
 		end),
 	},
 	{
 		key = "RightArrow",
-		mods = "CTRL",
+		mods = "ALT",
 		action = wezterm.action_callback(function(window, pane)
 			activatePaneDirection(window, pane, "Right")
 		end),
 	},
 	{
 		key = "UpArrow",
-		mods = "CTRL",
+		mods = "ALT",
 		action = wezterm.action_callback(function(window, pane)
 			activatePaneDirection(window, pane, "Up")
 		end),
 	},
 	{
 		key = "DownArrow",
-		mods = "CTRL",
+		mods = "ALT",
 		action = wezterm.action_callback(function(window, pane)
 			activatePaneDirection(window, pane, "Down")
 		end),
 	},
-	{ key = "t", mods = "LEADER", action = act.ActivateKeyTable({ name = "tab" }) },
+	{ key = "t", mods = "LEADER", action = act.ActivateKeyTable({ name = "tab", one_shot = false }) },
 	{ key = "w", mods = "LEADER", action = act.ActivateKeyTable({ name = "workspace" }) },
 	{ key = "r", mods = "LEADER", action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
 	{ key = "s", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
@@ -113,10 +107,20 @@ config.keys = {
 }
 
 for i = 1, 9 do
-	table.insert(config.keys, { key = tostring(i), mods = "CTRL", action = act.ActivateTab(i - 1) })
+	table.insert(config.keys, { key = tostring(i), mods = "ALT", action = act.ActivateTab(i - 1) })
 end
 
 config.key_tables = {
+	tab = {
+		{ key = "n", action = act.SpawnTab("CurrentPaneDomain") },
+		{ key = "d", action = act.CloseCurrentPane({ confirm = false }) },
+		{ key = "LeftArrow", action = act.ActivateTabRelative(-1) },
+		{ key = "RightArrow", action = act.ActivateTabRelative(1) },
+		{ key = "LeftArrow", mods = "SHIFT", action = act.MoveTabRelative(-1) },
+		{ key = "RightArrow", mods = "SHIFT", action = act.MoveTabRelative(1) },
+		{ key = "Escape", action = "PopKeyTable" },
+		{ key = "Enter", action = "PopKeyTable" },
+	},
 	workspace = {
 		{ key = "n", action = act.SwitchToWorkspace({ spawn = { cwd = "~" } }) },
 		{ key = "s", action = act.ShowLauncherArgs({ flags = "WORKSPACES|FUZZY" }) },
