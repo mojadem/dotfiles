@@ -51,9 +51,11 @@ end)
 config.leader = { key = " ", mods = "CTRL" }
 
 -- use same keybinds for switching pane in wezterm and helix
-local function activatePaneDirection(window, pane, direction)
-	if util.basename(pane:get_foreground_process_name()) == "hx" then
-		wezterm.log_info("hx")
+local function activate_pane_direction(window, pane, direction)
+	local process = pane:get_foreground_process_name()
+
+	-- sometimes the foreground process is null (e.g. when output is piped to a pager)
+	if process and util.basename(pane:get_foreground_process_name()) == "hx" then
 		window:perform_action(act.SendKey({ key = direction .. "Arrow", mods = "ALT" }), pane)
 	else
 		window:perform_action(act.ActivatePaneDirection(direction), pane)
@@ -65,29 +67,52 @@ config.keys = {
 		key = "LeftArrow",
 		mods = "ALT",
 		action = wezterm.action_callback(function(window, pane)
-			activatePaneDirection(window, pane, "Left")
+			activate_pane_direction(window, pane, "Left")
 		end),
 	},
+
 	{
 		key = "RightArrow",
 		mods = "ALT",
 		action = wezterm.action_callback(function(window, pane)
-			activatePaneDirection(window, pane, "Right")
+			activate_pane_direction(window, pane, "Right")
 		end),
 	},
+
 	{
 		key = "UpArrow",
 		mods = "ALT",
 		action = wezterm.action_callback(function(window, pane)
-			activatePaneDirection(window, pane, "Up")
+			activate_pane_direction(window, pane, "Up")
 		end),
 	},
 	{
 		key = "DownArrow",
 		mods = "ALT",
 		action = wezterm.action_callback(function(window, pane)
-			activatePaneDirection(window, pane, "Down")
+			activate_pane_direction(window, pane, "Down")
 		end),
+	},
+	-- forced pane switching with shift for when one pane is helix and the other isn't
+	{
+		key = "LeftArrow",
+		mods = "ALT|SHIFT",
+		action = act.ActivatePaneDirection("Left"),
+	},
+	{
+		key = "RightArrow",
+		mods = "ALT|SHIFT",
+		action = act.ActivatePaneDirection("Right"),
+	},
+	{
+		key = "UpArrow",
+		mods = "ALT|SHIFT",
+		action = act.ActivatePaneDirection("Up"),
+	},
+	{
+		key = "DownArrow",
+		mods = "ALT|SHIFT",
+		action = act.ActivatePaneDirection("Down"),
 	},
 	{ key = "t", mods = "LEADER", action = act.ActivateKeyTable({ name = "tab", one_shot = false }) },
 	{ key = "w", mods = "LEADER", action = act.ActivateKeyTable({ name = "workspace" }) },
@@ -155,11 +180,6 @@ config.key_tables = {
 if wezterm.target_triple:find("darwin") then
 	local mac = require("mac")
 	mac.apply_to_config(config)
-end
-
-if wezterm.target_triple:find("windows") then
-	local windows = require("windows")
-	windows.apply_to_config(config)
 end
 
 return config
