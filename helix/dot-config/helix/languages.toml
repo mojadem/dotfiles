@@ -104,3 +104,11 @@ auto-format = true
 name = "cmake"
 formatter = { command = "gersemi", args = ["-"] }
 auto-format = true
+
+[[language]]
+name = "gdscript"
+language-servers = ["godot"]
+
+[language-server.godot]
+command = "nc"
+args = ["localhost", "6005"]
