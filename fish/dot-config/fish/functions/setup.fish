@@ -21,6 +21,12 @@ function setup
         return
     end
 
+    if test $argv = bw
+        set -gx BW_SESSION (bw unlock --raw)
+        echo bw setup complete
+        return
+    end
+
     echo bad arg
     return 2
 end
