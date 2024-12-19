@@ -1,18 +1,38 @@
 default_border pixel 1
 gaps inner 10
 
-set $bg #282828
-set $bg0_h #1d2021
-set $fg #ebdbb2
-set $green #b8bb26
+set $bg 282828
+set $bg_dark 1d2021
+set $fg ebdbb2
+set $fg_dark a89984
 set $red cc241d
 
-output * bg $bg0_h solid_color
+#output * bg ~/pictures/wallpapers/wallpaper.png fill #$bg_dark
+output * bg #1d2021 solid_color
 
 # colors
 #
 # class border bg text indicator child_border
-client.focused $bg0_h $bg $fg $green $fg
-client.focused_inactive $bg0_h $bg $fg $green $bg0_h
-client.unfocused $bg0_h $bg $fg $green $bg0_h
-client.urgent $bg0_h $bg $fg $green $red
+client.focused $bg_dark $bg $fg $fg $fg
+client.focused_inactive $bg_dark $bg $fg $fg $bg_dark
+client.unfocused $bg_dark $bg $fg $fg $bg_dark
+client.urgent $bg_dark $bg $fg $fg $red
+
+#bar {
+#    position top
+#
+#    status_command while date +'%a %b %d %l:%M %p'; do sleep 1; done
+#
+#    colors {
+#        font "Inter Bold 12"
+#        background $bg_dark
+#        statusline $fg
+#        focused_workspace $bg_dark $bg_dark $fg
+#        inactive_workspace $bg_dark $bg_dark $fg_dark
+#    }
+#}
+
+bar {
+    status_command yambar
+    mode invisible
+}

@@ -1,17 +1,21 @@
-set $mod Alt
+set $mod Super
 
 set $term wezterm
-set $browser firefox
-set $menu wmenu-run
+set $browser qutebrowser
+set $menu wmenu-run -i
 
-# drag windows with $mod+LMB, rerize with $mod+RMB
+# drag windows with $mod+LMB, resize with $mod+RMB
 floating_modifier $mod normal
 
-bar {
-    swaybar_command waybar
-}
 
 exec wl-paste --watch cliphist store
 
+input type:pointer {
+    accel_profile "flat"
+    pointer_accel 0.1
+}
+
+for_window [instance="Godot_Engine"] floating enable
+
 include ~/.config/sway/conf.d/*
-include @sysconfdir@/sway/config.d/*
+include /etc/sway/config.d/*

@@ -3,70 +3,72 @@ set $down j
 set $up k
 set $right l
 
-
 # start terminal
-bindsym Super+Return exec $term
+bindsym $mod+Return exec $term
 
 # start browser
-bindsym Super+b exec $browser
+bindsym $mod+Shift+Return exec $browser
 
-# kill window (MacOS style)
-bindsym Super+q kill
+# kill window
+bindsym $mod+q kill
 
-# start launcher (MacOS style)
-bindsym Super+space exec $menu
+# start launcher
+bindsym $mod+space exec $menu
+
+# Ctrl is used for number and arrow bindings
 
 # move focus
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
+bindsym Ctrl+$left focus left
+bindsym Ctrl+$down focus down
+bindsym Ctrl+$up focus up
+bindsym Ctrl+$right focus right
 
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym Ctrl+Left focus left
+bindsym Ctrl+Down focus down
+bindsym Ctrl+Up focus up
+bindsym Ctrl+Right focus right
 
 # move window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+bindsym Ctrl+Shift+$left move left
+bindsym Ctrl+Shift+$down move down
+bindsym Ctrl+Shift+$up move up
+bindsym Ctrl+Shift+$right move right
 
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym Ctrl+Shift+Left move left
+bindsym Ctrl+Shift+Down move down
+bindsym Ctrl+Shift+Up move up
+bindsym Ctrl+Shift+Right move right
 
 # switch workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
+bindsym Ctrl+1 workspace number 1
+bindsym Ctrl+2 workspace number 2
+bindsym Ctrl+3 workspace number 3
+bindsym Ctrl+4 workspace number 4
+bindsym Ctrl+5 workspace number 5
+bindsym Ctrl+6 workspace number 6
+bindsym Ctrl+7 workspace number 7
+bindsym Ctrl+8 workspace number 8
+bindsym Ctrl+9 workspace number 9
+bindsym Ctrl+0 workspace number 10
 
 # move window to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 10
+bindsym Ctrl+Shift+1 move container to workspace number 1
+bindsym Ctrl+Shift+2 move container to workspace number 2
+bindsym Ctrl+Shift+3 move container to workspace number 3
+bindsym Ctrl+Shift+4 move container to workspace number 4
+bindsym Ctrl+Shift+5 move container to workspace number 5
+bindsym Ctrl+Shift+6 move container to workspace number 6
+bindsym Ctrl+Shift+7 move container to workspace number 7
+bindsym Ctrl+Shift+8 move container to workspace number 8
+bindsym Ctrl+Shift+9 move container to workspace number 9
+bindsym Ctrl+Shift+0 move container to workspace number 10
 
 # select split
 bindsym $mod+bar splith
 bindsym $mod+minus splitv
 
 # switch layout
+bindsym $mod+d layout default
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -74,11 +76,10 @@ bindsym $mod+e layout toggle split
 # make window fullscreen
 bindsym $mod+f fullscreen
 
-# toggle window between tiling and floating
-bindsym $mod+Shift+space floating toggle
-
 # swap focus between the tiling area and the floating area
-bindsym $mod+space focus mode_toggle
+bindsym $mod+t focus mode_toggle
+# toggle window between tiling and floating
+bindsym $mod+Shift+t floating toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -117,6 +118,12 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
 # take screenshot
 bindsym Print exec grim
+
+# clipboard manager
+bindsym $mod+Shift+v exec cliphist list | wmenu -i -l 10 -p clipboard | cliphist decode | wl-copy
+
+# lock screen
+bindsym $mod+Ctrl+q exec swaylock -i ~/pictures/wallpapers/wallpaper.png
 
 # reload configuration
 bindsym $mod+Shift+c reload
