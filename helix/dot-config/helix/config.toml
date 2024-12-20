@@ -38,3 +38,7 @@ enable = true
 [editor.inline-diagnostics]
 cursor-line = "hint"
 other-lines = "error"
+
+[editor.indent-guides]
+render = true
+skip-levels = 1
