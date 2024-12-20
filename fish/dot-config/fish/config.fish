@@ -6,11 +6,12 @@ if test -e $HOME/.config/env/local.env
     export (envsubst < $HOME/.config/env/local.env)
 end
 
-set -gx LS_COLORS (vivid generate gruvbox-dark)
-set -gx GPG_TTY (tty)
+set -x LS_COLORS (vivid generate gruvbox-dark)
+set -x GPG_TTY (tty)
 
 # path
-fish_add_path -g ~/.local/bin $CARGO_HOME/bin $GOPATH/bin $PNPM_HOME
+fish_add_path ~/.local/bin $CARGO_HOME/bin $GOPATH/bin $PIXI_HOME/bin $PNPM_HOME
+
 # fish
 fish_vi_key_bindings
 set fish_greeting
@@ -30,6 +31,7 @@ bind --mode insert \cA expand-abbr
 
 # commands
 alias ls "eza --icons --group-directories-first"
+alias wget "wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 
 abbr root "cd (git rev-parse --show-toplevel)"
 abbr lg lazygit
