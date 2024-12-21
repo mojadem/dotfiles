@@ -68,9 +68,9 @@ bindsym $mod+bar splith
 bindsym $mod+minus splitv
 
 # switch layout
-bindsym $mod+d layout default
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+#bindsym $mod+d layout default
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # make window fullscreen
@@ -120,7 +120,7 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym Print exec grim
 
 # clipboard manager
-bindsym $mod+Shift+v exec cliphist list | wmenu -i -l 10 -p clipboard | cliphist decode | wl-copy
+bindsym $mod+Shift+v exec cliphist list | fuzzel --dmenu --lines 30 --width 60 --tabs 1 | cliphist decode | wl-copy
 
 # lock screen
 bindsym $mod+Ctrl+q exec swaylock -i ~/pictures/wallpapers/wallpaper.png

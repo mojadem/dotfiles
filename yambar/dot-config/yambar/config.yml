@@ -1,0 +1,33 @@
+bar:
+  font: Inter:pixelsize=16:weight=bold
+
+  height: 20
+  location: top
+  spacing: 5
+
+  # gruvbox colors
+  foreground: ebdbb2ff
+  background: 00000000
+
+  border:
+    top-margin: 2
+    left-margin: 10
+    right-margin: 10
+
+  left:
+    - i3:
+        content:
+          "":
+            map:
+              right-margin: 10
+              default: { string: { text: "{name}" } }
+              conditions:
+                state != focused:
+                  { string: { text: "{name}", foreground: a89984ff } }
+
+  right:
+    - clock:
+        date-format: "%a %b %-d"
+        time-format: "%-I:%M"
+        content:
+          string: { text: "{date}  {time}" }

@@ -2,7 +2,7 @@ set $mod Super
 
 set $term wezterm
 set $browser qutebrowser
-set $menu wmenu-run -i
+set $menu fuzzel -I
 
 # drag windows with $mod+LMB, resize with $mod+RMB
 floating_modifier $mod normal
