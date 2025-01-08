@@ -1,5 +1,5 @@
 set $mod Super
-set $term wezterm
+set $term alacritty
 set $browser qutebrowser
 set $menu fuzzel -I
 
@@ -92,10 +92,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
-bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+
 
 bindsym Print exec grim && notify-send "Screenshot saved" --expire-time 3000
 bindsym Shift+Print exec grim - | wl-copy && notify-send "Screenshot copied" --expire-time 3000
