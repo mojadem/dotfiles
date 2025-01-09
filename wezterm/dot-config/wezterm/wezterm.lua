@@ -1,14 +1,20 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local util = require("util")
 
 local config = wezterm.config_builder()
+
+-- utils
+
+-- equivalent to POSIX basename(3)
+-- given "/foo/bar" returns "bar"
+local function basename(s)
+	return string.gsub(s, "(.*[/\\])(.*)", "%2")
+end
 
 -- defaults
 config.color_scheme = "GruvboxDark"
 config.default_cursor_style = "SteadyBar"
 config.font = wezterm.font("Monaspace Neon")
-config.harfbuzz_features = { "calt", "ss01", "ss02", "ss03", "ss06", "ss07", "ss09", "liga" }
 config.window_close_confirmation = "AlwaysPrompt"
 config.window_decorations = "RESIZE"
 
@@ -55,7 +61,7 @@ local function activate_pane_direction(window, pane, direction)
 	local process = pane:get_foreground_process_name()
 
 	-- sometimes the foreground process is null (e.g. when output is piped to a pager)
-	if process and util.basename(pane:get_foreground_process_name()) == "hx" then
+	if process and basename(pane:get_foreground_process_name()) == "hx" then
 		window:perform_action(act.SendKey({ key = direction .. "Arrow", mods = "ALT" }), pane)
 	else
 		window:perform_action(act.ActivatePaneDirection(direction), pane)
@@ -70,7 +76,6 @@ config.keys = {
 			activate_pane_direction(window, pane, "Left")
 		end),
 	},
-
 	{
 		key = "RightArrow",
 		mods = "ALT",
@@ -78,7 +83,6 @@ config.keys = {
 			activate_pane_direction(window, pane, "Right")
 		end),
 	},
-
 	{
 		key = "UpArrow",
 		mods = "ALT",
@@ -115,20 +119,9 @@ config.keys = {
 		action = act.ActivatePaneDirection("Down"),
 	},
 	{ key = "t", mods = "LEADER", action = act.ActivateKeyTable({ name = "tab", one_shot = false }) },
+	{ key = "p", mods = "LEADER", action = act.ActivateKeyTable({ name = "pane" }) },
 	{ key = "w", mods = "LEADER", action = act.ActivateKeyTable({ name = "workspace" }) },
 	{ key = "r", mods = "LEADER", action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
-	{ key = "s", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-	{ key = "f", mods = "LEADER", action = act.TogglePaneZoomState },
-	{ key = "p", mods = "LEADER", action = act.PaneSelect },
-	{
-		key = "i",
-		mods = "LEADER",
-		action = wezterm.action_callback(function(win, pane)
-			wezterm.log_info("INFO")
-			wezterm.log_info("WindowID:", win:window_id(), "PaneID:", pane:pane_id())
-		end),
-	},
 }
 
 for i = 1, 9 do
@@ -137,14 +130,20 @@ end
 
 config.key_tables = {
 	tab = {
-		{ key = "n", action = act.SpawnTab("CurrentPaneDomain") },
-		{ key = "d", action = act.CloseCurrentPane({ confirm = false }) },
+		{ key = "n", action = act.Multiple({ act.SpawnTab("CurrentPaneDomain"), act.PopKeyTable }) },
+		{ key = "q", action = act.Multiple({ act.CloseCurrentTab({ confirm = false }), act.PopKeyTable }) },
 		{ key = "LeftArrow", action = act.ActivateTabRelative(-1) },
 		{ key = "RightArrow", action = act.ActivateTabRelative(1) },
 		{ key = "LeftArrow", mods = "SHIFT", action = act.MoveTabRelative(-1) },
 		{ key = "RightArrow", mods = "SHIFT", action = act.MoveTabRelative(1) },
-		{ key = "Escape", action = "PopKeyTable" },
-		{ key = "Enter", action = "PopKeyTable" },
+		{ key = "Escape", action = act.PopKeyTable },
+		{ key = "Enter", action = act.PopKeyTable },
+	},
+	pane = {
+		{ key = "s", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+		{ key = "v", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+		{ key = "q", action = act.CloseCurrentPane({ confirm = false }) },
+		{ key = "f", action = act.TogglePaneZoomState },
 	},
 	workspace = {
 		{ key = "n", action = act.SwitchToWorkspace({ spawn = { cwd = "~" } }) },
@@ -178,8 +177,7 @@ config.key_tables = {
 
 -- platforms
 if wezterm.target_triple:find("darwin") then
-	local mac = require("mac")
-	mac.apply_to_config(config)
+	config.font_size = 14.0
 end
 
 return config
