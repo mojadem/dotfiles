@@ -1,10 +1,10 @@
 set $mod Super
-set $term alacritty
+set $term wezterm
 set $browser qutebrowser
 set $menu fuzzel -I
 
-exec_always killall yambar; yambar
-exec_always killall mako; mako
+exec_always "killall yambar; yambar &"
+exec_always "killall mako; mako &"
 exec wl-paste --watch cliphist store
 
 input type:pointer {
