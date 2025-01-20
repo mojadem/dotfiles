@@ -1,7 +1,7 @@
 [user]
 	name = Matt Dembiczak
-	email = dembiczakmatt@gmail.com
-	signingkey = dembiczakmatt@gmail.com
+	email = matt@mojadem.dev
+	signingkey = matt@mojadem.dev
 [init]
 	defaultBranch = main
 [commit]
