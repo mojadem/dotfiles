@@ -11,6 +11,15 @@ local function basename(s)
 	return string.gsub(s, "(.*[/\\])(.*)", "%2")
 end
 
+-- theme
+local gruvbox_fg = "#ebdbb2"
+local gruvbox_bg = "#282828"
+local gruvbox_fg_dark = "#a89984"
+local gruvbox_bg_dark = "#1d2021"
+
+local gruvbox_blue = "#83a598"
+local gruvbox_green = "#b8bb26"
+
 -- defaults
 config.color_scheme = "GruvboxDark"
 config.default_cursor_style = "SteadyBar"
@@ -25,32 +34,35 @@ config.tab_max_width = 40
 
 config.colors = {
 	tab_bar = {
-		background = "#1d2021",
+		background = gruvbox_bg_dark,
 
 		active_tab = {
-			bg_color = "#282828",
-			fg_color = "#ebdbb2",
+			bg_color = gruvbox_bg,
+			fg_color = gruvbox_fg,
 		},
 
 		inactive_tab = {
-			bg_color = "#1d2021",
-			fg_color = "#a89984",
+			bg_color = gruvbox_bg_dark,
+			fg_color = gruvbox_fg_dark,
 		},
 	},
 }
 
 wezterm.on("update-right-status", function(window)
 	local status = window:active_workspace()
+	local color = gruvbox_fg
 
 	if window:active_key_table() then
 		status = window:active_key_table()
+		color = gruvbox_blue
 	end
 
 	if window:leader_is_active() then
 		status = "<leader>"
+		color = gruvbox_green
 	end
 
-	window:set_right_status(wezterm.format({ { Text = status .. " " } }))
+	window:set_right_status(wezterm.format({ { Foreground = { Color = color } }, { Text = status .. " " } }))
 end)
 
 -- keys
