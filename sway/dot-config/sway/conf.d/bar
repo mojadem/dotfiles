@@ -1,0 +1,19 @@
+include colors
+
+bar {
+  position top
+  # TODO: sway-bar(5) says: `gaps <all> | <horizontal> <vertical> | <top> <right> <bottom> <left>`
+  # but this seems to be vertical horizontal?
+  gaps 5 10
+
+  status_command while fish ~/.config/sway/status_command.fish; do sleep 1; done
+
+  colors {
+
+      font "Monaspace Neon Bold"
+      background $bg_dark
+      statusline $fg
+      focused_workspace $bg_dark $bg_dark $fg
+      inactive_workspace $bg_dark $bg_dark $fg_dark
+  }
+}

@@ -1,0 +1,5 @@
+set $bg 282828
+set $bg_dark 1d2021
+set $fg ebdbb2
+set $fg_dark a89984
+set $red cc241d
