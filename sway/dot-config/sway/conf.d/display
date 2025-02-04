@@ -1,0 +1,2 @@
+output HDMI-A-1 disable
+output DP-3 mode 3440x1440@144Hz

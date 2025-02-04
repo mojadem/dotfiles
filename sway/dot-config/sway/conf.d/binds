@@ -1,33 +1,18 @@
-set $mod Super
+# defaults
 set $term wezterm
 set $browser qutebrowser
-set $menu fuzzel -I
+set $menu fuzzel
 
-# drag windows with $mod+LMB, resize with $mod+RMB
-floating_modifier $mod normal
+bindsym Super+Return exec $term
+bindsym Super+Shift+Return exec $browser
+bindsym Super+space exec $menu
 
-set $left h
-set $down j
-set $up k
-set $right l
-
-bindsym $mod+Return exec $term
-bindsym $mod+Shift+Return exec $browser
-bindsym $mod+q kill
-bindsym $mod+space exec $menu
-
-bindsym Ctrl+$down focus down
-bindsym Ctrl+$up focus up
-bindsym Ctrl+$right focus right
+# navigation
 bindsym Ctrl+Left focus left
 bindsym Ctrl+Down focus down
 bindsym Ctrl+Up focus up
 bindsym Ctrl+Right focus right
 
-bindsym Ctrl+Shift+$left move left
-bindsym Ctrl+Shift+$down move down
-bindsym Ctrl+Shift+$up move up
-bindsym Ctrl+Shift+$right move right
 bindsym Ctrl+Shift+Left move left
 bindsym Ctrl+Shift+Down move down
 bindsym Ctrl+Shift+Up move up
@@ -55,23 +40,14 @@ bindsym Ctrl+Shift+8 move container to workspace number 8
 bindsym Ctrl+Shift+9 move container to workspace number 9
 bindsym Ctrl+Shift+0 move container to workspace number 10
 
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# system controls (Super+Ctrl)
+bindsym Super+Ctrl+f fullscreen
 
-bindsym $mod+f fullscreen
-
-bindsym $mod+t focus mode_toggle
-bindsym $mod+Shift+t floating toggle
-
-bindsym $mod+p focus parent
-bindsym $mod+c focus child
+bindsym Super+Ctrl+t focus mode_toggle
+bindsym Super+Ctrl+Shift+t floating toggle
+bindsym Super+Ctrl+b border toggle
 
 mode "resize" {
-	bindsym $left resize shrink width 10px
-	bindsym $down resize grow height 10px
-	bindsym $up resize shrink height 10px
-	bindsym $right resize grow width 10px
-
 	bindsym Left resize shrink width 10px
 	bindsym Down resize grow height 10px
 	bindsym Up resize shrink height 10px
@@ -80,21 +56,31 @@ mode "resize" {
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym Super+Ctrl+r mode "resize"
 
+bindsym Super+Ctrl+q exec swaylock -i ~/pictures/wallpapers/wallpaper.png
+bindsym Super+Ctrl+c reload
+bindsym Super+Ctrl+e exec swaynag -t warning -m 'confirm exit' -B 'exit' 'swaymsg exit'
+
+# media keys
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
 bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+
 
+# screenshots
 bindsym Print exec grim && notify-send "Screenshot saved" --expire-time 3000
-bindsym Shift+Print exec grim - | wl-copy && notify-send "Screenshot copied" --expire-time 3000
-bindsym Ctrl+Print exec slurp | grim -g - && notify-send "Screenshot saved" --expire-time 3000
+bindsym Ctrl+Print exec grim - | wl-copy && notify-send "Screenshot copied" --expire-time 3000
+bindsym Shift+Print exec slurp | grim -g - && notify-send "Screenshot saved" --expire-time 3000
 bindsym Ctrl+Shift+Print slurp | grim -g - - | wl-copy && notify-send "Screenshot copied" --expire-time 3000
 
-bindsym $mod+n exec makoctl dismiss
+# pickers (Super+Shift)
+bindsym Super+Shift+v exec cliphist list | fuzzel --prompt 'clipboard> ' --dmenu --lines 30 --width 60 --tabs 1 | cliphist decode | wl-copy
+bindsym Super+Shift+e exec fish ~/.config/sway/scripts/emoji_picker.fish
+bindsym Super+Shift+b exec fish ~/.config/sway/scripts/bitwarden_picker.fish
 
-bindsym $mod+Shift+v exec cliphist list | fuzzel --dmenu --lines 30 --width 60 --tabs 1 | cliphist decode | wl-copy
+# misc
+bindsym Super+q kill
+bindsym Super+Ctrl+n exec makoctl dismiss
 
-bindsym $mod+Shift+q exec swaylock -i ~/pictures/wallpapers/wallpaper.png
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+# drag windows with Super+LMB, resize with Super+RMB
+floating_modifier Super normal

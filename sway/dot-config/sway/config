@@ -1,8 +1,8 @@
 include /etc/sway/config.d/*
 include ~/.config/sway/conf.d/*
 
-exec_always "killall mako; mako &"
 exec wl-paste --watch cliphist store
+exec_always "killall mako; mako &"
 
 input type:pointer {
 	accel_profile "flat"
@@ -21,7 +21,8 @@ client.focused_inactive $bg_dark $bg $fg  $fg       $bg_dark
 client.unfocused        $bg_dark $bg $fg  $fg       $bg_dark
 client.urgent           $bg_dark $bg $fg  $fg       $red
 
-for_window [instance="Godot_Engine"] floating enable
 for_window [class="feh"] floating enable
 for_window [app_id="mpv"] floating enable
+
+for_window [instance="pinentry-gtk"] floating enable; resize set width 750px
 
