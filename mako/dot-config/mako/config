@@ -1,5 +1,8 @@
 font=Inter
+
 background-color=#282828ff
 text-color=#ebdbb2ff
 border-size=1
 border-color=#ebdbb2ff
+
+default-timeout=3000
