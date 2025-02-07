@@ -24,5 +24,3 @@ client.urgent           $bg_dark $bg $fg  $fg       $red
 for_window [class="feh"] floating enable
 for_window [app_id="mpv"] floating enable
 
-for_window [instance="pinentry-gtk"] floating enable; resize set width 750px
-
