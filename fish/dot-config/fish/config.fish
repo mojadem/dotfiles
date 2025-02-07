@@ -35,9 +35,6 @@ alias wget "wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 
 abbr root "cd (git rev-parse --show-toplevel)"
 abbr lg lazygit
-abbr py python
-abbr lt "ls -T"
-abbr wgit "wget https://raw.githubusercontent.com/"
 
 # plugins
 if type -q fisher
