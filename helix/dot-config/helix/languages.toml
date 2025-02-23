@@ -126,8 +126,9 @@ formatter = { command = "gofumpt" }
 [[language]]
 name = "bash"
 file-types = [
+  # new
   { glob = "sway/conf.d/*" },
-  # adding rest of built in file types from base languages.toml
+  # defaults
   # see https://github.com/helix-editor/helix/issues/6896 
   "sh",
   "bash",
@@ -174,6 +175,23 @@ file-types = [
   { glob = ".yashrc" },
   { glob = ".yash_profile" },
   { glob = ".hushlogin" },
+]
+
+[[language]]
+name = "glsl"
+formatter = { command = "clang-format" }
+auto-format = true
+file-types = [
+  # new
+  "gdshader",
+  # defaults
+  "glsl",
+  "vert",
+  "tesc",
+  "tese",
+  "geom",
+  "frag",
+  "comp",
 ]
 
 [[language]]
