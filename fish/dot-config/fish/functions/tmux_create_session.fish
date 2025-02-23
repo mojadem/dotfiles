@@ -1,6 +1,5 @@
 function tmux_create_session
-    set project_dirs (fd --type directory . ~/dev | string replace -r '/$' '' | while read d; test -e $d/.git && echo $d; end)
-    set -a project_dirs ~/.dotfiles
+    set project_dirs (fd --type directory --hidden --format "{//}" --glob .git ~/dev ~/.dotfiles)
 
     set selected (string replace $HOME '~' $project_dirs | fzf | string replace '~' $HOME)
     if test -z $selected
