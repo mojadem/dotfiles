@@ -53,10 +53,13 @@ if type -q fisher
     set -g hydro_color_vi_mode_replace brred --bold
     set -g hydro_color_vi_mode_visual fe8019 --bold
 else
-    echo 'fisher not installed, run `setup plugins`'
+    echo 'fisher not installed, run `setup_plugins`'
 end
 
 # machine
 if test -e $__fish_config_dir/local.fish
     source $__fish_config_dir/local.fish
 end
+
+# exit successfully
+exit 0
