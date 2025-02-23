@@ -8,6 +8,7 @@ end
 
 set -x LS_COLORS (vivid generate gruvbox-dark)
 set -x GPG_TTY (tty)
+set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # path
 fish_add_path ~/.local/bin $CARGO_HOME/bin $GOPATH/bin $PIXI_HOME/bin $PNPM_HOME
