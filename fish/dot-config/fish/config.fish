@@ -30,6 +30,8 @@ bind --mode insert \cN history-search-forward
 bind --mode insert \cP history-search-backward
 bind --mode insert \cA expand-abbr
 
+bind --mode insert \cF tmux_create_session
+
 # commands
 alias ls "eza --icons --group-directories-first"
 alias wget "wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
