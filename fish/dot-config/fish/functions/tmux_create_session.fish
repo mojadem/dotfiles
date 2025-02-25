@@ -6,7 +6,7 @@ function tmux_create_session
         return
     end
 
-    set session_name (basename $selected | string replace -r '^\.' '')
+    set session_name (basename $selected | string replace -r '\.' '')
 
     if not tmux has-session -t $session_name &>/dev/null
         tmux new -d -c $selected -s $session_name
