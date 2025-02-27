@@ -30,7 +30,7 @@ bind --mode insert \cN history-search-forward
 bind --mode insert \cP history-search-backward
 bind --mode insert \cA expand-abbr
 
-bind --mode insert \cF tmux_create_session
+bind --mode insert \cF tmux_sessionize
 
 # commands
 alias ls "eza --icons --group-directories-first"
