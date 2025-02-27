@@ -1,7 +1,7 @@
 c = c  # noqa
 config = config  # noqa
 
-config.load_autoconfig(False)
+config.load_autoconfig(True)
 
 bg = "#282828"
 bg_dark = "#1d2021"
@@ -71,5 +71,12 @@ c.tabs.padding = padding
 c.fonts.default_family = "Monaspace Neon Light"
 c.fonts.default_size = "12pt"
 
-c.url.searchengines = {"DEFAULT": "https://google.com/search?q={}"}
+c.url.searchengines = {
+    "DEFAULT": "https://google.com/search?q={}",
+    "gh": "https://github.com/{}",
+}
+c.url.start_pages = "https://mojadem.dev"
+
 c.hints.chars = "arstneio"
+
+config.bind("td", "config-cycle -p -t colors.webpage.darkmode.enabled")
