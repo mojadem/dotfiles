@@ -1,7 +1,7 @@
 # defaults
-set $term wezterm
+set $term foot
 set $browser qutebrowser
-set $menu fuzzel
+set $menu fuzzel --no-icons
 
 bindsym Super+Return exec $term
 bindsym Super+Shift+Return exec $browser
