@@ -1,8 +1,11 @@
 font=Inter
 
-background-color=#282828ff
+background-color=#3c3836ff
 text-color=#ebdbb2ff
 border-size=1
 border-color=#ebdbb2ff
+
+width=400
+margin=20
 
 default-timeout=3000
