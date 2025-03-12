@@ -45,7 +45,8 @@ set -x GRUVBOX_FG $GRUVBOX_BRWHITE
 set -x EDITOR hx
 set -x GPG_TTY (tty)
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
-set -x FZF_DEFAULT_OPTS "--layout=reverse --style=minimal --color=bg:black,fg:bright-white,hl:bright-cyan,bg+:#$GRUVBOX_BG_S,fg+:bright-white,hl+:bright-cyan,prompt:green,input-fg:bright-cyan,pointer:green,marker:yellow"
+
+set -x FZF_DEFAULT_OPTS "--layout=reverse --style=minimal --color=bg:black,fg:bright-white,hl:cyan,bg+:#$GRUVBOX_BG_S,fg+:bright-white,hl+:cyan,prompt:green,input-fg:cyan,pointer:green,marker:yellow"
 # set -x LS_COLORS (vivid generate gruvbox-dark)
 
 # path
