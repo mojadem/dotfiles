@@ -43,6 +43,7 @@ set -x GRUVBOX_BG_S 32302f
 set -x EDITOR hx
 set -x GPG_TTY (tty)
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
+set -x FZF_DEFAULT_OPTS '--layout=reverse --style=minimal'
 # set -x LS_COLORS (vivid generate gruvbox-dark)
 
 # path
