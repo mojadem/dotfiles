@@ -7,7 +7,6 @@ theme = "gruvbox"
 "A-down" = "jump_view_down"
 
 [editor]
-auto-pairs = false
 color-modes = true
 rulers = [80]
 
