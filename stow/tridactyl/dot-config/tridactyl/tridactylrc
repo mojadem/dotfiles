@@ -1,7 +1,4 @@
-set update.lastchecktime 1719930017143
 set configversion 2.0
-
-set smoothscroll true
 
 set searchurls.gh https://github.com/%s
 
@@ -17,4 +14,3 @@ bind <C-8> tab 8
 bind <C-9> tab 9
 
 autocmd DocStart https://meet.google.com mode ignore
-

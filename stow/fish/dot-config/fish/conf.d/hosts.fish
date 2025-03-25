@@ -1,4 +1,4 @@
-test $hostname = archlinux || exit
+test $hostname = club || exit
 
 function tv
     if test $argv = on
