@@ -1,5 +1,5 @@
 function tmux_sessionize
-    set project_dirs (fd --type directory --hidden --format "{//}" --glob .git ~/dev ~/.dotfiles)
+    set project_dirs (fd --type directory --hidden --format "{//}" --glob .git ~/dev)
     set project_dirs -a $project_dirs ~/proton/obsidian
 
     set selected (string replace $HOME '~' $project_dirs | fzf | string replace '~' $HOME)
