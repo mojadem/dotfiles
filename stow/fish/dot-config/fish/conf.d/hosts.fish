@@ -1,3 +1,4 @@
+# TODO: fix hostnames on all devices
 test $hostname = club || exit
 
 function tv
