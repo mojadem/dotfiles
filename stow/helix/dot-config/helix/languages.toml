@@ -115,7 +115,7 @@ args = ["localhost", "6005"]
 
 [[language]]
 name = "typst"
-language-servers = ["tinymist", "vale-ls"]
+language-servers = ["tinymist"]
 formatter = { command = "typstyle" }
 auto-format = true
 
