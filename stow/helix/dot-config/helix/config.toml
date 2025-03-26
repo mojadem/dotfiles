@@ -1,4 +1,4 @@
-theme = "gruvbox"
+theme = "gruvbox-custom"
 
 [keys.normal]
 "A-left" = "jump_view_left"
