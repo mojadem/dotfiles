@@ -8,7 +8,7 @@ bar {
   # but this seems to be vertical horizontal?
   gaps 5 10
 
-  status_command while fish ~/.config/sway/scripts/status_command.fish; do sleep 1; done
+  status_command fish ~/.config/sway/scripts/status_command.fish
   
   colors {
     font "Monaspace Neon Bold"
