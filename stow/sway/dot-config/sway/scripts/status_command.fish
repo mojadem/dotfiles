@@ -38,12 +38,27 @@ function get_volume
     echo "Volume: $volume_percent%"
 end
 
-while true
-    set corne_battery (get_corne_battery)
-    set volume (get_volume)
-    set date (date +'%a %b %d %I:%M:%S %p')
+function get_ram
+    set ram (awk '/MemTotal/ {total=$2} /MemAvailable/ {avail=$2} END {printf("%.0f", (total-avail)/total * 100)}' /proc/meminfo)
+    echo "RAM: $ram%"
+end
 
-    set output $corne_battery $volume $date
+function get_cpu
+    set cpu_temp (sensors | awk '/Tctl/ {gsub(/^\+/, "", $2); print $2}')
+    echo "CPU: $cpu_temp"
+end
+
+function get_gpu
+    set gpu_temp (sensors | awk '/edge/ {gsub(/^\+/, "", $2); print $2}')
+    echo "GPU: $gpu_temp"
+end
+
+function get_date
+    date +'%a %b %d %I:%M:%S %p'
+end
+
+while true
+    set output (get_corne_battery) (get_volume) (get_ram) (get_cpu) (get_gpu) (get_date)
     echo (string join ' | ' $output)
 
     sleep 1
