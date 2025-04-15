@@ -37,7 +37,7 @@ function get_volume
 end
 
 function get_ram
-    set ram (awk '/MemTotal/ {total=$2} /MemAvailable/ {avail=$2} END {printf("%.0f", (total-avail)/total * 100)}' /proc/meminfo)
+    set ram (awk '/MemTotal/ {total=$2} /MemAvailable/ {avail=$2} END {printf("%.0f", (total - avail) / total * 100)}' /proc/meminfo)
     echo "RAM: $ram%"
 end
 
