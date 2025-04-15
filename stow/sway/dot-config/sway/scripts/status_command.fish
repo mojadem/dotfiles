@@ -1,6 +1,5 @@
 function set_corne_battery
     # modified from https://github.com/zmkfirmware/zmk/pull/1243#issuecomment-2628938021
-
     set mac_addr F9_2F_B8_8A_B0_14
     set l_kb_path service0010/char0011
     set r_kb_path service0015/char0016
@@ -33,9 +32,8 @@ function get_corne_battery
 end
 
 function get_volume
-    set volume_output (wpctl get-volume @DEFAULT_AUDIO_SINK@ | string split ' ')
-    set volume_percent (math "100 * $volume_output[-1]")
-    echo "Volume: $volume_percent%"
+    set volume (wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}')
+    echo "Volume: $volume%"
 end
 
 function get_ram
@@ -59,7 +57,10 @@ end
 
 while true
     set output (get_corne_battery) (get_volume) (get_ram) (get_cpu) (get_gpu) (get_date)
-    echo (string join ' | ' $output)
 
-    sleep 1
+    set now_ms (date +%s%3N)
+    set sleep_ms (math "1000 - ($now_ms % 1000)")
+    sleep (math "$sleep_ms / 1000")
+
+    echo (string join ' | ' $output)
 end
