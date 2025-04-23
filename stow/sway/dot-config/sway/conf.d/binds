@@ -40,12 +40,11 @@ bindsym Ctrl+Shift+8 move container to workspace number 8
 bindsym Ctrl+Shift+9 move container to workspace number 9
 bindsym Ctrl+Shift+0 move container to workspace number 10
 
-# system controls (Super+Ctrl)
-bindsym Super+Ctrl+f fullscreen
-
-bindsym Super+Ctrl+t focus mode_toggle
-bindsym Super+Ctrl+Shift+t floating toggle
-bindsym Super+Ctrl+b border toggle
+# system controls
+bindsym Super+f fullscreen
+bindsym Super+t focus mode_toggle
+bindsym Super+Shift+t floating toggle
+bindsym Super+b border toggle
 
 mode "resize" {
 	bindsym Left resize shrink width 10px
@@ -56,10 +55,10 @@ mode "resize" {
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
-bindsym Super+Ctrl+r mode "resize"
+bindsym Super+r mode "resize"
 
+bindsym Super+c reload
 bindsym Super+Ctrl+q exec swaylock -i ~/pictures/wallpapers/wallpaper.png
-bindsym Super+Ctrl+c reload
 bindsym Super+Ctrl+e exec swaynag -t warning -m 'confirm exit' -B 'exit' 'swaymsg exit'
 
 # media keys
@@ -73,7 +72,7 @@ bindsym Ctrl+Print exec grim - | wl-copy && notify-send "Screenshot copied" --ex
 bindsym Shift+Print exec slurp | grim -g - && notify-send "Screenshot saved" --expire-time 3000
 bindsym Ctrl+Shift+Print slurp | grim -g - - | wl-copy && notify-send "Screenshot copied" --expire-time 3000
 
-# pickers (Super+Shift)
+# pickers
 bindsym Super+Shift+v exec cliphist list | fuzzel --prompt 'clipboard> ' --dmenu --lines 30 --width 60 --tabs 1 | cliphist decode | wl-copy
 bindsym Super+Shift+e exec fish ~/.config/sway/scripts/emoji_picker.fish
 bindsym Super+Shift+b exec fish ~/.config/sway/scripts/bitwarden_picker.fish
