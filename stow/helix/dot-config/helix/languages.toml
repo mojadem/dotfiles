@@ -115,9 +115,12 @@ args = ["localhost", "6005"]
 
 [[language]]
 name = "typst"
-language-servers = ["tinymist"]
+language-servers = ["tinymist", "typos"]
 formatter = { command = "typstyle" }
 auto-format = true
+
+[language-server.typos]
+command = "typos-lsp"
 
 [[language]]
 name = "go"
