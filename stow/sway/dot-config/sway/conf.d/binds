@@ -8,15 +8,15 @@ bindsym Super+Shift+Return exec $browser
 bindsym Super+space exec $menu
 
 # navigation
-bindsym Ctrl+Left focus left
-bindsym Ctrl+Down focus down
-bindsym Ctrl+Up focus up
-bindsym Ctrl+Right focus right
+bindsym Super+Left focus left
+bindsym Super+Down focus down
+bindsym Super+Up focus up
+bindsym Super+Right focus right
 
-bindsym Ctrl+Shift+Left move left
-bindsym Ctrl+Shift+Down move down
-bindsym Ctrl+Shift+Up move up
-bindsym Ctrl+Shift+Right move right
+bindsym Super+Shift+Left move left
+bindsym Super+Shift+Down move down
+bindsym Super+Shift+Up move up
+bindsym Super+Shift+Right move right
 
 bindsym Ctrl+1 workspace number 1
 bindsym Ctrl+2 workspace number 2
