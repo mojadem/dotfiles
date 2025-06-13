@@ -6,6 +6,10 @@ theme = "gruvbox-custom"
 "A-up" = "jump_view_up"
 "A-down" = "jump_view_down"
 
+# Print the current line's git blame information to the statusline
+space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+
+
 [editor]
 color-modes = true
 rulers = [80]
