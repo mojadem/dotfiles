@@ -5,3 +5,6 @@ stow:
 
 unstow:
 	cd stow; stow --delete --target=${HOME} --dotfiles */
+
+list-local-files:
+	fd -I local
