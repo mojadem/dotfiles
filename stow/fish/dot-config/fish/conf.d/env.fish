@@ -15,6 +15,7 @@ set -x RUSTUP_HOME $XDG_DATA_HOME/rustup
 set -x SQLITE_HISTORY $XDG_DATA_HOME/sqlite_history
 set -x TERMINFO $XDG_DATA_HOME/terminfo
 set -x TERMINFO_DIRS $XDG_DATA_HOME/terminfo:/usr/share/terminfo
+set -x IPFS_PATH $XDG_DATA_HOME/ipfs
 
 # gruvbox colors
 set -x GRUVBOX_BLACK 282828
