@@ -108,6 +108,15 @@ config.keys = {
 	},
 	{ key = "t", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
 	{
+		key = "i",
+		mods = "LEADER",
+		action = wezterm.action_callback(function(window, pane)
+			wezterm.log_info(window)
+			wezterm.log_info(pane)
+			wezterm.log_info(pane:get_user_vars())
+		end),
+	},
+	{
 		key = "f",
 		mods = "LEADER",
 		action = wezterm.action_callback(function(window, pane)
@@ -212,22 +221,21 @@ end
 wezterm.on("format-tab-title", function(tab)
 	local i = tab.tab_index + 1
 	local title = tab.active_pane.title
-	local process = title:match("^%S+")
 
 	return {
-		{ Text = " " .. i .. ":" .. process },
+		{ Text = " " .. i .. ":" .. title },
 	}
 end)
 
 wezterm.on("update-right-status", function(window, pane)
 	local key_table = window:active_key_table() or ""
 	key_table = window:leader_is_active() and "leader" or key_table
-	local title = pane:get_title()
+	local cwd = pane:get_user_vars().cwd or ""
 	local workspace = window:active_workspace()
 
 	window:set_right_status(wezterm.format({
 		{ Text = key_table .. " " },
-		{ Text = title .. " " },
+		{ Text = cwd .. " " },
 		"ResetAttributes",
 		{ Attribute = { Intensity = "Bold" } },
 		{ Background = { Color = "#a89984" } },
@@ -241,5 +249,35 @@ config.unix_domains = {
 		name = "unix",
 	},
 }
+
+local hostname = wezterm.hostname()
+if hostname == "diamond.local" then
+	local keys = {
+		{
+			key = "1",
+			mods = "ALT|CTRL",
+			action = act.SwitchToWorkspace({
+				name = "webapp",
+				spawn = {
+					cwd = os.getenv("HOME") .. "/dev/khan/webapp",
+				},
+			}),
+		},
+		{
+			key = "2",
+			mods = "ALT|CTRL",
+			action = act.SwitchToWorkspace({
+				name = "frontend",
+				spawn = {
+					cwd = os.getenv("HOME") .. "/dev/khan/frontend",
+				},
+			}),
+		},
+	}
+
+	for _, item in ipairs(keys) do
+		table.insert(config.keys, item)
+	end
+end
 
 return config
