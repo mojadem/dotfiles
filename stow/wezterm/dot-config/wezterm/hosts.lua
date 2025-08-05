@@ -1,14 +1,13 @@
 local wezterm = require("wezterm")
-local act = wezterm.act
+local act = wezterm.action
 
 local M = {}
 
 -- trim trailing .local on mac
 local hostname = string.gsub(wezterm.hostname(), "%..*", "")
-local host_config = {}
 
 function M.apply_to_config(config)
-	if hostname == "diamond.local" then
+	if hostname == "diamond" then
 		local host_keys = {
 			{
 				key = "1",
