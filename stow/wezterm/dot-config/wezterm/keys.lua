@@ -28,11 +28,6 @@ function M.apply_to_config(config)
 	config.leader = { key = " ", mods = "CTRL" }
 	config.keys = {
 		{
-			key = "w",
-			mods = "LEADER",
-			action = act.ActivateKeyTable({ name = "window" }),
-		},
-		{
 			key = "LeftArrow",
 			mods = "ALT",
 			action = wezterm.action_callback(function(window, pane)
@@ -100,6 +95,11 @@ function M.apply_to_config(config)
 			mods = "LEADER",
 			action = wezterm.action_callback(workspace_switcher),
 		},
+		{
+			key = "w",
+			mods = "LEADER",
+			action = act.ActivateKeyTable({ name = "window" }),
+		},
 	}
 
 	config.key_tables = {
@@ -111,6 +111,20 @@ function M.apply_to_config(config)
 			{
 				key = "v",
 				action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+			},
+			{
+				key = "LeftArrow",
+				action = act.Multiple({
+					act.MoveTabRelative(-1),
+					act.ActivateKeyTable({ name = "window" }),
+				}),
+			},
+			{
+				key = "RightArrow",
+				action = act.Multiple({
+					act.MoveTabRelative(1),
+					act.ActivateKeyTable({ name = "window" }),
+				}),
 			},
 		},
 	}
