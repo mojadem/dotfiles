@@ -30,7 +30,7 @@ auto-format = true
 
 [[language]]
 name = "json"
-formatter = { command = 'prettier', args = ["--parser", "json"] }
+formatter = { command = 'jq' }
 auto-format = true
 
 [[language]]
