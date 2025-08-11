@@ -8,7 +8,7 @@ require("status")
 
 local config = wezterm.config_builder()
 
-config.color_scheme = "Gruvbox dark, medium (base16)"
+config.color_scheme = "GruvboxDark"
 config.font = wezterm.font("Monaspace Neon")
 config.font_size = 14
 config.window_decorations = "RESIZE"
