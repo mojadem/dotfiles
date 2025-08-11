@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-wezterm.on("update-right-status", function(window, pane)
+wezterm.on("update-status", function(window, pane)
 	local key_table = window:active_key_table() or ""
 	key_table = window:leader_is_active() and "leader" or key_table
 	local cwd = pane:get_user_vars().cwd or ""
