@@ -17,7 +17,7 @@ wezterm.on("format-tab-title", function(tab)
 
 	local command = pane.user_vars.command
 	if command and #command > 0 then
-		title = command:match("^%S+")
+		title = command:match("[%a%d]+")
 	end
 
 	return {
