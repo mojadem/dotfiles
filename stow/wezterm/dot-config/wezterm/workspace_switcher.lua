@@ -66,7 +66,7 @@ local function workspace_switcher(window, pane)
 
 	window:perform_action(
 		act.InputSelector({
-			title = "Workspace Switcher",
+			title = "Workspaces",
 			action = wezterm.action_callback(switch_workspace),
 			fuzzy = true,
 			choices = choices,
