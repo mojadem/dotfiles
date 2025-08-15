@@ -1,10 +1,24 @@
 local wezterm = require("wezterm")
 
+local utils = require("utils")
+
 local M = {}
 
 wezterm.on("format-tab-title", function(tab)
 	local i = tab.tab_index + 1
-	local title = tab.active_pane.title
+	local pane = tab.active_pane
+
+	local title = pane.title
+
+	local cwd = pane.user_vars.cwd
+	if cwd and #cwd > 0 then
+		title = utils.basename(cwd) .. "/"
+	end
+
+	local command = pane.user_vars.command
+	if command and #command > 0 then
+		title = command:match("^%S+")
+	end
 
 	return {
 		{ Text = " " .. i .. ":" .. title },
