@@ -1,14 +1,16 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+local utils = require("utils")
+
 local M = {}
 
--- trim trailing .local on mac
-local hostname = string.gsub(wezterm.hostname(), "%..*", "")
-
-function M.apply_to_config(config)
-	if hostname == "diamond" then
-		local host_keys = {
+local host_configs = {
+	club = {
+		font_size = 10,
+	},
+	diamond = {
+		keys = {
 			{
 				key = "1",
 				mods = "ALT|CTRL",
@@ -29,12 +31,19 @@ function M.apply_to_config(config)
 					},
 				}),
 			},
-		}
+		},
+	},
+}
 
-		for _, item in ipairs(host_keys) do
-			table.insert(config.keys, item)
-		end
+function M.apply_to_config(config)
+	-- trim trailing .local on mac
+	local hostname = string.gsub(wezterm.hostname(), "%..*", "")
+
+	if host_configs[hostname] == nil then
+		return
 	end
+
+	utils.merge_tables(config, host_configs[hostname])
 end
 
 return M
