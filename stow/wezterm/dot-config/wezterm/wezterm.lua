@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 
 local hosts = require("hosts")
 local keys = require("keys")
+local platforms = require("platforms")
 local tabs = require("tabs")
 
 require("status")
@@ -21,7 +22,8 @@ config.unix_domains = {
 keys.apply_to_config(config)
 tabs.apply_to_config(config)
 
--- apply host-specific configurations last
+-- apply platform and host specific configurations last
+platforms.apply_to_config(config)
 hosts.apply_to_config(config)
 
 return config
