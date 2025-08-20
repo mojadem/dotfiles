@@ -10,12 +10,20 @@ function __wezterm_set_user_var
 end
 
 function __wezterm_user_vars_preexec --on-event fish_preexec
-    __wezterm_set_user_var command "$argv"
+    # HACK: avoid premature events
+    # https://github.com/fish-shell/fish-shell/issues/11740
+    if not test -z $argv
+        __wezterm_set_user_var command "$argv"
+    end
 end
 
 function __wezterm_user_vars_postexec --on-event fish_postexec
-    __wezterm_set_user_var command
     __wezterm_set_user_var cwd (pwd)
+
+    # HACK: same as before
+    if not test -z $argv
+        __wezterm_set_user_var command
+    end
 end
 
 # TODO: is it desired behavior that an event handler must be called manually
