@@ -1,5 +1,5 @@
 # trim ".local" suffix on macs
-set host (hostname | string replace '.local' '')
+set --local host (hostname | string replace '.local' '')
 
 switch $host
     case club
