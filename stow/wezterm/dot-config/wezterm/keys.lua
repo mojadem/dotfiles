@@ -28,6 +28,52 @@ function M.apply_to_config(config)
 	config.leader = { key = " ", mods = "CTRL" }
 	config.keys = {
 		{
+			key = "t",
+			mods = "LEADER",
+			action = act.SpawnTab("CurrentPaneDomain"),
+		},
+		{
+			key = "n",
+			mods = "LEADER",
+			action = act.SwitchToWorkspace({
+				spawn = { cwd = "~" },
+			}),
+		},
+		{
+			key = "r",
+			mods = "LEADER",
+			action = act.PromptInputLine({
+				description = "Rename Workspace",
+				action = wezterm.action_callback(function(window, pane, line)
+					if line then
+						wezterm.mux.rename_workspace(
+							wezterm.mux.get_active_workspace(),
+							line
+						)
+					end
+				end),
+			}),
+		},
+		{
+			key = "f",
+			mods = "LEADER",
+			action = wezterm.action_callback(workspace_switcher),
+		},
+		{
+			key = "i",
+			mods = "LEADER",
+			action = wezterm.action_callback(function(window, pane)
+				wezterm.log_info(window)
+				wezterm.log_info(pane)
+				wezterm.log_info(pane:get_user_vars())
+			end),
+		},
+		{
+			key = "w",
+			mods = "LEADER",
+			action = act.ActivateKeyTable({ name = "window" }),
+		},
+		{
 			key = "LeftArrow",
 			mods = "ALT",
 			action = wezterm.action_callback(function(window, pane)
@@ -75,52 +121,6 @@ function M.apply_to_config(config)
 			key = "DownArrow",
 			mods = "ALT|SHIFT",
 			action = act.ActivatePaneDirection("Down"),
-		},
-		{
-			key = "t",
-			mods = "LEADER",
-			action = act.SpawnTab("CurrentPaneDomain"),
-		},
-		{
-			key = "n",
-			mods = "LEADER",
-			action = act.SwitchToWorkspace({
-				spawn = { cwd = "~" },
-			}),
-		},
-		{
-			key = "r",
-			mods = "LEADER",
-			action = act.PromptInputLine({
-				description = "Rename Workspace",
-				action = wezterm.action_callback(function(window, pane, line)
-					if line then
-						wezterm.mux.rename_workspace(
-							wezterm.mux.get_active_workspace(),
-							line
-						)
-					end
-				end),
-			}),
-		},
-		{
-			key = "f",
-			mods = "LEADER",
-			action = wezterm.action_callback(workspace_switcher),
-		},
-		{
-			key = "i",
-			mods = "LEADER",
-			action = wezterm.action_callback(function(window, pane)
-				wezterm.log_info(window)
-				wezterm.log_info(pane)
-				wezterm.log_info(pane:get_user_vars())
-			end),
-		},
-		{
-			key = "w",
-			mods = "LEADER",
-			action = act.ActivateKeyTable({ name = "window" }),
 		},
 	}
 
