@@ -50,6 +50,9 @@ c = ['reload-config', 'mode main']
 f = ['layout floating tiling', 'mode main']
 esc = 'mode main'
 
+[workspace-to-monitor-force-assignment]
+10 = 'secondary'
+
 [[on-window-detected]]
 if.window-title-regex-substring = '\(DEBUG\)'
 run = ['layout floating']
