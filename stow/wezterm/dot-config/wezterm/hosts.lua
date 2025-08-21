@@ -32,6 +32,9 @@ local host_configs = {
 				}),
 			},
 		},
+		quick_select_patterns = {
+			"perl.*sync-start.*",
+		},
 	},
 }
 
