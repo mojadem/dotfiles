@@ -11,9 +11,8 @@ local config = wezterm.config_builder()
 
 config.color_scheme = "GruvboxDark"
 config.font = wezterm.font("Monaspace Neon")
-config.window_decorations = "RESIZE"
-
 config.quick_select_alphabet = "arstneioqwfpluyzxcdhgbvmjk"
+config.window_decorations = "RESIZE"
 
 config.unix_domains = {
 	{
