@@ -74,6 +74,17 @@ function M.apply_to_config(config)
 			action = act.ActivateKeyTable({ name = "window" }),
 		},
 		{
+			key = "UpArrow",
+			mods = "SHIFT",
+			action = act.ScrollToPrompt(-1),
+		},
+		{
+			key = "DownArrow",
+			mods = "SHIFT",
+			action = act.ScrollToPrompt(1),
+		},
+		-- pane switching
+		{
 			key = "LeftArrow",
 			mods = "ALT",
 			action = wezterm.action_callback(function(window, pane)
