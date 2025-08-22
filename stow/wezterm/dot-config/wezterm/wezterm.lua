@@ -10,6 +10,7 @@ require("status")
 local config = wezterm.config_builder()
 
 config.color_scheme = "GruvboxDark"
+config.default_cursor_style = "SteadyBar"
 config.font = wezterm.font("Monaspace Neon")
 config.quick_select_alphabet = "arstneioqwfpluyzxcdhgbvmjk"
 config.window_decorations = "RESIZE"
