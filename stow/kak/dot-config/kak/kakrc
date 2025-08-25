@@ -1,0 +1,50 @@
+colorscheme gruvbox-dark
+
+add-highlighter global/ number-lines
+
+set-option global ui_options terminal_assistant=none
+set-option global ui_options terminal_set_title=false
+
+define-command -hidden buffer-picker %{
+  prompt -buffer-completion -menu buffer: %{
+    edit -existing %val{text}
+  }
+}
+
+define-command -hidden file-picker %{
+  prompt -menu file: -shell-script-candidates 'fd --type=file' %{
+    edit -existing %val{text}
+  }
+}
+
+declare-user-mode window
+map global window v ":wezterm-terminal-horizontal kak -c %val{session}<ret>" -docstring 'vertical split'
+
+map global user b ':buffer-picker<ret>' -docstring 'buffer picker'
+map global user f ':file-picker<ret>' -docstring 'file picker'
+
+declare-option str system_clipboard_cmd_yank %sh{
+  test "$(uname)" = "Darwin" && echo 'pbcopy' || echo 'wl-copy'
+}
+
+declare-option str system_clipboard_cmd_paste %sh{
+  test "$(uname)" = "Darwin" && echo 'pbpaste' || echo 'wl-paste'
+}
+
+define-command -hidden system-clipboard-yank %{
+    execute-keys -draft "<a-|>%opt{system_clipboard_cmd_yank}<ret>"
+}
+
+define-command -hidden system-clipboard-paste-append %{
+    execute-keys -draft "<a-!>%opt{system_clipboard_cmd_paste}<ret>"
+}
+
+define-command -hidden system-clipboard-paste-insert %{
+    execute-keys -draft "!%opt{system_clipboard_cmd_paste}<ret>"
+}
+
+map global user y ':system-clipboard-yank<ret>'
+map global user p ':system-clipboard-paste-append<ret>'
+map global user P ':system-clipboard-paste-insert<ret>'
+
+map global user w ':enter-user-mode window<ret>' -docstring 'window mode'
