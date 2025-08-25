@@ -15,8 +15,17 @@ define-command -hidden buffer-picker %{
   }
 }
 
+declare-option str file_find_cmd %sh{
+  if git rev-parse --is-inside-work-tree
+  then
+    echo 'git ls-files'
+  else
+    echo 'fd --type=file'
+  fi
+}
+
 define-command -hidden file-picker %{
-  prompt -menu file: -shell-script-candidates 'fd --type=file' %{
+  prompt -menu file: -shell-script-candidates "%opt{file_find_cmd}" %{
     edit -existing %val{text}
   }
 }
