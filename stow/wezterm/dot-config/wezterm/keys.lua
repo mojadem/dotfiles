@@ -75,12 +75,12 @@ function M.apply_to_config(config)
 		},
 		{
 			key = "UpArrow",
-			mods = "SHIFT",
+			mods = "LEADER",
 			action = act.ScrollToPrompt(-1),
 		},
 		{
 			key = "DownArrow",
-			mods = "SHIFT",
+			mods = "LEADER",
 			action = act.ScrollToPrompt(1),
 		},
 		-- pane switching
