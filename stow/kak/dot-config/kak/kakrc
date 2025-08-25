@@ -18,7 +18,8 @@ define-command -hidden file-picker %{
 }
 
 declare-user-mode window
-map global window v ":wezterm-terminal-horizontal kak -c %val{session}<ret>" -docstring 'vertical split'
+map global window v ':wezterm-terminal-horizontal kak -c %val{session}<ret>' -docstring 'vertical split'
+map global window s ':wezterm-terminal-vertical kak -c %val{session}<ret>' -docstring 'horizontal split'
 
 map global user b ':buffer-picker<ret>' -docstring 'buffer picker'
 map global user f ':file-picker<ret>' -docstring 'file picker'
