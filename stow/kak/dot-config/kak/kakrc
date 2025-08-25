@@ -6,8 +6,9 @@ add-highlighter global/ number-lines -separator ' ' -hlcursor
 
 set-face global LineNumberCursor bright-white
 
-set-option global ui_options terminal_assistant=none
-set-option global ui_options terminal_set_title=false
+set-option global ui_options \
+  terminal_set_title=false \
+  terminal_assistant=none
 
 define-command -hidden buffer-picker %{
   prompt -buffer-completion -menu buffer: %{
