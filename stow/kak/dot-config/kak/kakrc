@@ -1,5 +1,7 @@
 colorscheme gruvbox-dark
 
+set global startup_info_version 20250603
+
 add-highlighter global/ number-lines -separator ' ' -hlcursor
 
 set-face global LineNumberCursor bright-white
