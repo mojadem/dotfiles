@@ -42,7 +42,7 @@ set -x GRUVBOX_BG $GRUVBOX_BLACK
 set -x GRUVBOX_FG $GRUVBOX_BRWHITE
 
 # misc
-set -x EDITOR hx
+set -x EDITOR kak
 set -x GPG_TTY (tty)
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
