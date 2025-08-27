@@ -1,52 +1,26 @@
 colorscheme gruvbox-dark
 
-set global startup_info_version 20250603
+declare-option -hidden bool init_done
+evaluate-commands %sh{
+    $kak_opt_init_done && exit
+    echo 'source ~/.config/kak/once.kak'
+}
+set-option global init_done true
 
-add-highlighter global/ number-lines -separator ' ' -hlcursor
-set-face global LineNumberCursor bright-white
+evaluate-commands %sh{
+    rc_files=$(fd --extension kak . $HOME/.config/kak/conf.d)
+    for file in $rc_files; do
+        echo "source $file"
+    done
+}
 
+define-command -override config-reload %{
+    source ~/.config/kak/kakrc
+}
+
+set-option global startup_info_version 20250603
 set-option global ui_options \
   terminal_set_title=false \
   terminal_assistant=none
 
-define-command -hidden buffer-picker %{
-  prompt -buffer-completion -menu buffer: %{
-    edit -existing %val{text}
-  }
-}
-
-declare-option str file_find_cmd %sh{
-  if git rev-parse --is-inside-work-tree
-  then
-    echo 'git ls-files'
-  else
-    echo 'fd --type=file'
-  fi
-}
-
-define-command -hidden file-picker %{
-  prompt -menu file: -shell-script-candidates "%opt{file_find_cmd}" %{
-    edit -existing %val{text}
-  }
-}
-
-declare-user-mode window
-map global window v ':wezterm-terminal-horizontal kak -c %val{session}<ret>' -docstring 'vertical split'
-map global window s ':wezterm-terminal-vertical kak -c %val{session}<ret>' -docstring 'horizontal split'
-
-map global user b ':buffer-picker<ret>' -docstring 'buffer picker'
-map global user f ':file-picker<ret>' -docstring 'file picker'
-
-declare-option str system_clipboard_cmd_yank %sh{
-  test "$(uname)" = "Darwin" && echo 'pbcopy' || echo 'wl-copy'
-}
-
-declare-option str system_clipboard_cmd_paste %sh{
-  test "$(uname)" = "Darwin" && echo 'pbpaste' || echo 'wl-paste'
-}
-
-map global user y "<a-|>%opt{system_clipboard_cmd_yank}<ret>"
-map global user p "<a-!>%opt{system_clipboard_cmd_paste}<ret>"
-map global user P "!%opt{system_clipboard_cmd_paste}<ret>"
-
-map global user w ':enter-user-mode window<ret>' -docstring 'window mode'
+set-face global LineNumberCursor bright-white
