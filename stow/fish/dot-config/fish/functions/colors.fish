@@ -14,7 +14,8 @@ function colors
         brmagenta \
         cyan \
         brcyan \
-        white
+        white \
+        brwhite
 
     for color in $colors
         set_color $color
