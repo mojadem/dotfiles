@@ -19,9 +19,9 @@ set selection (string join \n $fzf_input | fzf --tmux center)
 test -z $selection; and exit
 
 set selection (string split ':' $selection)
-if test $selection[1] = 'session'
+if test $selection[1] = session
     tmux switch-client -t $selection[2]
-else if test $selection[1] = 'repo'
+else if test $selection[1] = repo
     set dir (string replace '~' $HOME $selection[2])
     set session (basename $selection[2])
     set session (string replace --all '.' '' $session) # session names cannot contain '.'
