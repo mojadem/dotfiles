@@ -24,3 +24,4 @@ set-option global ui_options \
   terminal_assistant=none
 
 set-face global LineNumberCursor bright-white
+set-face global Ruler default,bright-black+g
