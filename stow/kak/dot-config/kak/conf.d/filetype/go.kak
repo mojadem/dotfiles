@@ -1,3 +1,4 @@
 hook global BufSetOption filetype=go %{
-    hook buffer BufWritePre .* lsp-formatting-sync
+    set-option buffer formatcmd gofumpt
+    hook buffer BufWritePre .* format
 }
