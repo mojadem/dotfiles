@@ -13,6 +13,8 @@ map global user b ':buffer-picker<ret>' -docstring 'buffer picker'
 map global user f ':file-picker<ret>' -docstring 'file picker'
 map global user l ':line-picker<ret>' -docstring 'line picker'
 
+map global user d ':delete-buffer<ret>' -docstring 'delete buffer'
+
 map global user y "<a-|>%opt{system_clipboard_cmd_yank}<ret>:echo yanked selection to system clipboard<ret>" -docstring 'yank to system clipboard'
 map global user p "<a-!>%opt{system_clipboard_cmd_paste}<ret>" -docstring 'paste system clipboard after selection'
 map global user P "!%opt{system_clipboard_cmd_paste}<ret>" -docstring 'paste system clipbard before selection'
