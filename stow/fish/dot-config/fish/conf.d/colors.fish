@@ -1,1 +1,2 @@
-set -g fish_color_command blue
+set fish_color_command blue
+set fish_color_autosuggestion white
