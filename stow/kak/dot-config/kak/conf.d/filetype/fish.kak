@@ -1,5 +1,4 @@
-hook global WinSetOption filetype=fish %{
-    set-option window formatcmd fish_indent
-
-    hook window BufWritePre .* format
+hook global BufSetOption filetype=fish %{
+    set-option buffer formatcmd fish_indent
+    hook buffer BufWritePre .* format
 }
