@@ -6,6 +6,7 @@ map global user f ':file-picker<ret>' -docstring 'file picker'
 map global user l ':line-picker<ret>' -docstring 'line picker'
 
 map global user d ':delete-buffer<ret>' -docstring 'delete buffer'
+map global user c ':comment-line<ret>' -docstring 'comment line'
 
 map global user y '<a-|>$kak_opt_system_clipboard_cmd_yank<ret>:echo yanked selection to system clipboard<ret>' -docstring 'yank to system clipboard'
 map global user p '<a-!>$kak_opt_system_clipboard_cmd_paste<ret>' -docstring 'paste system clipboard after selection'
