@@ -23,6 +23,7 @@ set-option global ui_options \
   terminal_set_title=false \
   terminal_assistant=none
 
+set-option global tabstop 4
 set-option global modelinefmt '{{context_info}} {{mode_info}} %val{bufname} %val{cursor_line}:%val{cursor_char_column}'
 
 set-face global LineNumberCursor bright-white
