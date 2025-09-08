@@ -12,11 +12,15 @@ set fzf_input
 
 for pattern in $copy_patterns
     for match in (echo $pane_text | rg --only-matching --regexp=$pattern)
-        # This handles duplicates, as well as the case where part of a url is
-        # detected as a unix path.
-        if not echo $fzf_input | rg --quiet $match
-            set -a fzf_input $match
+        if echo $fzf_input | rg --quiet $match
+            continue
         end
+
+        if test $match = (prompt_pwd)
+            continue
+        end
+
+        set -a fzf_input $match
     end
 end
 
