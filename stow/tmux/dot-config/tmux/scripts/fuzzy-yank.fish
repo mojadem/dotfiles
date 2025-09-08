@@ -6,7 +6,8 @@ set copy_patterns \
     # sha1 hashes
     '[0-9a-f]{7,40}'
 
-set pane_text (tmux capture-pane -p)
+# Pane text is reversed so that more recent text will appear first in fzf.
+set pane_text (tmux capture-pane -p | tac)
 set fzf_input
 
 for pattern in $copy_patterns
