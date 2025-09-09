@@ -27,4 +27,4 @@ set-option global tabstop 4
 set-option global modelinefmt '{{context_info}} {{mode_info}} %val{bufname} %val{cursor_line}:%val{cursor_char_column}'
 
 set-face global LineNumberCursor bright-white
-set-face global Ruler default,bright-black+g
+set-face global Ruler default,rgb:32302f+g
