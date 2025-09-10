@@ -1,5 +1,3 @@
-colorscheme gruvbox-dark
-
 declare-option -hidden bool init_done
 evaluate-commands %sh{
     $kak_opt_init_done && exit
@@ -24,7 +22,4 @@ set-option global ui_options \
   terminal_assistant=none
 
 set-option global tabstop 4
-set-option global modelinefmt '{{context_info}} {{mode_info}} %val{bufname} %val{cursor_line}:%val{cursor_char_column}'
-
-set-face global LineNumberCursor bright-white
-set-face global Ruler default,rgb:32302f+g
+set-option global modelinefmt '{{mode_info}} {Path}%val{bufname}{StatusLine} %val{cursor_line}:%val{cursor_char_column} {{context_info}}'
