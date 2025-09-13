@@ -23,3 +23,18 @@ define-command -override -hidden line-picker %{
     }
 }
 
+define-command -override -hidden touch-new-file %{
+    evaluate-commands %sh{
+
+        directory=$(fd --type=directory | fzf --tmux=center,border-native --prompt='directory> ')
+        [ -z "$directory" ] && exit
+
+        tempbuf="temp-$(date +%s)"
+        tmux display-popup -E "read | tmux load-buffer -b $tempbuf -"
+        filename=$(tmux show-buffer -b $tempbuf)
+        tmux delete-buffer -b $tempbuf
+        [ -z "$filename" ] && exit
+
+        echo "edit $directory$filename"
+    }
+}
