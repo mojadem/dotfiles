@@ -1,3 +1,7 @@
+define-command -override config-reload %{
+    source ~/.config/kak/kakrc
+}
+
 define-command move-file -override -params 1 -docstring '
     move-file <path>: move current buffile to provided path relative to buffile parent dir
 ' %{
@@ -40,6 +44,14 @@ define-command -override -hidden pick-line %{
     }
 }
 
+define-command -override -hidden toggle-line-wrap %{
+    try %{
+        add-highlighter window/wrap wrap -indent -word -marker '>>'
+    } catch %{
+        remove-highlighter window/wrap
+    }
+}
+
 define-command -override -hidden touch-new-file %{
     evaluate-commands %sh{
         basedir=$(fd --type=directory | fzf --tmux=center,border-native --prompt='directory> ')
@@ -55,14 +67,3 @@ define-command -override -hidden touch-new-file %{
     }
 }
 
-define-command -override -hidden toggle-line-wrap %{
-    try %{
-        add-highlighter window/wrap wrap -indent -word -marker '>>'
-    } catch %{
-        remove-highlighter window/wrap
-    }
-}
-
-define-command -override config-reload %{
-    source ~/.config/kak/kakrc
-}
