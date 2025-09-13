@@ -19,4 +19,4 @@ set-option global ui_options \
   terminal_assistant=none
 
 set-option global tabstop 4
-set-option global modelinefmt '{{mode_info}} {Path}%val{bufname}{StatusLine} %val{cursor_line}:%val{cursor_char_column} {{context_info}}'
+set-option global modelinefmt '{{mode_info}} %val{bufname}{StatusLineInfo}:%val{cursor_line}:%val{cursor_char_column} {{context_info}}'
