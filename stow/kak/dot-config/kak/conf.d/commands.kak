@@ -15,7 +15,7 @@ define-command move-file -override -params 1 -docstring '
     }
 }
 
-define-command -override -hidden file-picker %{
+define-command -override -hidden pick-file %{
     evaluate-commands %sh{
         file=$(fd --type=file --hidden | fzf --tmux=center,border-native --prompt='file> ')
         if [ -z "$file" ]; then exit; fi
@@ -23,7 +23,7 @@ define-command -override -hidden file-picker %{
     }
 }
 
-define-command -override -hidden buffer-picker %{
+define-command -override -hidden pick-buffer %{
     evaluate-commands %sh{
         buffer=$(echo $kak_buflist | tr ' ' '\n' | fzf --tmux=center,border-native --prompt='buffer> ')
         if [ -z "$buffer" ]; then exit; fi
@@ -31,7 +31,7 @@ define-command -override -hidden buffer-picker %{
     }
 }
 
-define-command -override -hidden line-picker %{
+define-command -override -hidden pick-line %{
     evaluate-commands %sh{
         echo "write $kak_response_fifo" > $kak_command_fifo
         selected_line_number=$(cat $kak_response_fifo | nl -n ln -b a -s : | fzf --tmux=center,80%,border-native --tiebreak=index --delimiter=: --with-nth=2.. --accept-nth=1)
