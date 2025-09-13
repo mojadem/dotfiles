@@ -5,6 +5,7 @@ map global user b ':buffer-picker<ret>' -docstring 'buffer picker'
 map global user f ':file-picker<ret>' -docstring 'file picker'
 map global user / ':line-picker<ret>' -docstring 'line picker'
 
+map global user r ':toggle-line-wrap<ret>' -docstring 'toggle line wrap'
 map global user t ':touch-new-file<ret>' -docstring 'touch new file'
 
 map global user d ':delete-buffer<ret>' -docstring 'delete buffer'
