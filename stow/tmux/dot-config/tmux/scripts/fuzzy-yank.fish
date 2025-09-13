@@ -27,5 +27,5 @@ end
 set selection (string join \n $fzf_input | fzf --tmux center,border-native)
 test -z $selection; and exit
 
-# TODO: support linux clipboard
-printf "%s" $selection | pbcopy
+set copy_cmd (test (uname) = Darwin; and echo pbcopy; or echo wl-copy)
+printf "%s" $selection | $copy_cmd
