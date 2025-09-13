@@ -11,7 +11,7 @@ set pane_text (tmux capture-pane -p | tac)
 set fzf_input
 
 for pattern in $copy_patterns
-    for match in (echo $pane_text | rg --only-matching --regexp=$pattern)
+    for match in (echo $pane_text | rg --only-matching --regexp $pattern)
         if echo $fzf_input | rg --quiet $match
             continue
         end

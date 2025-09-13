@@ -22,4 +22,28 @@ set-option global ui_options \
   terminal_assistant=none
 
 set-option global tabstop 4
-set-option global modelinefmt '{{mode_info}} {Path}%val{bufname}{StatusLine} %val{cursor_line}:%val{cursor_char_column} {{context_info}}'
+set-option global modelinefmt '{{mode_info}} %val{bufname}{StatusLineInfo}:%val{cursor_line}:%val{cursor_char_column} {{context_info}}'
+set-option global grepcmd 'rg --column'
+
+define-command -override toggle-line-wrap %{
+    try %{
+        add-highlighter window/wrap wrap -indent -word
+    } catch %{
+        remove-highlighter window/wrap
+    }
+}
+
+define-command -override rename-file %{
+    evaluate-commands %sh{
+        if [ ! -f $kak_buffile ]; then
+            echo "echo -markup '{Error}$kak_buffile' is not a regular file"
+            exit
+        fi
+
+        filename=$(basename $kak_buffile)
+        printf 'prompt -init %s "rename-file:" %%{ nop %%sh{ echo $kak_text > $kak_response_fifo } }' $filename
+        response=$(cat $kak_response_fifo)
+        # echo "echo 'response received:$response'"
+    }
+}
+

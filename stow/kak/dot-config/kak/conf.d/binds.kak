@@ -3,7 +3,7 @@ map global window s ':tmux-terminal-vertical kak -c %val{session}<ret>' -docstri
 
 map global user b ':buffer-picker<ret>' -docstring 'buffer picker'
 map global user f ':file-picker<ret>' -docstring 'file picker'
-map global user l ':line-picker<ret>' -docstring 'line picker'
+map global user / ':line-picker<ret>' -docstring 'line picker'
 
 map global user d ':delete-buffer<ret>' -docstring 'delete buffer'
 map global user c ':comment-line<ret>' -docstring 'comment line'

@@ -1,2 +1,5 @@
-set fish_color_command blue
-set fish_color_autosuggestion white
+set fish_color_command brcyan
+set fish_color_param blue
+set fish_color_quote brgreen
+set fish_color_comment brblack
+set fish_color_operator brmagenta
