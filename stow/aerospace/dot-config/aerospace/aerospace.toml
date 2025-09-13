@@ -44,8 +44,8 @@ ctrl-shift-0 = 'move-node-to-workspace 10'
 alt-ctrl-space = 'mode service'
 
 [mode.service.binding]
-a = ['layout accordion horizontal vertical', 'mode main']
 t = ['layout tiles horizontal vertical', 'mode main']
+shift-t = ['layout accordion horizontal vertical', 'mode main']
 c = ['reload-config', 'mode main']
 f = ['layout floating tiling', 'mode main']
 esc = 'mode main'
