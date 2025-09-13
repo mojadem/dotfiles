@@ -12,9 +12,6 @@ evaluate-commands %sh{
     done
 }
 
-define-command -override config-reload %{
-    source ~/.config/kak/kakrc
-}
 
 set-option global startup_info_version 20250603
 set-option global ui_options \
