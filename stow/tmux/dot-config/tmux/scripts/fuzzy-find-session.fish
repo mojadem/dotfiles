@@ -15,7 +15,7 @@ for r in $repos
     set -a fzf_input "repo:$r"
 end
 
-set selection (string join \n $fzf_input | fzf --tmux center)
+set selection (string join \n $fzf_input | fzf --tmux center,border-native)
 test -z $selection; and exit
 
 set selection (string split ':' $selection)

@@ -24,7 +24,7 @@ for pattern in $copy_patterns
     end
 end
 
-set selection (string join \n $fzf_input | fzf --tmux center)
+set selection (string join \n $fzf_input | fzf --tmux center,border-native)
 test -z $selection; and exit
 
 # TODO: support linux clipboard
