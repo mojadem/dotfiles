@@ -21,7 +21,7 @@ define-command move-file -override -params 1 -docstring '
 
 define-command -override -hidden pick-file %{
     evaluate-commands %sh{
-        file=$(fd --type=file --hidden | fzf --tmux=center,border-native --prompt='file> ')
+        file=$(fd --type=file --hidden | fzf --tmux=center,border-native )
         if [ -z "$file" ]; then exit; fi
         echo "edit -existing $file"
     }
@@ -29,7 +29,7 @@ define-command -override -hidden pick-file %{
 
 define-command -override -hidden pick-buffer %{
     evaluate-commands %sh{
-        buffer=$(echo $kak_buflist | tr ' ' '\n' | fzf --tmux=center,border-native --prompt='buffer> ')
+        buffer=$(echo $kak_buflist | tr ' ' '\n' | fzf --tmux=center,border-native)
         if [ -z "$buffer" ]; then exit; fi
         echo "buffer $buffer"
     }
@@ -54,7 +54,7 @@ define-command -override -hidden toggle-line-wrap %{
 
 define-command -override -hidden touch-new-file %{
     evaluate-commands %sh{
-        basedir=$(fd --type=directory | fzf --tmux=center,border-native --prompt='directory> ')
+        basedir=$(fd --type=directory | fzf --tmux=center,border-native)
         [ -z "$basedir" ] && exit
 
         tempbuf="temp-$(date +%s)"
