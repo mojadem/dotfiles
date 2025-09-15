@@ -1,3 +1,5 @@
+remove-hooks global user
+
 declare-option -hidden bool init_done
 evaluate-commands %sh{
     $kak_opt_init_done && exit
