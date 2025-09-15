@@ -6,5 +6,5 @@ function fish_prompt
     set err (string match --invert -q 0 $last_pipestatus && echo -s (set_color red) "[$last_pipestatus]")
     set sym (set_color brwhite) '> '
 
-    echo -s $cwd $vcs $err $sym
+    echo -ns $cwd $vcs $err $sym
 end
