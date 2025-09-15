@@ -1,3 +1,3 @@
-hook global WinSetOption filetype=(go|javascript|typescript) %{
+hook global WinSetOption filetype=(go|lua|javascript|typescript) %{
     lsp-enable-window
 }
