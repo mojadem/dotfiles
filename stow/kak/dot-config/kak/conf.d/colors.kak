@@ -1,4 +1,4 @@
-# gruvbox-dark
+# Based on gruvbox-dark
 declare-option str bg_s "rgb:32302f"
 declare-option str bg_1 "rgb:3c3836"
 declare-option str bg_2 "rgb:504945"
@@ -29,118 +29,65 @@ hook global ModeChange .*:insert:.* %{
     unset-face window SecondaryCursorEol
 }
 
-set-face global LineNumbers "bright-black"
-set-face global LineNumbersWrapped "black"
-set-face global LineNumberCursor "bright-white"
-
-set-face global Ruler "default,%opt{bg_s}"
-
-set-face global MenuForeground "bright-white,%opt{bg_2}+b"
-set-face global MenuBackground "white,%opt{bg_1}"
-set-face global MenuInfo "yellow,default"
-
-set-face global Information "yellow"
-set-face global InlineInformation "red,red" #TODO
-
-set-face global Error "red"
+set-face global BufferPadding "white"
 set-face global DiagnosticError "red"
 set-face global DiagnosticWarning "yellow"
-
-set-face global StatusLine "bright-white"
-
-set-face global StatusLineMode "cyan"
-set-face global StatusLineInfo "white"
-set-face global StatusLineValue "cyan"
-set-face global StatusCursor "black,bright-white"
-
+set-face global Error "red"
+set-face global Information "white"
+set-face global LineNumberCursor "bright-white"
+set-face global LineNumbers "bright-black"
+set-face global LineNumbersWrapped "black"
+set-face global MenuBackground "white,%opt{bg_1}"
+set-face global MenuForeground "bright-white,%opt{bg_2}"
+set-face global MenuInfo "white"
 set-face global Prompt "cyan"
-
-set-face global BufferPadding "white"
-
-# Custom
-set-face global Path "blue"
+set-face global Ruler "default,%opt{bg_s}"
+set-face global StatusLine "bright-white"
+set-face global StatusCursor "black,bright-white"
+set-face global StatusLineInfo "white"
+set-face global StatusLineValue "bright-white"
+set-face global StatusLineMode "cyan"
+set-face global WrapMarker "bright-black"
 
 # Default syntax highlighting
-set-face global attribute "blue"
-set-face global builtin "red"
+set-face global attribute "bright-blue"
+set-face global builtin "bright-red"
 set-face global comment "bright-black+i"
 set-face global documentation "red,red" #TODO
-set-face global function "green"
-set-face global keyword "red"
-set-face global meta "red,red" #TODO
+set-face global function "bright-cyan"
+set-face global keyword "bright-red"
+set-face global meta "%opt{orange}"
 set-face global module "bright-white"
 set-face global operator "%opt{orange}"
 set-face global string "bright-green"
-set-face global type "yellow"
-set-face global value "magenta"
+set-face global type "bright-yellow"
+set-face global value "bright-magenta"
 set-face global variable "bright-white"
 
 # Tree-sitter syntax highlighting
 set-face global ts_comment "bright-black+i"
-set-face global ts_constant "magenta"
-set-face global ts_function "green"
-set-face global ts_keyword "red"
+set-face global ts_constant "bright-magenta"
+set-face global ts_function "bright-cyan"
+set-face global ts_keyword "bright-red"
 set-face global ts_namespace "bright-white"
 set-face global ts_operator "%opt{orange}"
 set-face global ts_punctuation "%opt{orange}"
 set-face global ts_string "bright-green"
-set-face global ts_string_regexp "yellow"
-set-face global ts_type "yellow"
+set-face global ts_string_regexp "bright-yellow"
+set-face global ts_tag "bright-magenta"
+set-face global ts_type "bright-yellow"
 set-face global ts_variable "bright-white"
-set-face global ts_variable_other_member "blue"
-set-face global ts_variable_parameter "blue+i"
+set-face global ts_variable_other_member "bright-blue"
+set-face global ts_variable_parameter "bright-blue+i"
 
-# hook window ModeChange push:normal:insert %{
-#     set-face window PrimaryCursor
+set-face global ts_markup_bold "default+b"
 
-#evaluate-commands %sh#{
-#    gray="rgb:928374"
-#    red="rgb:fb4934"
-#    green="rgb:b8bb26"
-#    yellow="rgb:fabd2f"
-#    blue="rgb:83a598"
-#    purple="rgb:d3869b"
-#    aqua="rgb:8ec07c"
-#    orange="rgb:fe8019"
-#
-#    bg="rgb:282828"
-#    bg_alpha="rgba:282828a0"
-#    bg1="rgb:3c3836"
-#    bg2="rgb:504945"
-#    bg3="rgb:665c54"
-#    bg4="rgb:7c6f64"
-#
-#    fg="rgb:ebdbb2"
-#    fg_alpha="rgba:ebdbb2a0"
-#    fg0="rgb:fbf1c7"
-#    fg2="rgb:d5c4a1"
-#    fg3="rgb:bdae93"
-#    fg4="rgb:a89984"
-#
-#    echo "
-#        # Code highlighting
-#        face global value         ${purple}
-#        face global type          ${yellow}
-#        face global variable      ${blue}
-#        face global module        ${green}
-#        face global function      ${fg}
-#        face global string        ${green}
-#        face global keyword       ${red}
-#        face global operator      ${fg}
-#        face global attribute     ${orange}
-#        face global comment       ${gray}+i
-#        face global documentation comment
-#        face global meta          ${aqua}
-#        face global builtin       ${fg}+b
-#
-#        # Markdown highlighting
-#        face global title     ${green}+b
-#        face global header    ${orange}
-#        face global mono      ${fg4}
-#        face global block     ${aqua}
-#        face global link      ${blue}+u
-#        face global bullet    ${yellow}
-#        face global list      ${fg}
-#
-#    "
-#}
+set-face global ts_markup_heading "bright-cyan"
+set-face global ts_markup_italic "default+i"
+set-face global ts_markup_link_label "green"
+set-face global ts_markup_link_text "bright-green"
+set-face global ts_markup_link_uri "blue"
+set-face global ts_markup_link_url "blue"
+set-face global ts_markup_quote "white+i"
+set-face global ts_markup_raw "bright-red"
+set-face global ts_markup_strikethrough "default+s"
