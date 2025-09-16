@@ -28,8 +28,8 @@ if test $selection[1] = session
     set session $selection[2]
 else if test $selection[1] = repo
     set dir (string replace '~' $HOME $selection[2])
-    set session (basename $selection[2])
-    set session (string replace --all '.' '' $session) # session names cannot contain '.'
+    # Session names cannot contain '.'
+    set session (basename $selection[2] | string replace --all '.' '' $session)
     tmux new-session -d -c $dir -s $session
 end
 
