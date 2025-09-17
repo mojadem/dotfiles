@@ -2,6 +2,20 @@ define-command -override config-reload %{
     source ~/.config/kak/kakrc
 }
 
+define-command format-comments -override -docstring '
+    format all comments to a line length of 80
+' %{
+    evaluate-commands %sh{
+        if [ -z "$kak_opt_comment_line" ]; then
+            echo "echo -markup '{Error}%opt{comment_line} not set'"
+            exit
+        fi
+
+        prefix="$kak_opt_comment_line "
+        echo "execute-keys -draft %{%s${prefix}<ret>dx<a-_>|fmt -w $((80 - ${#prefix}))<ret><a-s>giP}"
+    }
+}
+
 define-command move-file -override -params 1 -docstring '
     move-file <path>: move current buffile to provided path relative to buffile parent dir
 ' %{
