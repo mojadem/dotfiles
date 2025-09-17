@@ -19,6 +19,12 @@ define-command move-file -override -params 1 -docstring '
     }
 }
 
+define-command -override yank-buffer-name %{
+    nop %sh{
+        printf "%s" $kak_bufname | $kak_opt_system_clipboard_cmd_yank
+    }
+}
+
 define-command -override -hidden pick-file %{
     evaluate-commands %sh{
         file=$(fd --type=file --hidden | fzf --tmux=center,border-native )
