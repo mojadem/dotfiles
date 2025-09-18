@@ -66,7 +66,7 @@ define-command -override -hidden pick-line %{
 
 define-command -override -hidden toggle-line-wrap %{
     try %{
-        add-highlighter window/wrap wrap -indent -word -marker '>>'
+        add-highlighter window/wrap wrap -indent -word -marker '>> '
     } catch %{
         remove-highlighter window/wrap
     }
