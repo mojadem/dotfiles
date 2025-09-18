@@ -10,6 +10,10 @@ map global user r ':toggle-line-wrap<ret>' -docstring 'toggle line wrap'
 map global user t ':touch-new-file<ret>' -docstring 'touch new file'
 map global user y '<a-|>$kak_opt_system_clipboard_cmd_yank<ret>:echo yanked selection to system clipboard<ret>' -docstring 'yank to system clipboard'
 
+map global user | ':enter-user-mode pipe<ret>' -docstring 'pipe mode'
+map global pipe s '|sort<ret>' -docstring 'sort'
+map global pipe p '|par w80s0<ret>' -docstring 'par'
+
 map global user w ':enter-user-mode window<ret>' -docstring 'window mode'
 map global window v ':tmux-terminal-horizontal kak -c %val{session}<ret>' -docstring 'vertical split'
 map global window s ':tmux-terminal-vertical kak -c %val{session}<ret>' -docstring 'horizontal split'
