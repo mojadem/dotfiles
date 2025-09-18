@@ -47,7 +47,7 @@ set-face global StatusCursor "black,bright-white"
 set-face global StatusLineInfo "white"
 set-face global StatusLineValue "bright-white"
 set-face global StatusLineMode "cyan"
-set-face global WrapMarker "bright-black"
+set-face global WrapMarker "%opt{bg_2}"
 
 # Default syntax highlighting
 set-face global attribute "bright-blue"
@@ -63,6 +63,15 @@ set-face global string "bright-green"
 set-face global type "bright-yellow"
 set-face global value "bright-magenta"
 set-face global variable "bright-white"
+
+# Markdown highlighting
+set-face global title "green+b"
+set-face global header "%opt{orange}"
+set-face global mono "white"
+set-face global block "cyan"
+set-face global link "blue+u"
+set-face global bullet "yellow"
+set-face global list "bright-white"
 
 # Tree-sitter syntax highlighting
 set-face global ts_comment "bright-black+i"
