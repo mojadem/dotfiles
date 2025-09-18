@@ -1,4 +1,4 @@
-set sessions (tmux ls -F '#{session_name}')
+set sessions (tmux ls -F '#{session_name}' &>/dev/null)
 set repos (fd --type=directory --hidden --no-ignore --max-depth=4 --format='{//}' --glob .git $HOME/dev)
 
 set fzf_input
