@@ -1,5 +1,6 @@
 map global user / ':pick-line<ret>' -docstring 'pick line'
 map global user b ':pick-buffer<ret>' -docstring 'pick buffer'
+map global user B ':pick-buffers-to-delete<ret>' -docstring 'pick buffers to delete'
 map global user f ':pick-file<ret>' -docstring 'pick file'
 
 map global user c ':comment-line<ret>' -docstring 'comment line'

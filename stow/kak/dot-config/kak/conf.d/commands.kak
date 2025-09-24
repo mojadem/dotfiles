@@ -41,6 +41,17 @@ define-command -override -hidden pick-buffer %{
     }
 }
 
+define-command -override -hidden pick-buffers-to-delete %{
+    evaluate-commands %sh{
+        buffers=$(echo $kak_buflist | tr ' ' '\n' | fzf --tmux=center,border-native --multi)
+        [ -z "$buffers" ] && exit
+
+        for b in $buffers; do
+            echo "delete-buffer $b"
+        done
+    }
+}
+
 define-command -override -hidden pick-line %{
     evaluate-commands %sh{
         echo "write $kak_response_fifo" > $kak_command_fifo
