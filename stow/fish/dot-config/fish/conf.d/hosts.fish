@@ -25,4 +25,7 @@ switch $host
         fish_add_path ~/dev/khan/devtools/khan-dotfiles/bin
         fish_add_path ~/dev/khan/webapp/genfiles/go/bin
         fish_add_path /opt/homebrew/opt/go@1.24/bin
+
+        set -x JAVA_HOME (/usr/libexec/java_home)
+        fish_add_path "/opt/homebrew/opt/openjdk@21bin"
 end
