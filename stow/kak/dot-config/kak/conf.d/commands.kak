@@ -27,7 +27,7 @@ define-command -override yank-buffer-name %{
 
 define-command -override -hidden pick-file %{
     evaluate-commands %sh{
-        file=$(fd --type=file --hidden | fzf --tmux=center,border-native,90% )
+        file=$(fd --type=file --hidden | fzf --tmux=center,border-native )
         if [ -z "$file" ]; then exit; fi
         echo "edit -existing $file"
     }
