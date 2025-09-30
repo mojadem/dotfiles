@@ -27,7 +27,7 @@ define-command -override yank-buffer-name %{
 
 define-command -override -hidden pick-file %{
     evaluate-commands %sh{
-        file=$(fd --type=file --hidden | fzf --tmux=center,border-native )
+        file=$(fd --type=file --hidden | fzf --tmux=center,border-native,90% )
         if [ -z "$file" ]; then exit; fi
         echo "edit -existing $file"
     }
@@ -58,6 +58,26 @@ define-command -override -hidden pick-line %{
         selected_line_number=$(cat $kak_response_fifo | nl -n ln -b a -s : | fzf --tmux=center,80%,border-native --tiebreak=index --delimiter=: --with-nth=2.. --accept-nth=1)
         if [ -z "$selected_line_number" ]; then exit; fi
         echo "execute-keys ${selected_line_number}g"
+    }
+}
+
+define-command -override -hidden fuzzy-grep %{
+    evaluate-commands %sh{
+        selection=$(
+            fzf \
+                --accept-nth '{1} {2} {3}' \
+                --ansi \
+                --bind 'change:reload:rg --color=always --line-number --column --smart-case --regexp={q} || true' \
+                --bind 'tab:toggle-preview' \
+                --delimiter : \
+                --disabled \
+                --preview 'bat {1} --highlight-line {2} --color=always --style=plain' \
+                --preview-window '+{2}/2' \
+                --tmux=center,border-native,90% \
+       )
+       [ -z "$selection" ] && exit
+
+        echo "edit -existing $selection"
     }
 }
 
