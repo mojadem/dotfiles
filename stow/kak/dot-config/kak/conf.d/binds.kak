@@ -9,6 +9,8 @@ map global user d ':delete-buffer<ret>' -docstring 'delete buffer'
 map global user P '!$kak_opt_system_clipboard_cmd_paste<ret>' -docstring 'paste system clipbard before selection'
 map global user p '<a-!>$kak_opt_system_clipboard_cmd_paste<ret>' -docstring 'paste system clipboard after selection'
 map global user r ':toggle-line-wrap<ret>' -docstring 'toggle line wrap'
+map global user s ':spell<ret>' -docstring 'spell check'
+map global user S ':spell-clear<ret>' -docstring 'clear spell check'
 map global user t ':touch-new-file<ret>' -docstring 'touch new file'
 map global user y '<a-|>$kak_opt_system_clipboard_cmd_yank<ret>:echo yanked selection to system clipboard<ret>' -docstring 'yank to system clipboard'
 
