@@ -1,3 +1,4 @@
+set-option global autoreload yes
 set-option global grepcmd 'rg --column'
 set-option global modelinefmt '{{mode_info}} %val{bufname}{StatusLineInfo}:%val{cursor_line}:%val{cursor_char_column} {{context_info}}'
 set-option global startup_info_version 20250603
