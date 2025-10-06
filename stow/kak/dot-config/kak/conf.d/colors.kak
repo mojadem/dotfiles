@@ -53,7 +53,7 @@ set-face global WrapMarker "%opt{bg_2}"
 set-face global attribute "bright-blue"
 set-face global builtin "bright-red"
 set-face global comment "bright-black+i"
-set-face global documentation "red,red" #TODO
+set-face global documentation "bright-black"
 set-face global function "bright-cyan"
 set-face global keyword "bright-red"
 set-face global meta "%opt{orange}"
