@@ -83,7 +83,7 @@ define-command -override -hidden fuzzy-grep %{
 
 define-command -override -hidden toggle-line-wrap %{
     try %{
-        add-highlighter window/wrap wrap -indent -word -marker '>> '
+        add-highlighter window/wrap wrap -word -indent -width 80 -marker '>> '
     } catch %{
         remove-highlighter window/wrap
     }
