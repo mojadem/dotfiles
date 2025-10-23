@@ -27,9 +27,9 @@ define-command -override yank-buffer-name %{
 
 define-command -override yank-line-github-link %{
     evaluate-commands %sh{
-        repo_url=$(git remote get-url origin | sed 's/git@github.com:/https:\/\/github.com\//' | sed 's/\.git$//')
-        default_branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
-        printf "${repo_url}/blob/${default_branch}/${kak_bufname}#L${kak_cursor_line}" | $kak_opt_system_clipboard_cmd_yank
+        repo=$(git remote get-url origin | sed 's|git@github.com:|https://github.com/|' | sed 's/\.git$//')
+        ref=$(git show-ref origin/HEAD | awk '{print $1}')
+        printf "${repo}/blob/${ref}/${kak_bufname}#L${kak_cursor_line}" | $kak_opt_system_clipboard_cmd_yank
     }
 }
 
