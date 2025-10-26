@@ -6,6 +6,7 @@ map global user g ':fuzzy-grep<ret>' -docstring 'fuzzy grep'
 
 map global user c ':comment-line<ret>' -docstring 'comment line'
 map global user d ':delete-buffer<ret>' -docstring 'delete buffer'
+map global user e ':open-file-explorer<ret>' -docstring 'open file explorer at current directory'
 map global user p '<a-!>$kak_opt_system_clipboard_cmd_paste<ret>' -docstring 'paste system clipboard after selection'
 map global user P '!$kak_opt_system_clipboard_cmd_paste<ret>' -docstring 'paste system clipbard before selection'
 map global user r ':toggle-line-wrap<ret>' -docstring 'toggle line wrap'

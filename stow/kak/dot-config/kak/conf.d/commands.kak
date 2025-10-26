@@ -113,3 +113,17 @@ define-command -override -hidden touch-new-file %{
     }
 }
 
+define-command -override open-file-explorer %{
+    evaluate-commands %sh{
+        dir=$(dirname $kak_buffile)
+
+        tempbuf="temp-$(date +%s)"
+        tmux display-popup -E "cd $dir && flirt | tmux load-buffer -b $tempbuf -"
+        files=$(tmux show-buffer -b $tempbuf)
+        tmux delete-buffer -b $tempbuf
+
+        for f in $files; do
+            echo "edit -existing $f"
+        done
+    }
+}
