@@ -14,5 +14,13 @@ evaluate-commands %sh{
     done
 }
 
+evaluate-commands %sh{
+    if [ ! -d .kak ]; then exit; fi
+
+    local_rc_files=$(fd --extension kak . .kak)
+    for file in $local_rc_files; do
+        echo "source $file"
+    done
+}
 
 
