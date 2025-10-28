@@ -1,3 +1,4 @@
 .DS_Store
+.ignore
 .kak
 **/.claude/settings.local.json
