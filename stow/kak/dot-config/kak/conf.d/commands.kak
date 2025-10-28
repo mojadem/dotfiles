@@ -68,6 +68,21 @@ define-command -override -hidden pick-buffers-to-delete %{
     }
 }
 
+define-command -override delete-buffers-all -docstring '
+    delete-buffers-all: delete all buffers, excluding *debug* and *scratch*
+' %{
+    evaluate-commands %sh{
+        for b in $kak_buflist; do
+            if [ "$b" = "*scratch*" ]; then continue; fi
+            if [ "$b" = "*debug*" ]; then continue; fi
+
+            echo "delete-buffer $b"
+        done
+    }
+}
+
+alias global dba delete-buffers-all
+
 define-command -override -hidden pick-line %{
     evaluate-commands %sh{
         echo "write $kak_response_fifo" > $kak_command_fifo
