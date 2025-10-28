@@ -1,4 +1,4 @@
-hook global WinCreate .* %{
+hook -group user global WinCreate .* %{
     evaluate-commands %sh{
         # exit if not associated with a file
         if [ ! -e "$kak_buffile" ]; then
