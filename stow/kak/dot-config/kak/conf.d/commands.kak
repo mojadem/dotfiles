@@ -33,6 +33,13 @@ define-command -override yank-line-github-link %{
     }
 }
 
+define-command -override yank-join -docstring '
+    yank-join: yank all selections into the system clipboard
+' %{
+    nop %sh{
+        fish -c 'for s in $kak_selections; echo $s; end' | pbcopy
+    }
+}
 
 define-command -override -hidden pick-file %{
     evaluate-commands %sh{
