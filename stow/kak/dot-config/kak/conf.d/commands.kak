@@ -145,7 +145,7 @@ define-command -override open-file-explorer %{
         tmux delete-buffer -b $tempbuf
 
         for f in $files; do
-            echo "edit -existing $f"
+            echo "edit -existing $dir/$f"
         done
     }
 }
