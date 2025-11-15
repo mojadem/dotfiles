@@ -11,7 +11,7 @@ bar {
   status_command fish ~/.config/sway/scripts/status_command.fish
   
   colors {
-    font "Monaspace Neon Bold"
+    font "Monaspace Neon Bold 12"
     background $bg_dark
     statusline $fg
     focused_workspace $bg_dark $bg_dark $fg

@@ -1,9 +1,10 @@
 # defaults
-set $term foot
-set $browser qutebrowser
+set $term alacritty
+set $browser firefox
 set $menu fuzzel --no-icons
 
 bindsym Super+Return exec $term
+bindsym Super+Ctrl+Return exec $term -a floating_term
 bindsym Super+Shift+Return exec $browser
 bindsym Super+space exec $menu
 
@@ -43,7 +44,7 @@ bindsym Ctrl+Shift+0 move container to workspace number 10
 # system controls
 bindsym Super+f fullscreen
 bindsym Super+t focus mode_toggle
-bindsym Super+Shift+t floating toggle
+bindsym Super+Ctrl+t floating toggle
 bindsym Super+b border toggle
 
 mode "resize" {
@@ -76,6 +77,7 @@ bindsym Ctrl+Shift+Print slurp | grim -g - - | wl-copy && notify-send "Screensho
 bindsym Super+Shift+v exec cliphist list | fuzzel --prompt 'clipboard> ' --dmenu --lines 30 --width 60 --tabs 1 | cliphist decode | wl-copy
 bindsym Super+Shift+e exec fish ~/.config/sway/scripts/emoji_picker.fish
 bindsym Super+Shift+b exec fish ~/.config/sway/scripts/bitwarden_picker.fish
+bindsym Super+Shift+o exec fish ~/.config/sway/scripts/open_picker.fish
 
 # misc
 bindsym Super+q kill

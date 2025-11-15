@@ -1,0 +1,22 @@
+bar:
+  location: top
+  height: 26
+  background: 00000066
+  font: Monaspace Neon:pixelsize=12
+
+  left:
+    - river:
+        title: { string: { text: "{seat} - {title} ({layout}/{mode}})" } }
+        content:
+          map:
+            conditions:
+              ~occupied: { empty: {} }
+              occupied:
+                string:
+                  margin: 5
+                  text: "{id}: {state}"
+
+  right:
+    - clock:
+        content:
+          - string: { text: "{time}" }

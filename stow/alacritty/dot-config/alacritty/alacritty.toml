@@ -4,7 +4,7 @@ padding = { x = 6, y = 6 }
 option_as_alt = "OnlyLeft"
 
 [font]
-size = 14
+size = 12
 normal = { family = "Monaspace Neon", style = "Regular" }
 bold = { family = "Monaspace Neon", style = "Bold" }
 italic = { family = "Monaspace Neon", style = "Italic" }
