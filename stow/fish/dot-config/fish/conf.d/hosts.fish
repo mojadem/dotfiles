@@ -1,7 +1,4 @@
-# trim ".local" suffix on macs
-set --local host (hostname | string replace '.local' '')
-
-switch $host
+switch (prompt_hostname)
     case club
         function tv
             if test $argv = on
