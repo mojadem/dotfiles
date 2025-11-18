@@ -20,7 +20,7 @@ map global user y '<a-|>$kak_opt_system_clipboard_cmd_yank<ret>:echo yanked sele
 
 map global user | ':enter-user-mode pipe<ret>' -docstring 'pipe mode'
 map global pipe s '|sort<ret>' -docstring 'sort'
-map global pipe p '|par w80s0<ret>' -docstring 'par'
+map global pipe p '|par s0T4w80<ret>' -docstring 'par'
 
 map global user w ':enter-user-mode window<ret>' -docstring 'window mode'
 map global window v ':tmux-terminal-horizontal kak -c %val{session}<ret>' -docstring 'vertical split'
