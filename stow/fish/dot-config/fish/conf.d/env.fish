@@ -46,7 +46,10 @@ set -x EDITOR kak
 set -x GPG_TTY (tty)
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
-set -x FZF_DEFAULT_OPTS "--layout=reverse --style=minimal --color=bg:black,fg:white,hl:green,bg+:#$GRUVBOX_BG_S,fg+:bright-white,hl+:green,prompt:cyan,input-fg:bright-white,pointer:white,marker:white"
+set -x FZF_DEFAULT_OPTS "\
+	--layout=reverse \
+	--style=minimal \
+	--color=bg:black,fg:white,hl:green,bg+:#$GRUVBOX_BG_S,fg+:bright-white,hl+:green,prompt:cyan,input-fg:bright-white,pointer:white,marker:white"
 
 type -q vivid && set -x LS_COLORS (vivid generate gruvbox-dark)
 
