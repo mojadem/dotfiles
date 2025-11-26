@@ -6,7 +6,7 @@ declare-option str-list lsp_filetypes \
     'python' \
 
 declare-option -hidden regex lsp_filetypes_regex %sh{
-    printf "(%s)" $(fish -c "string join '|' $kak_opt_lsp_filetypes")
+    printf "(%s)" "$(printf '%s' "$kak_opt_lsp_filetypes" | tr ' ' '|')"
 }
 
 hook -once global KakBegin .* %{
