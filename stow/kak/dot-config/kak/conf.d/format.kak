@@ -2,7 +2,7 @@ evaluate-commands %sh{
     set_formatcmd() {
         echo "hook -group user global BufSetOption filetype=$1 %{
             set-option buffer formatcmd '$2'
-            hook buffer BufWritePre .* format
+            hook -group format buffer BufWritePre .* format
         }"
     }
 
