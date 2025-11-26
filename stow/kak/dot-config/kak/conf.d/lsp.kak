@@ -9,13 +9,17 @@ declare-option -hidden regex lsp_filetypes_regex %sh{
     printf "(%s)" "$(printf '%s' "$kak_opt_lsp_filetypes" | tr ' ' '|')"
 }
 
-hook -once global KakBegin .* %{
-    eval %sh{kak-lsp}
-
-    set-option global lsp_snippet_support false
-}
+declare-option -hidden bool lsp_init_done
 
 hook -group user global WinSetOption "filetype=%opt{lsp_filetypes_regex}" %{
+    evaluate-commands %sh{
+        $kak_opt_lsp_init_done && exit
+        echo "eval %sh{kak-lsp}"
+    }
+    set-option global lsp_init_done true
+
+    set-option global lsp_snippet_support false
+
     lsp-enable-window
 
     map window user l ':enter-user-mode lsp<ret>' -docstring 'LSP mode'
