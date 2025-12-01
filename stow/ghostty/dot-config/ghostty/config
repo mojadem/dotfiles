@@ -3,6 +3,8 @@ cursor-style = block
 cursor-style-blink = false
 font-family = Monaspace Neon
 font-size = 14
+keybind = alt+arrow_left=unbind
+keybind = alt+arrow_right=unbind
 macos-titlebar-style = hidden
 shell-integration = none
 theme = Gruvbox Dark
