@@ -1,6 +1,6 @@
 switch (tmux display-message -p '#S')
     case default
-        tmux switch-client -l
+        tmux switch-client -l; or tmux display-message 'no previous client'
     case '*'
         if not tmux has-session -t default
             tmux new-session -d -c ~ -s default
