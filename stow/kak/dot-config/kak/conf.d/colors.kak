@@ -6,7 +6,7 @@ declare-option str bg_3 "rgb:665c54"
 declare-option str orange "rgb:d65d0e"
 
 # Built-ins
-set-face global Default "bright-white,black"
+set-face global Default "default,default"
 
 set-face global PrimaryCursor "black,bright-white"
 set-face global PrimaryCursorEol PrimaryCursor
