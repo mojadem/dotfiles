@@ -1,4 +1,6 @@
-set copy_patterns \
+set patterns \
+    # sync tags
+    "perl -pli -e '.*sync-start.*' '[^']+'" \
     # links
     'https?:\/\/[^>\)\s]+' \
     # unix paths
@@ -6,26 +8,23 @@ set copy_patterns \
     # sha1 hashes
     '[0-9a-f]{7,40}'
 
-# Pane text is reversed so that more recent text will appear first in fzf.
-set pane_text (tmux capture-pane -p | tac)
-set fzf_input
+set exclusions \
+    # prompt path
+    (prompt_pwd)
 
-for pattern in $copy_patterns
-    for match in (echo $pane_text | rg --only-matching --regexp=$pattern)
-        if echo $fzf_input | rg --quiet $match
-            continue
-        end
+set rg_pattern (string join '|' $patterns)
+set rg_exclude (string join '|' $exclusions)
 
-        if test $match = (prompt_pwd)
-            continue
-        end
+set pane_text (tmux capture-pane -p -J)
+set matches (echo $pane_text | rg -o $rg_pattern | rg -v $rg_exclude | sort -u)
 
-        set -a fzf_input $match
-    end
+if test (count $matches) = 0
+    tmux display-message 'no matches found'
+    exit
 end
 
-set selection (string join \n $fzf_input | fzf --tmux center,border-native)
-test -z $selection; and exit
+set selection (string join -- \n $matches | fzf --tmux center,border-native --tac)
+test -z $selection && exit
 
-set copy_cmd (test (uname) = Darwin; and echo pbcopy; or echo wl-copy)
-printf "%s" $selection | $copy_cmd
+echo -n $selection | tmux load-buffer -w -
+tmux display-message "copied: $selection"
