@@ -15,7 +15,7 @@ set exclusions \
 set rg_pattern (string join '|' $patterns)
 set rg_exclude (string join '|' $exclusions)
 
-set pane_text (tmux capture-pane -p -J)
+set pane_text (tmux capture-pane -p -J | tac)
 set matches (echo $pane_text | rg -o $rg_pattern | rg -v $rg_exclude | sort -u)
 
 if test (count $matches) = 0
@@ -23,7 +23,7 @@ if test (count $matches) = 0
     exit
 end
 
-set selection (string join -- \n $matches | fzf --tmux center,border-native --tac)
+set selection (string join -- \n $matches | fzf --tmux center,border-native
 test -z $selection && exit
 
 echo -n $selection | tmux load-buffer -w -
