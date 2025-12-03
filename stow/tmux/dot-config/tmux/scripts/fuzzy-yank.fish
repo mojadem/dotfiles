@@ -23,7 +23,7 @@ if test (count $matches) = 0
     exit
 end
 
-set selection (string join -- \n $matches | fzf --tmux center,border-native
+set selection (string join -- \n $matches | fzf --tmux center,border-native)
 test -z $selection && exit
 
 echo -n $selection | tmux load-buffer -w -
