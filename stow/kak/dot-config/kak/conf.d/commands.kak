@@ -2,6 +2,21 @@ define-command -override config-reload %{
     source ~/.config/kak/kakrc
 }
 
+define-command delete-file -override -docstring '
+    delete-file: deletes the current buffile
+' %{
+    evaluate-commands %sh{
+        if [ ! -f $kak_buffile ]; then
+            echo "echo -markup '{Error}$kak_buffile' is not a regular file"
+            exit
+        fi
+
+        rm $kak_buffile
+    }
+    delete-buffer
+}
+alias global rm delete-file
+
 define-command move-file -override -params 1 -docstring '
     move-file <path>: move current buffile to provided path relative to buffile parent dir
 ' %{
