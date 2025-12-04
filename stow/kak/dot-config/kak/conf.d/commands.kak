@@ -33,6 +33,7 @@ define-command move-file -override -params 1 -docstring '
         echo "rename-buffer $basedir/$dest"
     }
 }
+alias global mv move-file
 
 define-command -override yank-buffer-name %{
     nop %sh{
