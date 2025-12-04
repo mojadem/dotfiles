@@ -96,7 +96,6 @@ define-command -override delete-buffers-all -docstring '
         done
     }
 }
-
 alias global dba delete-buffers-all
 
 define-command -override -hidden pick-line %{
@@ -125,14 +124,6 @@ define-command -override -hidden fuzzy-grep %{
        [ -z "$selection" ] && exit
 
         echo "edit -existing $selection"
-    }
-}
-
-define-command -override -hidden toggle-line-wrap %{
-    try %{
-        add-highlighter window/wrap wrap -word -indent -width 80 -marker '>>'
-    } catch %{
-        remove-highlighter window/wrap
     }
 }
 
