@@ -53,7 +53,7 @@ define-command -override yank-join -docstring '
     yank-join: yank all selections into the system clipboard
 ' %{
     nop %sh{
-        fish -c 'for s in $kak_selections; echo $s; end' | pbcopy
+        fish -c 'for s in $kak_selections; echo $s; end | string trim | copy'
     }
 }
 
