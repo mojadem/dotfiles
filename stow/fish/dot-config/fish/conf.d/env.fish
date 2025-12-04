@@ -50,7 +50,7 @@ set -x FZF_DEFAULT_OPTS "\
 	--style=minimal \
 	--color=bg:black,fg:white,hl:green,bg+:#$GRUVBOX_BG_S,fg+:bright-white,hl+:green,prompt:cyan,input-fg:bright-white,pointer:white,marker:white"
 
-type -q vivid && set -x LS_COLORS (vivid generate gruvbox-dark)
+status is-interactive && type -q vivid && set -x LS_COLORS (vivid generate gruvbox-dark)
 
 # path
 fish_add_path ~/.local/bin
