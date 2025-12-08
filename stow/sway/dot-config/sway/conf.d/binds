@@ -1,5 +1,5 @@
 # defaults
-set $term foot
+set $term ghostty
 set $browser qutebrowser
 set $menu fuzzel --no-icons
 
