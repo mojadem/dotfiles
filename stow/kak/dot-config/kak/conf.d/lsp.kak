@@ -1,9 +1,11 @@
 declare-option str-list lsp_filetypes \
-    'javascript' \
-    'typescript' \
     'go' \
+    'javascript' \
     'lua' \
     'python' \
+    'rust' \
+    'typescript' \
+    'zig' \
 
 declare-option -hidden regex lsp_filetypes_regex %sh{
     printf "(%s)" "$(printf '%s' "$kak_opt_lsp_filetypes" | tr ' ' '|')"
