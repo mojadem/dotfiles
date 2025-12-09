@@ -41,7 +41,7 @@ set -x GRUVBOX_FG $GRUVBOX_BRWHITE
 
 # misc
 set -x EDITOR kak
-set -q GPG_TTY || set -x GPG_TTY (tty)
+set -x GPG_TTY (tty)
 set -q UNAME || set -x UNAME (uname)
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
