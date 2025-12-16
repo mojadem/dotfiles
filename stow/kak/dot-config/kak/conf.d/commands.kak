@@ -30,7 +30,10 @@ define-command move-file -override -params 1 -docstring '
 
         basedir=$(dirname $kak_bufname)
         mv $kak_bufname $basedir/$dest
-        echo "rename-buffer $basedir/$dest"
+
+        # Delete and re-open instead of renaming to rerun BufCreate hooks.
+        echo "delete-buffer"
+        echo "edit -existing $basedir/$dest"
     }
 }
 alias global mv move-file
