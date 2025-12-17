@@ -1,6 +1,6 @@
 # defaults
 set $term ghostty
-set $browser qutebrowser
+set $browser firefox
 set $menu fuzzel --no-icons
 
 bindsym Super+Return exec $term
