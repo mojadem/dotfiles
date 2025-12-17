@@ -1,5 +1,5 @@
 set -x SESSION_CMD 'tmux ls -F "#{session_name}" | rg -v $(tmux display-message -p "#{session_name}")'
-set -x REPO_CMD 'fd -HI -t=d -d=3 --format={//} -g .git $HOME/dev | sed "s|$HOME|~|"'
+set -x REPO_CMD 'fd -HI -t=d -d=4 --format={//} -g .git $HOME/dev | sed "s|$HOME|~|"'
 
 set selection (begin
 	eval $SESSION_CMD | fzf \
