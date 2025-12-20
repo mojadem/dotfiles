@@ -70,7 +70,7 @@ bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+
 bindsym Print exec grim && notify-send "Screenshot saved" --expire-time 3000
 bindsym Ctrl+Print exec grim - | wl-copy && notify-send "Screenshot copied" --expire-time 3000
 bindsym Shift+Print exec slurp | grim -g - && notify-send "Screenshot saved" --expire-time 3000
-bindsym Ctrl+Shift+Print slurp | grim -g - - | wl-copy && notify-send "Screenshot copied" --expire-time 3000
+bindsym Ctrl+Shift+Print exec slurp | grim -g - - | wl-copy && notify-send "Screenshot copied" --expire-time 3000
 
 # pickers
 bindsym Super+Shift+v exec cliphist list | fuzzel --prompt 'clipboard> ' --dmenu --lines 30 --width 60 --tabs 1 | cliphist decode | wl-copy
