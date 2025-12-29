@@ -27,7 +27,7 @@ function transcribe
         -m $whisper_model_file \
         --no-timestamps 2>/dev/null \
         | kak -f 's^[\n ]<ret>d' \
-        | rg -q '[BLANK_AUDIO]' -v && copy
+        | copy
 
     rm -f $recording_file
     notify 'transcription finished'
