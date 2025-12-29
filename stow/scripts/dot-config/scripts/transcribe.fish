@@ -26,7 +26,8 @@ function transcribe
         -f $recording_file \
         -m $whisper_model_file \
         --no-timestamps 2>/dev/null \
-        | kak -f 's^[\n ]<ret>d' \
+        | tr -d '\n' \
+        | string trim \
         | copy
 
     rm -f $recording_file
