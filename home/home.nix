@@ -1,0 +1,54 @@
+{ config, pkgs, ... }:
+
+{
+  home.stateVersion = "25.11";
+  programs.home-manager.enable = true;
+
+  home.username = "mojadem";
+  home.homeDirectory = "/home/mojadem";
+
+  nixpkgs.config.allowUnfree = true;
+  home.packages = with pkgs; [
+    aerc
+    bat
+    bitwarden-desktop
+    cliphist
+    discord
+    fd
+    firefox
+    fuzzel
+    fzf
+    gamescope
+    ghostty
+    git
+    just
+    kakoune
+    lazygit
+    nixfmt-rfc-style
+    pass
+    protonmail-bridge
+    protonvpn-gui
+    qbittorrent
+    ripgrep
+    spotify
+    stow
+    tmux
+    tree
+    wget
+    wl-clipboard
+  ];
+
+  home.pointerCursor = {
+    name = "Adwaita";
+    package = pkgs.adwaita-icon-theme;
+    sway.enable = true;
+  };
+
+  programs.gpg.enable = true;
+  services.gpg-agent = {
+    enable = true;
+    pinentry.package = pkgs.pinentry-curses;
+    defaultCacheTtl = 86400;
+    maxCacheTtl = 86400;
+  };
+}
