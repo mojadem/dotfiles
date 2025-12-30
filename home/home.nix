@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./modules/formatters.nix
+  ];
+
   home.stateVersion = "25.11";
   programs.home-manager.enable = true;
 
@@ -24,7 +28,6 @@
     just
     kakoune
     lazygit
-    nixfmt-rfc-style
     pass
     protonmail-bridge
     protonvpn-gui
