@@ -8,9 +8,3 @@ unstow:
 
 add-package PACKAGE:
     mkdir -p stow/{{PACKAGE}}/dot-config/{{PACKAGE}}
-
-list-local-files:
-    fd -I local
-
-init-helix-ignore:
-    echo !local* > .helix/ignore
