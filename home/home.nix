@@ -28,6 +28,7 @@
     just
     kakoune
     lazygit
+    opencode
     pass
     protonmail-bridge
     protonvpn-gui
