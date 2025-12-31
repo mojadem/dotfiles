@@ -18,8 +18,14 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = true;
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1"; # Fix scaling for electron apps.
+  environment = {
+    systemPackages = with pkgs; [
+      btop-rocm
+    ];
+
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1"; # Fix scaling for electron apps.
+    };
   };
 
   fonts.packages = with pkgs; [
