@@ -14,6 +14,7 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     aerc
+    audacity
     bat
     bitwarden-desktop
     cliphist
