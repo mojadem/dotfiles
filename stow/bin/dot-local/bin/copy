@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -n "$SSH_CONNECTION" ] && [ -n "$TMUX" ]; then
+	tmux load-buffer -w -
+elif command -v pbcopy >/dev/null 2>&1; then
+	pbcopy
+elif command -v wl-copy >/dev/null 2>&1; then
+	wl-copy
+else
+	echo "No clipboard copy utility found" >&2
+	exit 1
+fi
