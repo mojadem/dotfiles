@@ -6,8 +6,6 @@ abbr root "cd (git rev-parse --show-toplevel)"
 set ls_binary (test "$UNAME" = Darwin; and echo "gls"; or echo "ls")
 alias ls "$ls_binary --color=auto --group-directories-first"
 
-alias paste (test "$UNAME" = Darwin; and echo 'pbpaste'; or echo 'wl-paste')
-
 alias wget "wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 
 bind ctrl-f 'commandline --insert (fd | fzf)'
