@@ -40,7 +40,7 @@ alias global mv move-file
 
 define-command -override yank-buffer-name %{
     nop %sh{
-        printf "%s" $kak_bufname | $kak_opt_system_clipboard_cmd_yank
+        printf "%s" $kak_bufname | copy
     }
 }
 
@@ -48,7 +48,7 @@ define-command -override yank-line-github-link %{
     nop %sh{
         repo=$(git remote get-url origin | sed 's|git@github.com:|https://github.com/|' | sed 's/\.git$//')
         ref=$(git rev-parse HEAD)
-        printf "${repo}/blob/${ref}/${kak_bufname}#L${kak_cursor_line}" | $kak_opt_system_clipboard_cmd_yank
+        printf "${repo}/blob/${ref}/${kak_bufname}#L${kak_cursor_line}" | copy
     }
 }
 
