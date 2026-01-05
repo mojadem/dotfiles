@@ -1,5 +1,6 @@
 abbr e $EDITOR
 abbr lg lazygit
+abbr oc opencode
 abbr root "cd (git rev-parse --show-toplevel)"
 
 set ls_binary (test "$UNAME" = Darwin; and echo "gls"; or echo "ls")
