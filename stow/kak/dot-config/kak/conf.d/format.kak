@@ -17,6 +17,7 @@ evaluate-commands %sh{
     set_formatcmd markdown 'mdformat -'
     set_formatcmd nix 'nixfmt'
     set_formatcmd rust 'rustfmt'
+    set_formatcmd sh 'shfmt'
     set_formatcmd toml 'taplo format -'
     set_formatcmd typescript 'prettier --parser typescript'
     set_formatcmd yaml 'yamlfmt -'
