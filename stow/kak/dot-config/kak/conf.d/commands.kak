@@ -62,7 +62,11 @@ define-command -override yank-join -docstring '
 
 define-command -override -hidden pick-file %{
     evaluate-commands %sh{
-        file=$(fd --type=file --hidden | fzf --tmux=center,border-native )
+        file=$(fd --type=file --hidden | fzf \
+            --bind 'tab:toggle-preview' \
+            --preview 'bat {1} --color=always --style=plain' \
+            --tmux=center,border-native,90% \
+        )
         if [ -z "$file" ]; then exit; fi
         echo "edit -existing $file"
     }
