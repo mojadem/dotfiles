@@ -1,13 +1,30 @@
+#!/usr/bin/env bash
+
 export SESSION_CMD='tmux ls -F "#{session_name}" | rg -vx $(tmux display-message -p "#{session_name}")'
 export REPO_CMD='fd -HI -t=d -d=3 --format={//} -g .git $HOME/dev | sed "s|$HOME|~|"'
+
+toggle_mode() {
+	if [ "$(cat $1)" = 'sessions' ]; then
+		echo 'repos' >$1
+		echo 'reload(eval $REPO_CMD)+change-prompt(repos> )'
+	else
+		echo 'sessions' >$1
+		echo 'reload(eval $SESSION_CMD)+change-prompt(sessions> )'
+	fi
+}
+export -f toggle_mode
+
+state_file=$(mktemp)
+echo "sessions" >$state_file
+trap "rm -f $state_file" EXIT
 
 selection=$(
 	eval $SESSION_CMD | fzf \
 		--tmux center,border-native \
 		--prompt='sessions> ' \
-		--header='fuzzy-find-session: ctrl-s for sessions, ctrl-r for repos' \
-		--bind 'ctrl-s:reload(eval $SESSION_CMD)+change-prompt(sessions> )' \
-		--bind 'ctrl-r:reload(eval $REPO_CMD)+change-prompt(repos> )' |
+		--header='tab to toggle sessions/repos' \
+		--bind="tab:transform(toggle_mode $state_file)" \
+		--with-shell='bash -c' |
 		sed "s|~|$HOME|"
 )
 [ -z "$selection" ] && exit
