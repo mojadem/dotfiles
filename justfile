@@ -7,13 +7,8 @@ default:
 	@echo "System: {{ os() }}"
 	@just --list
 
-rebuild-system:
+rebuild:
 	sudo nixos-rebuild switch --flake .#{{ host }}
-
-rebuild-home:
-	home-manager switch --flake .#{{ user }}@{{ host }}
-
-rebuild-all: rebuild-system rebuild-home
 
 stow:
     ls stow/ | xargs stow --restow --dir stow/ --target ~ --dotfiles

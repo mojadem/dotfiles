@@ -17,15 +17,12 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/club/configuration.nix
-          ];
-        };
-      };
-
-      homeConfigurations = {
-        "mojadem@club" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [
-            ./home/home.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.mojadem = ./home/home.nix;
+            }
           ];
         };
       };
