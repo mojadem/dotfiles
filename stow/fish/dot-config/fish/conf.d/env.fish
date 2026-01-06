@@ -6,7 +6,6 @@ set -x XDG_STATE_HOME $HOME/.local/state
 # xdg fixes
 set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 set -x CARGO_HOME $XDG_DATA_HOME/cargo
-set -x GNUPGHOME $XDG_DATA_HOME/gnupg
 set -x GOPATH $XDG_DATA_HOME/go
 set -x HELIX_RUNTIME $XDG_DATA_HOME/helix/runtime
 set -x PNPM_HOME $XDG_DATA_HOME/pnpm
