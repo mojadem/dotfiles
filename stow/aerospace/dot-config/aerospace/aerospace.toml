@@ -43,7 +43,7 @@ ctrl-shift-0 = 'move-node-to-workspace 10'
 
 alt-ctrl-space = 'mode service'
 
-cmd-enter = "exec-and-forget open -n /Applications/Ghostty.app"
+alt-enter = "exec-and-forget open -n /Applications/Ghostty.app"
 
 [mode.service.binding]
 t = ['layout tiles horizontal vertical', 'mode main']
