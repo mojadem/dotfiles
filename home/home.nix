@@ -11,7 +11,6 @@
   home.username = "mojadem";
   home.homeDirectory = "/home/mojadem";
 
-  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     aerc
     audacity
