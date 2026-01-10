@@ -11,7 +11,7 @@ evaluate-commands %sh{
     }
 
     set_formatcmd fish fish_indent
-    set_formatcmd go gofumpt
+    set_formatcmd go gofmt
     set_formatcmd kak 'expand -t 4 | kak -f "s[\t ]+$<ret>d" | kak -f "ge<a-?>[^\n]<ret><a-s><a-k>^\n<ret>d"'
     set_formatcmd lua 'stylua -'
     set_formatcmd markdown 'mdformat -'
