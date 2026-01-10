@@ -30,6 +30,7 @@
     kakoune
     kakoune-lsp
     lazygit
+    moreutils
     opencode
     pass
     protonmail-bridge
