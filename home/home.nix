@@ -27,6 +27,7 @@
     git
     just
     kakoune
+    kakoune-lsp
     lazygit
     opencode
     pass
