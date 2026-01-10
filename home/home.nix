@@ -18,6 +18,7 @@
     bitwarden-desktop
     cliphist
     discord
+    delve
     fd
     firefox
     fuzzel
