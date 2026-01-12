@@ -11,6 +11,14 @@ declare-option -hidden regex lsp_filetypes_regex %sh{
     printf "(%s)" "$(printf '%s' "$kak_opt_lsp_filetypes" | tr ' ' '|')"
 }
 
+define-command set_lsp_language_id -override -hidden %{
+   set-option window lsp_language_id %sh{
+       case "$kak_opt_filetype" in
+       *) echo $kak_opt_filetype ;;
+       esac
+   }
+}
+
 declare-option -hidden bool lsp_init_done
 
 hook -group user global WinSetOption "filetype=%opt{lsp_filetypes_regex}" %{
@@ -20,6 +28,7 @@ hook -group user global WinSetOption "filetype=%opt{lsp_filetypes_regex}" %{
     }
     set-option global lsp_init_done true
 
+    set_lsp_language_id
     set-option global lsp_snippet_support false
 
     lsp-enable-window
