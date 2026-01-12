@@ -8,8 +8,8 @@ alias ls "$ls_binary --color=auto --group-directories-first"
 
 alias wget "wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 
-bind ctrl-f 'commandline --insert (fd | fzf)'
-bind ctrl-alt-f 'commandline --insert (fd -IH | fzf)'
+bind ctrl-f 'commandline --insert (fd | fzf -m)'
+bind ctrl-alt-f 'commandline --insert (fd -IH | fzf -m)'
 bind ctrl-r 'commandline --replace (history | fzf --scheme=history --query=(commandline))'
 bind ctrl-y accept-autosuggestion
 
