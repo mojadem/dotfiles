@@ -1,19 +1,6 @@
-switch (prompt_hostname)
+switch (uname -n)
     case club
-        function tv
-            if test $argv = on
-                swaymsg output HDMI-A-1 enable
-                return
-            end
-
-            if test $argv = off
-                swaymsg output HDMI-A-1 disable
-                return
-            end
-
-            echo "invalid arg"
-            return 2
-        end
+        source $__fish_config_dir/conf.d/hosts/club.fish
     case diamond
         fish_add_path ~/dev/khan/our-lovely-cli/bin
         fish_add_path ~/dev/khan/ka-clone/bin
