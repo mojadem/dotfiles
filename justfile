@@ -7,6 +7,11 @@ default:
 	@echo "System: {{ os() }}"
 	@just --list
 
+update:
+	nix flake update
+	nixos-rebuild build --flake .#{{ host }}
+	nix store diff-closures /run/current-system ./result
+
 rebuild:
 	sudo nixos-rebuild switch --flake .#{{ host }}
 
