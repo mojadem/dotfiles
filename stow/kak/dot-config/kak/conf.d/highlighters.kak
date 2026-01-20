@@ -16,9 +16,9 @@ define-command -override toggle-number-lines %{
 
 define-command -override toggle-wrap %{
     try %{
-        add-highlighter window/wrap wrap -indent -marker '>>' -width 80 -word
+        add-highlighter global/wrap wrap -indent -marker '>>' -width 80 -word
     } catch %{
-        remove-highlighter window/wrap
+        remove-highlighter global/wrap
     }
 }
 
