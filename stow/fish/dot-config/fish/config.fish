@@ -3,7 +3,7 @@ abbr lg lazygit
 abbr oc opencode
 abbr root "cd (git rev-parse --show-toplevel)"
 
-set ls_binary (test "$UNAME" = Darwin; and echo "gls"; or echo "ls")
+set ls_binary (command -q gls; and echo "gls"; or echo "ls")
 alias ls "$ls_binary --color=auto --group-directories-first"
 
 alias wget "wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
