@@ -27,10 +27,3 @@ set -x FZF_DEFAULT_OPTS "\
 	--color=bg:black,fg:white,hl:green,bg+:#$GRUVBOX_BG_S,fg+:bright-white,hl+:green,prompt:cyan,input-fg:bright-white,pointer:white,marker:white"
 
 status is-interactive && type -q vivid && set -x LS_COLORS (vivid generate gruvbox-dark)
-
-# path
-fish_add_path ~/.local/bin
-fish_add_path $CARGO_HOME/bin
-fish_add_path $GOPATH/bin
-fish_add_path $PIXI_HOME/bin
-fish_add_path $PNPM_HOME
