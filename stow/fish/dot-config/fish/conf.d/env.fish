@@ -3,7 +3,6 @@ set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_STATE_HOME $HOME/.local/state
 
-# xdg fixes
 set -x CARGO_HOME $XDG_DATA_HOME/cargo
 set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 set -x GOPATH $XDG_DATA_HOME/go
@@ -12,7 +11,6 @@ set -x PNPM_HOME $XDG_DATA_HOME/pnpm
 set -x RUSTUP_HOME $XDG_DATA_HOME/rustup
 set -x SQLITE_HISTORY $XDG_DATA_HOME/sqlite_history
 
-# misc
 set -x EDITOR kak
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
