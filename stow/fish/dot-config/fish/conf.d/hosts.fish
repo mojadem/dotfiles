@@ -1,15 +1,2 @@
-switch (uname -n)
-    case club
-        source $__fish_config_dir/conf.d/hosts/club.fish
-    case diamond
-        fish_add_path ~/dev/khan/our-lovely-cli/bin
-        fish_add_path ~/dev/khan/ka-clone/bin
-        fish_add_path ~/dev/khan/khan-linter/bin
-        fish_add_path ~/dev/khan/google-cloud-sdk/bin
-        fish_add_path ~/dev/khan/khan-dotfiles/bin
-        fish_add_path ~/dev/khan/webapp/genfiles/go/bin
-        fish_add_path /opt/homebrew/opt/go@1.24/bin
-
-        set -x JAVA_HOME (/usr/libexec/java_home)
-        fish_add_path "/opt/homebrew/opt/openjdk@21bin"
-end
+set host (uname -n)
+source $__fish_config_dir/conf.d/hosts/$host.fish
