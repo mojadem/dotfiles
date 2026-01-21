@@ -38,10 +38,21 @@ define-command move-file -override -params 1 -docstring '
 }
 alias global mv move-file
 
-define-command -override yank-buffer-name %{
+define-command -override yank-buffer-name -params 0..1 -docstring '
+    yank-buffer-name [-line]: yank buffer name to clipboard
+    Switches:
+        -line: include the cursor line number
+' %{
     nop %sh{
-        printf "%s" $kak_bufname | copy
+        if [ "$1" = "-line" ]; then
+            printf "%s:%s" $kak_bufname $kak_cursor_line | copy
+        else
+            printf "%s" $kak_bufname | copy
+        fi
     }
+}
+complete-command yank-buffer-name shell-script-candidates %{
+    echo "-line"
 }
 
 define-command -override yank-line-github-link %{
