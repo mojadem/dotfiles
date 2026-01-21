@@ -22,5 +22,3 @@ evaluate-commands %sh{
         echo "source $file"
     done
 }
-
-
