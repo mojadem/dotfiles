@@ -10,19 +10,32 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
     {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
+    {
+      homeModules = {
+        default = ./modules/home;
+        apps = ./modules/home/apps.nix;
+      };
+
+      nixosModules = {
+        default = ./modules/nixos;
+        gaming = ./modules/nixos/gaming.nix;
+        plasma = ./modules/nixos/plasma.nix;
+        sway = ./modules/nixos/sway.nix;
+      };
+
       nixosConfigurations = {
         club = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = { inherit self; };
           modules = [
-            ./hosts/club/configuration.nix
+            ./hosts/club
             home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.mojadem = ./home/home.nix;
-            }
           ];
         };
       };

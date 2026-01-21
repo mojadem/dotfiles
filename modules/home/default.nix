@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./modules/formatters.nix
-  ];
-
   home.stateVersion = "25.11";
   programs.home-manager.enable = true;
 
@@ -13,43 +9,29 @@
 
   home.packages = with pkgs; [
     aerc
-    audacity
+    aspell
+    aspellDicts.en
+    aspellDicts.en-computers
     bat
-    bitwarden-desktop
-    cliphist
-    discord
-    delve
+    claude-code
     fd
-    firefox
-    fuzzel
     fzf
-    gamescope
-    ghostty
+    gh
     git
     just
     kakoune
     kakoune-lsp
     lazygit
+    mdformat
     moreutils
-    opencode
+    nixfmt
     pass
-    protonmail-bridge
-    protonvpn-gui
-    qbittorrent
     ripgrep
-    spotify
     stow
     tmux
     tree
     wget
-    wl-clipboard
   ];
-
-  home.pointerCursor = {
-    name = "Adwaita";
-    package = pkgs.adwaita-icon-theme;
-    sway.enable = true;
-  };
 
   programs.gpg.enable = true;
   services.gpg-agent = {
