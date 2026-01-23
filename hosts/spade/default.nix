@@ -46,16 +46,16 @@
 
   hardware.xpadneo.enable = true;
 
-  # programs.gamescope = {
-  #   enable = true; # Installs gamescope
-  #   capSysNice = true; # Allows gamescope to set process priority for better performance
-  # };
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
 
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.moonlight-qt}/bin/moonlight";
+        command = "${pkgs.gamescope}/bin/gamescope -f -W 3840 -H 2160 -- ${pkgs.moonlight-qt}/bin/moonlight";
         user = "mojadem";
       };
     };
