@@ -3,8 +3,8 @@ set $term ghostty
 set $browser firefox
 set $menu fuzzel --no-icons
 
-bindsym Super+Return exec $term
-bindsym Super+Shift+Return exec $browser
+bindsym Alt+Return exec $term
+bindsym Alt+Shift+Return exec $browser
 bindsym Super+space exec $menu
 
 # navigation
