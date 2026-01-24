@@ -14,20 +14,10 @@
     ./hardware-configuration.nix
     ../../modules/nixos
     ../../modules/nixos/moonlight.nix
+    ../../modules/nixos/controller.nix
   ];
 
-  hardware.bluetooth = {
-    enable = true;
-    settings = {
-      General = {
-        Experimental = true;
-      };
-    };
-  };
-
   home-manager.users.mojadem = ./home.nix;
-
-  hardware.xpadneo.enable = true;
 
   programs.gamescope = {
     enable = true;
