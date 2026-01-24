@@ -9,12 +9,11 @@
   networking.hostName = "spade";
   system.stateVersion = "25.11";
 
-  environment.systemPackages = with pkgs; [
-    moonlight-qt
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
     ../../modules/nixos
+    ../../modules/nixos/moonlight.nix
   ];
 
   hardware.bluetooth = {
@@ -26,12 +25,6 @@
     };
   };
 
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-    ];
-  };
   home-manager.users.mojadem = ./home.nix;
 
   hardware.xpadneo.enable = true;
@@ -60,8 +53,4 @@
   };
   security.rtkit.enable = true; # real-time audio
 
-  users.users.mojadem.extraGroups = [
-    "input"
-    "video"
-  ];
 }
