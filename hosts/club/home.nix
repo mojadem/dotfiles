@@ -1,5 +1,4 @@
 {
-  self,
   config,
   pkgs,
   ...
@@ -7,8 +6,8 @@
 
 {
   imports = [
-    self.homeModules.default
-    self.homeModules.apps
+    ../../modules/home
+    ../../modules/home/apps.nix
   ];
 
   home.pointerCursor = {

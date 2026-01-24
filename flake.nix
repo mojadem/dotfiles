@@ -15,27 +15,14 @@
       nixpkgs,
       home-manager,
       ...
-    }:
+    }@inputs:
     {
-      homeModules = {
-        default = ./modules/home;
-        apps = ./modules/home/apps.nix;
-      };
-
-      nixosModules = {
-        default = ./modules/nixos;
-        gaming = ./modules/nixos/gaming.nix;
-        plasma = ./modules/nixos/plasma.nix;
-        sway = ./modules/nixos/sway.nix;
-      };
-
       nixosConfigurations = {
         club = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit self; };
+          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/club
-            home-manager.nixosModules.home-manager
           ];
         };
 
