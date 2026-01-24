@@ -16,22 +16,19 @@
       home-manager,
       ...
     }@inputs:
+
     {
       nixosConfigurations = {
         club = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/club
-          ];
+          modules = [ ./hosts/club ];
         };
 
         spade = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/spade
-          ];
+          modules = [ ./hosts/spade ];
         };
       };
     };

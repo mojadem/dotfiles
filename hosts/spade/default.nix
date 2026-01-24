@@ -1,6 +1,5 @@
 {
   inputs,
-  config,
   pkgs,
   ...
 }:
@@ -19,6 +18,8 @@
 
   home-manager.users.mojadem = ./home.nix;
 
+  services.openssh.enable = true;
+
   programs.gamescope = {
     enable = true;
     capSysNice = true;
@@ -34,13 +35,11 @@
     };
   };
 
-  services.openssh.enable = true;
-
-  # audio
   services.pipewire = {
     enable = true;
     pulse.enable = true;
   };
-  security.rtkit.enable = true; # real-time audio
 
+  # Enable low-latency audio. This may or may not be necessary.
+  security.rtkit.enable = true;
 }
