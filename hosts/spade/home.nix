@@ -1,12 +1,5 @@
-{
-  self,
-  config,
-  pkgs,
-  ...
-}:
+{ ... }:
 
 {
-  imports = [
-    self.homeModules.default
-  ];
+  imports = [ ../../modules/home ];
 }

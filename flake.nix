@@ -28,10 +28,9 @@
 
         spade = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit self; };
+          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/spade
-            home-manager.nixosModules.home-manager
           ];
         };
       };

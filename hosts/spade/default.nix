@@ -1,31 +1,20 @@
 {
-  self,
+  inputs,
   config,
   pkgs,
   ...
 }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-    self.nixosModules.default
-  ];
-
-  home-manager = {
-    users.mojadem = ./home.nix;
-    extraSpecialArgs = { inherit self; };
-  };
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
   networking.hostName = "spade";
   system.stateVersion = "25.11";
 
   environment.systemPackages = with pkgs; [
     moonlight-qt
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+    ./hardware-configuration.nix
+    ../../modules/nixos
   ];
 
   hardware.bluetooth = {
@@ -43,6 +32,7 @@
       intel-media-driver
     ];
   };
+  home-manager.users.mojadem = ./home.nix;
 
   hardware.xpadneo.enable = true;
 
