@@ -10,6 +10,7 @@
     ../../modules/nixos
     ../../modules/nixos/gaming.nix
     ../../modules/nixos/plasma.nix
+    ../../modules/nixos/sunshine.nix
     ../../modules/nixos/sway.nix
   ];
 
@@ -23,12 +24,5 @@
     systemPackages = with pkgs; [
       btop-rocm
     ];
-  };
-
-  services.sunshine = {
-    enable = true;
-    autoStart = true;
-    capSysAdmin = true;
-    openFirewall = true;
   };
 }
