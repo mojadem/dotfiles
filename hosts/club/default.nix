@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     ../../modules/nixos
     ../../modules/nixos/gaming.nix
+    ../../modules/nixos/music.nix
     ../../modules/nixos/plasma.nix
     ../../modules/nixos/sunshine.nix
     ../../modules/nixos/sway.nix
