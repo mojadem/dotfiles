@@ -8,5 +8,9 @@ function fish_prompt
     set err (string match --invert -q 0 $last_pipestatus && echo -s (set_color red) "[$last_pipestatus]")
     set sym (set_color brwhite) '> '
 
-    echo -ns $user @ $host ' ' $cwd $vcs $err $sym
+    if contains -- --final-rendering $argv
+        echo -ns (path basename $cwd) $sym
+    else
+        echo -ens $user @ $host ' ' $cwd $vcs $err '\n' $sym
+    end
 end

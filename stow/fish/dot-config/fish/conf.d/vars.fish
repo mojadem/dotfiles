@@ -1,5 +1,6 @@
 set -g fish_greeting
 set -g fish_key_bindings fish_default_key_bindings
+set -g fish_transient_prompt 1
 
 set fish_color_command brcyan
 set fish_color_comment brblack
