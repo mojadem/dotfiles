@@ -13,7 +13,13 @@ update:
 	nix store diff-closures /run/current-system ./result
 
 rebuild:
+	@just _rebuild-{{os()}}
+
+_rebuild-linux:
 	sudo nixos-rebuild switch --flake .#{{ host }}
+
+_rebuild-macos:
+	sudo darwin-rebuild switch --flake .#{{ host }}
 
 stow:
     ls stow/ | xargs stow --restow --dir stow/ --target ~ --dotfiles
