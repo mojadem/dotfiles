@@ -4,9 +4,6 @@
   home.stateVersion = "25.11";
   programs.home-manager.enable = true;
 
-  home.username = "mojadem";
-  home.homeDirectory = "/home/mojadem";
-
   home.packages = with pkgs; [
     aerc
     aspell
