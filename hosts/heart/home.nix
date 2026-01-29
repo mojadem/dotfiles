@@ -1,5 +1,8 @@
 { ... }:
 
 {
-  imports = [ ../../modules/home ];
+  imports = [
+    ../../modules/home
+    ../../modules/home/darwin.nix
+  ];
 }
