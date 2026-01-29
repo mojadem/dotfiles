@@ -9,8 +9,14 @@ default:
 
 update:
 	nix flake update
-	nixos-rebuild build --flake .#{{ host }}
+	@just _build-{{os()}}
 	nix store diff-closures /run/current-system ./result
+
+_build-linux:
+	nixos-rebuild build --flake .#{{ host }}
+
+_build-macos:
+	darwin-rebuild build --flake .#{{ host }}
 
 rebuild:
 	@just _rebuild-{{os()}}
