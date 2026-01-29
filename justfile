@@ -1,8 +1,6 @@
-user := env_var('USER')
 host := `uname -n`
 
 default:
-	@echo "Username: {{ user }}"
 	@echo "Hostname: {{ host }}"
 	@echo "System: {{ os() }}"
 	@just --list
