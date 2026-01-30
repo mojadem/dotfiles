@@ -8,7 +8,7 @@ default:
 update:
 	nix flake update
 	@just _build-{{os()}}
-	nix store diff-closures /run/current-system ./result
+	nvd diff /run/current-system ./result
 
 _build-linux:
 	nixos-rebuild build --flake .#{{ host }}
