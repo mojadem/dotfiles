@@ -22,6 +22,7 @@
     mdformat
     moreutils
     nixfmt
+    nvd
     pass
     ripgrep
     stow
