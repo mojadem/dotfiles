@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 export SESSION_CMD='tmux ls -F "#{session_name}" | rg -vx $(tmux display-message -p "#{session_name}")'
-export REPO_CMD='fd -HI -t=d -d=3 --format={//} -g .git $HOME/dev | sed "s|$HOME|~|"'
+export REPO_CMD='fd -HI -d=3 --format={//} -g .git $HOME/dev | sed "s|$HOME|~|"'
 
 toggle_mode() {
 	if [ "$(cat $1)" = 'sessions' ]; then
