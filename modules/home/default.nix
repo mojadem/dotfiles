@@ -5,7 +5,6 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    aerc
     aspell
     aspellDicts.en
     aspellDicts.en-computers

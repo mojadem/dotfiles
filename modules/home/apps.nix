@@ -8,7 +8,6 @@
     firefox
     spotify
     qbittorrent
-    protonmail-bridge
     protonvpn-gui
   ];
 }

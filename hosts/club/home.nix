@@ -8,6 +8,7 @@
   imports = [
     ../../modules/home
     ../../modules/home/apps.nix
+    ../../modules/home/email.nix
   ];
 
   home.pointerCursor = {
