@@ -5,7 +5,8 @@ if status is-login; and test (tty) = /dev/tty1
         echo "2) KDE Plasma"
         echo "*) cancel"
 
-        read -P "> " choice
+        read -P "[1] > " choice
+        test -z $choice && set choice 1
 
         switch $choice
             case 1
