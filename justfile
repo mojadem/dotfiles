@@ -31,5 +31,5 @@ stow:
 unstow:
     ls stow/ | xargs stow --delete --dir stow/ --target ~ --dotfiles
 
-add-package PACKAGE:
+mk-package PACKAGE:
     mkdir -p stow/{{PACKAGE}}/dot-config/{{PACKAGE}}
