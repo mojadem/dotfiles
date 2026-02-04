@@ -33,3 +33,7 @@ unstow:
 
 mk-package PACKAGE:
     mkdir -p stow/{{PACKAGE}}/dot-config/{{PACKAGE}}
+
+rm-package PACKAGE:
+	stow --delete --dir stow/ --target ~ --dotfiles {{PACKAGE}}
+	rm -rf stow/{{PACKAGE}}
