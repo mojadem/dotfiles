@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  imports = [ ./programs/aerc.nix ];
+
   accounts.email.accounts.protonmail = {
     primary = true;
     address = "matt@dembiczak.net";
@@ -21,13 +23,6 @@
     passwordCommand = "pass show email/protonmail-bridge";
 
     aerc.enable = true;
-  };
-
-  programs.aerc = {
-    enable = true;
-    extraConfig = {
-      general.unsafe-accounts-conf = true;
-    };
   };
 
   services.protonmail-bridge = {
