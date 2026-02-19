@@ -10,6 +10,7 @@
     aspellDicts.en-computers
     bat
     claude-code
+    dix
     fd
     fzf
     gh
@@ -21,7 +22,6 @@
     mdformat
     moreutils
     nixfmt
-    nvd
     pass
     ripgrep
     stow
