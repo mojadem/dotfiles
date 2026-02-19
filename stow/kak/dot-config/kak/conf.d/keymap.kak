@@ -19,8 +19,9 @@ map global user t ':touch-new-file<ret>' -docstring 'touch new file'
 map global user y '<a-|>copy<ret>:echo yanked selection to system clipboard<ret>' -docstring 'yank to system clipboard'
 
 map global user | ':enter-user-mode pipe<ret>' -docstring 'pipe mode'
-map global pipe s '|sort<ret>' -docstring 'sort'
 map global pipe p '|par s0T4w80<ret>' -docstring 'par'
+map global pipe s '|sort<ret>' -docstring 'sort'
+map global pipe d '|date -u +%Y-%m-%d<ret>' -docstring 'date'
 
 map global user w ':enter-user-mode window<ret>' -docstring 'window mode'
 map global window v ':tmux-terminal-horizontal kak -c %val{session}<ret>' -docstring 'vertical split'
