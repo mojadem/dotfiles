@@ -12,6 +12,7 @@
     claude-code
     dix
     fd
+    ffmpeg
     fzf
     gh
     git
