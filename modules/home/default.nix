@@ -26,6 +26,7 @@
     pass
     ripgrep
     stow
+    tealdeer
     tmux
     tree
     wget
