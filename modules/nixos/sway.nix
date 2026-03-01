@@ -5,11 +5,12 @@
     enable = true;
     extraPackages = with pkgs; [
       cliphist
-      foot
       fuzzel
       grim
-      slurp
       mako
+      mpv
+      slurp
+      swayimg
       wl-clipboard
     ];
   };
