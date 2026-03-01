@@ -7,6 +7,9 @@ default:
 
 update:
 	nix flake update
+	@just diff
+
+diff:
 	@just _build-{{os()}}
 	dix /run/current-system ./result
 
