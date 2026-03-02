@@ -16,5 +16,6 @@
   users.users.mojadem.extraGroups = [
     "input"
     "video"
+    "render"
   ];
 }
