@@ -45,9 +45,9 @@ define-command -override yank-buffer-name -params 0..1 -docstring '
 ' %{
     nop %sh{
         if [ "$1" = "-line" ]; then
-            printf "%s:%s" $kak_bufname $kak_cursor_line | copy
+            printf "%s:%s" "$kak_bufname" "$kak_cursor_line" | copy
         else
-            printf "%s" $kak_bufname | copy
+            printf "%s" "$kak_bufname" | copy
         fi
     }
 }
@@ -55,12 +55,25 @@ complete-command yank-buffer-name shell-script-candidates %{
     echo "-line"
 }
 
-define-command -override yank-line-github-link %{
+define-command -override yank-github-link -params 0..1 -docstring '
+    yank-github-link [-line]: yank github link to clipboard
+    Switches:
+        -line: include the cursor line number
+' %{
     nop %sh{
         repo=$(git remote get-url origin | sed 's|git@github.com:|https://github.com/|' | sed 's/\.git$//')
         ref=$(git rev-parse HEAD)
-        printf "${repo}/blob/${ref}/${kak_bufname}#L${kak_cursor_line}" | copy
+        url="${repo}/blob/${ref}/${kak_bufname}"
+-
+        if [ "$1" = "-line" ]; then
+            printf "%s#L%s" "$url" "$kak_cursor_line" | copy
+        else
+            printf "%s" "$url" | copy
+        fi
     }
+}
+complete-command yank-github-link shell-script-candidates %{
+    echo "-line"
 }
 
 define-command -override yank-join -docstring '
