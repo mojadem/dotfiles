@@ -24,7 +24,9 @@
     moreutils
     nixfmt
     pass
+    rclone
     ripgrep
+    rsync
     stow
     tealdeer
     tmux
