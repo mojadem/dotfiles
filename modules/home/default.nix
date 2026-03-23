@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
+  imports = [
+    ./programs/zathura.nix
+  ];
+
   home.stateVersion = "25.11";
   programs.home-manager.enable = true;
 
