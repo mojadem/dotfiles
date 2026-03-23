@@ -9,7 +9,7 @@ function fish_prompt
     set sym (set_color brwhite) '> '
 
     if contains -- --final-rendering $argv
-        echo -ns (path basename $cwd) $sym
+        echo -ns $cwd $sym
     else
         echo -ens $user @ $host ' ' $cwd $vcs $err '\n' $sym
     end
