@@ -1,3 +1,5 @@
+abbr syspend "sleep 5; systemctl suspend"
+
 if status is-login; and test (tty) = /dev/tty1
     function launch_environment --on-event init_done
         echo "Select environment:"
