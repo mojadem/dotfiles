@@ -23,6 +23,14 @@
     passwordCommand = "pass show email/protonmail-bridge";
 
     aerc.enable = true;
+    thunderbird.enable = true;
+  };
+
+  programs.thunderbird = {
+    enable = true;
+    profiles.default = {
+      isDefault = true;
+    };
   };
 
   services.protonmail-bridge = {
