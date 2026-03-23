@@ -27,6 +27,11 @@
 
   services.protonmail-bridge = {
     enable = true;
-    extraPackages = with pkgs; [ pass ];
+    extraPackages = with pkgs; [ pass gnupg ];
+  };
+
+  systemd.user.services.protonmail-bridge = {
+    Unit.After = [ "gpg-agent.service" ];
+    Unit.Requires = [ "gpg-agent.service" ];
   };
 }
