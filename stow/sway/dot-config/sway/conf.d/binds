@@ -45,6 +45,8 @@ bindsym Super+f fullscreen
 bindsym Super+t focus mode_toggle
 bindsym Super+Shift+t floating toggle
 bindsym Super+b border toggle
+bindsym Super+w layout toggle tabbed split
+bindsym Super+a focus parent
 
 mode "resize" {
 	bindsym Left resize shrink width 10px
