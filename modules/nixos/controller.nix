@@ -1,8 +1,9 @@
 { ... }:
 
 {
+  imports = [ ./bluetooth.nix ];
+
   hardware.bluetooth = {
-    enable = true;
     settings = {
       General = {
         Experimental = true;

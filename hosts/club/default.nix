@@ -8,6 +8,7 @@
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
     ../../modules/nixos
+    ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/gaming.nix
     ../../modules/nixos/music.nix
     ../../modules/nixos/plasma.nix
