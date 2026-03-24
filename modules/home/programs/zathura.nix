@@ -4,11 +4,12 @@
   programs.zathura = {
     enable = true;
     options = {
-      selection-clipboard = "clipboard";
-      recolor = true;
+      default-bg = "#1d2021";
       recolor-darkcolor = "#ebdbb2";
       recolor-lightcolor = "#282828";
-      default-bg = "#1d2021";
+      recolor = true;
+      selection-clipboard = "clipboard";
+      window-title-basename = true;
     };
   };
 }
