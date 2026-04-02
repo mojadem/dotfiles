@@ -1,4 +1,4 @@
-remove-hooks global user
+remove-hooks global user.*
 
 declare-option -hidden bool init_done
 evaluate-commands %sh{

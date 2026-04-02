@@ -12,12 +12,11 @@ evaluate-commands %sh{
     set_autoformat() {
         filetype=$1
         printf %s "
-            hook -group user global BufSetOption filetype=${filetype} %{
+            hook -group user-autoformat-${filetype} global BufSetOption filetype=${filetype} %{
                 hook -group format buffer BufWritePre .* format
             }
         "
     }
-
 
     set_formatcmd fish fish_indent && set_autoformat fish
     set_formatcmd go gofmt && set_autoformat go
@@ -31,4 +30,17 @@ evaluate-commands %sh{
     set_formatcmd typescript 'prettier --parser typescript' && set_autoformat typescript
     set_formatcmd yaml 'yamlfmt -'
     set_formatcmd zig 'zig fmt --stdin' && set_autoformat zig
+}
+
+define-command -override autoformat-disable -params 0..1 -docstring '
+    autoformat-disable [<filetype>]: disable autoformat for the specified filetype or current buffer filetype
+' %{
+    evaluate-commands %sh{
+        if [ -z "$1" ]; then
+            echo "remove-hooks buffer format"
+            echo "set global disabled_hooks user-autoformat-$kak_opt_filetype"
+        else
+            echo "set global disabled_hooks user-autoformat-$1"
+        fi
+    }
 }
