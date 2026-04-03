@@ -4,5 +4,6 @@ function clone
         return 1
     end
 
-    git clone git@github.com:$argv.git ~/dev/$argv
+    set slug (string lower $argv)
+    git clone git@github.com:$slug.git ~/dev/$slug
 end
