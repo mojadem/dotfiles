@@ -8,6 +8,6 @@
     firefox
     spotify
     qbittorrent
-    protonvpn-gui
+    proton-vpn
   ];
 }
