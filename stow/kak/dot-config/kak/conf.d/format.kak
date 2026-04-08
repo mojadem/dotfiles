@@ -36,7 +36,6 @@ evaluate-commands %sh{
             hook -group user global BufSetOption filetype=${filetype} %{
                 set-option buffer formatcmd '${cmd}'
             }
-            autoformat-enable $filetype
         "
     }
 
@@ -53,3 +52,14 @@ evaluate-commands %sh{
     set_formatcmd yaml 'yamlfmt -'
     set_formatcmd zig 'zig fmt --stdin'
 }
+
+autoformat-enable fish
+autoformat-enable go
+autoformat-enable go
+autoformat-enable kak
+autoformat-enable lua
+autoformat-enable nix
+autoformat-enable rust
+autoformat-enable sh
+autoformat-enable typescript
+autoformat-enable zig
