@@ -4,7 +4,9 @@
   programs.aerc = {
     enable = true;
     extraConfig = {
+      # Required when generating accounts conf with home manager.
       general.unsafe-accounts-conf = true;
+
       filters."text/plain" = "colorize";
       filters."text/html" = "html | colorize";
     };
@@ -197,6 +199,16 @@
         "<C-PgUp>" = ":prev-tab<Enter>";
         "<C-PgDn>" = ":next-tab<Enter>";
       };
+    };
+  };
+
+  accounts.email.accounts.personal.aerc = {
+    enable = true;
+    extraAccounts = {
+      default = "INBOX";
+      # TODO: remove once merged: https://github.com/nix-community/home-manager/pull/9080
+      source = "imaps://matt%40dembiczak.net@imap.migadu.com:993";
+      outgoing = "smtps+plain://matt%40dembiczak.net@smtp.migadu.com:465";
     };
   };
 

@@ -20,15 +20,6 @@
 
     passwordCommand = "pass show email/personal";
 
-    aerc = {
-      enable = true;
-      extraAccounts = {
-        default = "INBOX";
-        # TODO: remove once merged: https://github.com/nix-community/home-manager/pull/9080
-        source = "imaps://matt%40dembiczak.net@imap.migadu.com:993";
-        outgoing = "smtps+plain://matt%40dembiczak.net@smtp.migadu.com:465";
-      };
-    };
     thunderbird.enable = true;
   };
 
