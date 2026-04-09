@@ -11,6 +11,7 @@
       mpv
       slurp
       swayimg
+      swaylock
       wl-clipboard
     ];
   };
