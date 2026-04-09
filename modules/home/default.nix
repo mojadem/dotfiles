@@ -20,6 +20,7 @@
     fzf
     gh
     git
+    gnupg
     just
     kakoune
     kakoune-lsp
