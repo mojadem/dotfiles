@@ -1,9 +1,12 @@
 { pkgs, ... }:
+
 {
   programs.aerc = {
     enable = true;
     extraConfig = {
       general.unsafe-accounts-conf = true;
+      filters."text/plain" = "colorize";
+      filters."text/html" = "html | colorize";
     };
     extraBinds = {
       global = {
@@ -196,4 +199,8 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+    w3m
+  ];
 }
