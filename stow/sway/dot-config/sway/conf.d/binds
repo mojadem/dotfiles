@@ -60,7 +60,7 @@ mode "resize" {
 bindsym Super+r mode "resize"
 
 bindsym Super+c reload
-bindsym Super+Ctrl+q exec swaylock -i ~/pictures/wallpapers/wallpaper.png
+bindsym Super+Ctrl+q exec swaylock
 bindsym Super+Ctrl+e exec swaynag -t warning -m 'confirm exit' -B 'exit' 'swaymsg exit'
 
 # media keys
