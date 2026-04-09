@@ -3,11 +3,11 @@
 {
   environment.systemPackages = with pkgs; [
     alsa-utils
-    pipewire.jack
     fluidsynth
+    pipewire.jack
     qsynth
     soundfont-fluid
-    soundfont-generaluser
+    soundfont-generaluser-gs
   ];
 
   services.pipewire = {
