@@ -39,6 +39,4 @@
   programs.fish.enable = true;
   security.sudo.wheelNeedsPassword = false;
   time.timeZone = "America/New_York";
-
-  # TODO: security.rtkit.enable?
 }
