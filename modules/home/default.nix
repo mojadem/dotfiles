@@ -13,6 +13,7 @@
     aspellDicts.en
     aspellDicts.en-computers
     bat
+    btop
     claude-code
     dix
     fd
