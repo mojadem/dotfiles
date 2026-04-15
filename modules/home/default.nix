@@ -30,6 +30,7 @@
     moreutils
     nixfmt
     pass
+    pi-coding-agent
     rclone
     ripgrep
     rsync
