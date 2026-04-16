@@ -23,6 +23,10 @@
     thunderbird.enable = true;
   };
 
+  home.packages = with pkgs; [
+      pass
+  ];
+
   programs.thunderbird = {
     enable = true;
     profiles.default = {
