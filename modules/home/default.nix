@@ -34,6 +34,7 @@
     rclone
     ripgrep
     rsync
+    sl
     stow
     tealdeer
     tmux
