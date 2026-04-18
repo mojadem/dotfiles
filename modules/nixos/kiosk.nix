@@ -6,6 +6,7 @@ let
     while true; do
       ${pkgs.cage}/bin/cage -s -- ${pkgs.moonlight-qt}/bin/moonlight
       ${kodi}/bin/kodi-standalone
+      ${pkgs.cage}/bin/cage -s -- ${pkgs.chromium}/bin/chromium --kiosk https://mojadem.dev
     done
   '';
 in
