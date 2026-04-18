@@ -1,0 +1,237 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/rgb.h>
+
+/ {
+  behaviors {
+    u_mt: u_mt {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      tapping-term-ms = <200>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+    u_lt: u_lt {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      tapping-term-ms = <200>;
+      flavor = "tap-preferred";
+      bindings = <&mo>, <&kp>;
+    };
+    u_caps_word: u_caps_word {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&caps_word>, <&kp CAPS>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    u_out_tog: u_out_tog {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&out OUT_TOG>, <&out OUT_USB>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    u_bt_sel_0: u_bt_sel_0 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&bt BT_SEL 0>, <&u_macro_u_bt_sel_0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    u_bt_sel_1: u_bt_sel_1 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&bt BT_SEL 1>, <&u_macro_u_bt_sel_1>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    u_bt_sel_2: u_bt_sel_2 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&bt BT_SEL 2>, <&u_macro_u_bt_sel_2>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    u_bt_sel_3: u_bt_sel_3 {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&bt BT_SEL 3>, <&u_macro_u_bt_sel_3>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    u_to_U_BASE: u_to_U_BASE {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&none>, <&to 0>;
+    };
+    u_to_U_EXTRA: u_to_U_EXTRA {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&none>, <&to 1>;
+    };
+    u_to_U_TAP: u_to_U_TAP {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&none>, <&to 2>;
+    };
+    u_to_U_BUTTON: u_to_U_BUTTON {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&none>, <&to 3>;
+    };
+    u_to_U_NAV: u_to_U_NAV {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&none>, <&to 4>;
+    };
+    u_to_U_MEDIA: u_to_U_MEDIA {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&none>, <&to 5>;
+    };
+    u_to_U_NUM: u_to_U_NUM {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&none>, <&to 6>;
+    };
+    u_to_U_SYM: u_to_U_SYM {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&none>, <&to 7>;
+    };
+    u_to_U_FUN: u_to_U_FUN {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&none>, <&to 8>;
+    };
+  };
+
+  macros {
+    u_macro_u_bt_sel_0: u_macro_u_bt_sel_0 {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      bindings = <&bt BT_SEL 0>, <&bt BT_CLR>;
+    };
+    u_macro_u_bt_sel_1: u_macro_u_bt_sel_1 {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      bindings = <&bt BT_SEL 1>, <&bt BT_CLR>;
+    };
+    u_macro_u_bt_sel_2: u_macro_u_bt_sel_2 {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      bindings = <&bt BT_SEL 2>, <&bt BT_CLR>;
+    };
+    u_macro_u_bt_sel_3: u_macro_u_bt_sel_3 {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      bindings = <&bt BT_SEL 3>, <&bt BT_CLR>;
+    };
+  };
+
+  keymap {
+    compatible = "zmk,keymap";
+
+    // 0: BASE (Colemak DH)
+    U_BASE_layer {
+      bindings = <
+        &none  &kp Q          &kp W          &kp F          &kp P          &kp B          &kp J          &kp L          &kp U          &kp Y          &kp SQT        &none
+        &none  &u_mt LGUI A   &u_mt LALT R   &u_mt LCTRL S  &u_mt LSHFT T  &kp G          &kp M          &u_mt LSHFT N  &u_mt LCTRL E  &u_mt LALT I   &u_mt LGUI O   &none
+        &none  &u_lt 3 Z      &u_mt RALT X   &kp C          &kp D          &kp V          &kp K          &kp H          &kp COMMA      &u_mt RALT DOT &u_lt 3 SLASH  &none
+                              &u_lt 5 ESC    &u_lt 4 SPACE  &u_lt 7 TAB    &u_lt 7 RET    &u_lt 6 BSPC   &u_lt 8 DEL
+      >;
+    };
+
+    // 1: EXTRA (same as BASE — no alternate alpha layout defined)
+    U_EXTRA_layer {
+      bindings = <
+        &none  &kp Q          &kp W          &kp F          &kp P          &kp B          &kp J          &kp L          &kp U          &kp Y          &kp SQT        &none
+        &none  &u_mt LGUI A   &u_mt LALT R   &u_mt LCTRL S  &u_mt LSHFT T  &kp G          &kp M          &u_mt LSHFT N  &u_mt LCTRL E  &u_mt LALT I   &u_mt LGUI O   &none
+        &none  &u_lt 3 Z      &u_mt RALT X   &kp C          &kp D          &kp V          &kp K          &kp H          &kp COMMA      &u_mt RALT DOT &u_lt 3 SLASH  &none
+                              &u_lt 5 ESC    &u_lt 4 SPACE  &u_lt 7 TAB    &u_lt 7 RET    &u_lt 6 BSPC   &u_lt 8 DEL
+      >;
+    };
+
+    // 2: TAP (Colemak DH, no hold-tap)
+    U_TAP_layer {
+      bindings = <
+        &none  &kp Q    &kp W    &kp F    &kp P     &kp B    &kp J    &kp L    &kp U      &kp Y    &kp SQT    &none
+        &none  &kp A    &kp R    &kp S    &kp T     &kp G    &kp M    &kp N    &kp E      &kp I    &kp O      &none
+        &none  &kp Z    &kp X    &kp C    &kp D     &kp V    &kp K    &kp H    &kp COMMA  &kp DOT  &kp SLASH  &none
+                        &kp ESC  &kp SPACE  &kp TAB  &kp RET  &kp BSPC  &kp DEL
+      >;
+    };
+
+    // 3: BUTTON
+    U_BUTTON_layer {
+      bindings = <
+        &none  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LS(LG(Z))    &kp LS(LG(Z))  &kp LG(V)  &kp LG(C)  &kp LG(X)  &kp LG(Z)  &none
+        &none  &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &none             &none           &kp LSHFT  &kp LCTRL  &kp LALT   &kp LGUI   &none
+        &none  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LS(LG(Z))    &kp LS(LG(Z))  &kp LG(V)  &kp LG(C)  &kp LG(X)  &kp LG(Z)  &none
+                          &mkp MB3   &mkp MB1   &mkp MB2                       &mkp MB2        &mkp MB1   &mkp MB3
+      >;
+    };
+
+    // 4: NAV (VI style)
+    U_NAV_layer {
+      bindings = <
+        &none  &bootloader   &u_to_U_TAP  &u_to_U_EXTRA  &u_to_U_BASE  &none    &kp LS(LG(Z))  &kp LG(V)  &kp LG(C)  &kp LG(X)  &kp LG(Z)     &none
+        &none  &kp LGUI      &kp LALT     &kp LCTRL      &kp LSHFT     &none    &kp LEFT        &kp DOWN   &kp UP     &kp RIGHT  &u_caps_word  &none
+        &none  &none         &kp RALT     &u_to_U_NUM    &u_to_U_NAV   &none    &kp HOME        &kp PG_DN  &kp PG_UP  &kp END    &kp INS      &none
+                             &none        &none           &none          &kp RET  &kp BSPC        &kp DEL
+      >;
+    };
+
+    // 5: MEDIA
+    U_MEDIA_layer {
+      bindings = <
+        &none  &bootloader   &u_to_U_TAP  &u_to_U_EXTRA  &u_to_U_BASE  &none    &rgb_ug RGB_TOG   &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI   &none
+        &none  &kp LGUI      &kp LALT     &kp LCTRL      &kp LSHFT     &none    &ext_power EP_TOG  &kp C_PREV      &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT        &none
+        &none  &none         &kp RALT     &u_to_U_FUN    &u_to_U_MEDIA &none    &u_out_tog          &u_bt_sel_0     &u_bt_sel_1     &u_bt_sel_2     &u_bt_sel_3       &none
+                             &none        &none           &none          &kp C_STOP  &kp C_PP       &kp C_MUTE
+      >;
+    };
+
+    // 6: NUM
+    U_NUM_layer {
+      bindings = <
+        &none  &kp LBKT   &kp N7   &kp N8   &kp N9   &kp RBKT     &none  &u_to_U_BASE  &u_to_U_EXTRA  &u_to_U_TAP  &bootloader  &none
+        &none  &kp SEMI   &kp N4   &kp N5   &kp N6   &kp EQUAL    &none  &kp LSHFT     &kp LCTRL      &kp LALT     &kp LGUI     &none
+        &none  &kp GRAVE  &kp N1   &kp N2   &kp N3   &kp BSLH     &none  &u_to_U_NUM   &u_to_U_NAV    &kp RALT     &none        &none
+                          &kp DOT  &kp N0   &kp MINUS  &none        &none  &none
+      >;
+    };
+
+    // 7: SYM (custom layer from custom_config.h)
+    U_SYM_layer {
+      bindings = <
+        &none  &none              &kp LPAR          &kp RPAR           &kp PRCNT          &kp PLUS     &kp AMPS  &kp HASH           &kp LBRC           &kp RBRC          &kp DQT          &none
+        &none  &u_mt LGUI UNDER   &u_mt LALT STAR   &u_mt LCTRL EXCL   &u_mt LSHFT EQUAL  &kp MINUS    &kp PIPE  &u_mt LSHFT COLON  &u_mt LCTRL CARET  &u_mt LALT DLLR   &u_mt LGUI SEMI  &none
+        &none  &kp BSLH           &kp LBKT          &kp RBKT            &kp AT             &kp GRAVE    &kp TILDE &kp SLASH          &kp LT             &kp GT            &kp QMARK        &none
+                                  &kp ESC           &kp SPACE          &kp TAB            &kp RET      &kp BSPC  &kp DEL
+      >;
+    };
+
+    // 8: FUN
+    U_FUN_layer {
+      bindings = <
+        &none  &kp F12  &kp F7   &kp F8     &kp F9     &kp PSCRN        &none  &u_to_U_BASE  &u_to_U_EXTRA  &u_to_U_TAP  &bootloader  &none
+        &none  &kp F11  &kp F4   &kp F5     &kp F6     &kp SLCK         &none  &kp LSHFT     &kp LCTRL      &kp LALT     &kp LGUI     &none
+        &none  &kp F10  &kp F1   &kp F2     &kp F3     &kp PAUSE_BREAK  &none  &u_to_U_FUN   &u_to_U_MEDIA  &kp RALT     &none        &none
+                        &kp K_APP  &kp SPACE  &kp TAB  &none  &none  &none
+      >;
+    };
+  };
+};

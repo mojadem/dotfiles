@@ -1,0 +1,5 @@
+---
+- board: nice_nano
+  shield: corne_left
+- board: nice_nano
+  shield: corne_right
