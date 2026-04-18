@@ -4,7 +4,7 @@ let
   kodi = pkgs.kodi-gbm.withPackages (p: [ p.joystick ]);
   kiosk-session = pkgs.writeShellScript "kiosk-session" ''
     while true; do
-      ${pkgs.gamescope}/bin/gamescope -f -W 3840 -H 2160 -- ${pkgs.moonlight-qt}/bin/moonlight
+      ${pkgs.cage}/bin/cage -s -- ${pkgs.moonlight-qt}/bin/moonlight
       ${kodi}/bin/kodi-standalone
     done
   '';
@@ -38,7 +38,7 @@ in
     "audio"
     # Needed for access input devices (/dev/input/*).
     "input"
-    # Needed for hardware decoding in both gamescope and moonlight (/dev/dri/renderD*).
+    # Needed for hardware decoding in moonlight (/dev/dri/renderD*).
     "render"
   ];
 }
