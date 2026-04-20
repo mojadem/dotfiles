@@ -40,6 +40,7 @@
     tmux
     tree
     wget
+    yamlfmt
   ];
 
   programs.gpg.enable = true;
