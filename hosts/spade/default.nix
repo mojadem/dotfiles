@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, username, ... }:
 
 {
   networking.hostName = "spade";
@@ -12,7 +12,7 @@
     ../../modules/nixos/kiosk.nix
   ];
 
-  home-manager.users.mojadem = ./home.nix;
+  home-manager.users.${username} = ./home.nix;
 
   services.openssh.enable = true;
 

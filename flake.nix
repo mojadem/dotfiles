@@ -26,20 +26,29 @@
       nixosConfigurations = {
         club = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+            username = "mojadem";
+          };
           modules = [ ./hosts/club ];
         };
 
         spade = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+            username = "mojadem";
+          };
           modules = [ ./hosts/spade ];
         };
       };
 
       darwinConfigurations = {
         heart = nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+            username = "mojadem";
+          };
           modules = [ ./hosts/heart ];
         };
       };

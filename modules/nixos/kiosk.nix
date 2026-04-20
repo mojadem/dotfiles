@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 let
   kodi = pkgs.kodi-gbm.withPackages (p: [ p.joystick ]);
@@ -24,7 +24,7 @@ in
     enable = true;
     settings.default_session = {
       command = kiosk-session;
-      user = "mojadem";
+      user = username;
     };
   };
 
@@ -34,7 +34,7 @@ in
   };
   security.rtkit.enable = true;
 
-  users.users.mojadem.extraGroups = [
+  users.users.${username}.extraGroups = [
     # Maybe needed for fixing RTSP handshake errors between sunshine/moonlight.
     "audio"
     # Needed for access input devices (/dev/input/*).

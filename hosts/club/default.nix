@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, username, ... }:
 
 {
   networking.hostName = "club";
@@ -16,7 +16,7 @@
     ../../modules/nixos/sway.nix
   ];
 
-  home-manager.users.mojadem = ./home.nix;
+  home-manager.users.${username} = ./home.nix;
 
   environment = {
     sessionVariables = {

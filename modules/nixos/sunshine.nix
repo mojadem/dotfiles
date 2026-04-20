@@ -1,4 +1,4 @@
-{ ... }:
+{ username, ... }:
 
 {
   services.sunshine = {
@@ -8,7 +8,7 @@
     openFirewall = true;
   };
 
-  users.users.mojadem.extraGroups = [
+  users.users.${username}.extraGroups = [
     "video"
     "render"
   ];

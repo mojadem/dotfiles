@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
   nix.settings.experimental-features = [
@@ -23,7 +23,7 @@
     useUserPackages = true;
   };
 
-  users.users.mojadem = {
+  users.users.${username} = {
     description = "Matt Dembiczak";
     isNormalUser = true;
     shell = pkgs.fish;

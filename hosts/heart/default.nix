@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, username, ... }:
 
 {
   networking.hostName = "heart";
@@ -10,5 +10,5 @@
     ../../modules/darwin
   ];
 
-  home-manager.users.mojadem = ./home.nix;
+  home-manager.users.${username} = ./home.nix;
 }
