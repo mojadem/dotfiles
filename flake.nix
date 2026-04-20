@@ -51,6 +51,14 @@
           };
           modules = [ ./hosts/heart ];
         };
+
+        diamond = nix-darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit inputs;
+            username = "mattdembiczak";
+          };
+          modules = [ ./hosts/diamond ];
+        };
       };
     };
 }
