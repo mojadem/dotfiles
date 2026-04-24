@@ -7,3 +7,5 @@ fish_add_path ~/dev/khan/webapp/genfiles/go/bin
 
 set -q JAVA_HOME || set -x JAVA_HOME (/usr/libexec/java_home)
 fish_add_path "/opt/homebrew/opt/openjdk@21/bin"
+
+mise activate --shims fish | source
