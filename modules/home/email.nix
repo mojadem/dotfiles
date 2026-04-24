@@ -24,7 +24,7 @@
   };
 
   home.packages = with pkgs; [
-      pass
+    pass
   ];
 
   programs.thunderbird = {
