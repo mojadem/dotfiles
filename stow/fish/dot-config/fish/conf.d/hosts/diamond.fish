@@ -8,4 +8,9 @@ fish_add_path ~/dev/khan/webapp/genfiles/go/bin
 set -q JAVA_HOME || set -x JAVA_HOME (/usr/libexec/java_home)
 fish_add_path "/opt/homebrew/opt/openjdk@21/bin"
 
-mise activate --shims fish | source
+function _init_mise --on-event init_done
+    # TODO: switch to nixpkg instead of brew
+    mise activate --shims fish | source
+
+    functions --erase _init_mise
+end
