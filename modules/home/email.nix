@@ -19,6 +19,8 @@
     };
 
     passwordCommand = "pass show email/personal";
+
+    thunderbird.enable = true;
   };
 
   home.packages = with pkgs; [
