@@ -36,6 +36,7 @@
     rsync
     sl
     stow
+    stylua
     tealdeer
     tmux
     tree
