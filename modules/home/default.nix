@@ -39,6 +39,7 @@
     tealdeer
     tmux
     tree
+    typescript-language-server
     wget
     yamlfmt
   ];
