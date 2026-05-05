@@ -28,6 +28,9 @@ _rebuild-linux:
 _rebuild-macos:
 	sudo darwin-rebuild switch --flake .#{{ host }}
 
+rebuild-boot:
+    sudo nixos-rebuild boot --flake .#{{ host }}
+
 stow:
     ls stow/ | xargs stow --restow --dir stow/ --target ~ --dotfiles
 
