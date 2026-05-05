@@ -28,6 +28,7 @@
     lazygit
     mdformat
     moreutils
+    ncdu
     nixfmt
     pass
     pi-coding-agent
