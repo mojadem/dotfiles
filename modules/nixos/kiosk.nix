@@ -11,6 +11,8 @@ let
   '';
 in
 {
+  imports = [ ./remote-touchpad.nix ];
+
   hardware.graphics = {
     # Enables hardware acceleration.
     enable = true;
