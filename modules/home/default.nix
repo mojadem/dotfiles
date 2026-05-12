@@ -44,6 +44,7 @@
     typescript-language-server
     wget
     yamlfmt
+    yubikey-manager
   ];
 
   programs.gpg.enable = true;
