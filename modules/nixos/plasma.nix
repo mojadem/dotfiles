@@ -5,6 +5,7 @@
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     baloo-widgets
     dolphin-plugins
+    drkonqi # crash reporter
     kate # text editor
     khelpcenter
     konsole
