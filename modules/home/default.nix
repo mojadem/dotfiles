@@ -9,6 +9,7 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
+    age
     aspell
     aspellDicts.en
     aspellDicts.en-computers
