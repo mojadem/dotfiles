@@ -1,4 +1,9 @@
-{ inputs, pkgs, username, ... }:
+{
+  inputs,
+  pkgs,
+  username,
+  ...
+}:
 
 {
   networking.hostName = "club";
@@ -27,4 +32,6 @@
       btop-rocm
     ];
   };
+
+  services.pcscd.enable = true;
 }
