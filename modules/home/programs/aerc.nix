@@ -7,6 +7,8 @@
       # Required when generating accounts conf with home manager.
       general.unsafe-accounts-conf = true;
 
+      viewer.alternatives = "text/html,text/plain";
+
       filters."text/plain" = "colorize";
       filters."text/html" = "html | colorize";
     };
