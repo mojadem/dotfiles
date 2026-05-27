@@ -8,6 +8,7 @@
       general.unsafe-accounts-conf = true;
 
       viewer.alternatives = "text/html,text/plain";
+      compose.edit-headers = true;
 
       filters."text/plain" = "colorize";
       filters."text/html" = "html | colorize";
