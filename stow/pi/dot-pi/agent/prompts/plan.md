@@ -3,7 +3,7 @@ description: Plan a change; write PLAN.md
 ---
 Plan: $@
 
-Inspect relevant files until the implementation is clear, then write a concise `PLAN.md`. Do not edit project files.
+Inspect relevant files until the implementation is clear, then write a concise `PLAN.md`. Do not edit any other project files.
 
 Structure:
 
