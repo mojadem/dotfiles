@@ -23,6 +23,7 @@
     gh
     git
     gnupg
+    jq
     just
     kakoune
     kakoune-lsp
