@@ -37,6 +37,7 @@
     rclone
     ripgrep
     rsync
+    shfmt
     sl
     stow
     stylua
