@@ -1,6 +1,6 @@
 function pick-pr
     set author me
-    if test -n $argv
+    if test (count $argv) -ne 0
         set author $argv
     end
 
