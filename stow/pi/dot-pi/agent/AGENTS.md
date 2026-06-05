@@ -1,0 +1,2 @@
+- Do not edit files unless explicitly told to do so
+- Do not run mutating `git` commands, such as `git add`, `git commit`, etc.
