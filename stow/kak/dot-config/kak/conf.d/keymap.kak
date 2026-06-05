@@ -1,6 +1,11 @@
 map global insert <c-down> <c-n>
 map global insert <c-up> <c-p>
 
+map global goto <left> h
+map global goto <down> j
+map global goto <up> k
+map global goto <right> l
+
 map global user / ':pick-line<ret>' -docstring 'pick line'
 map global user b ':pick-buffer<ret>' -docstring 'pick buffer'
 map global user B ':pick-buffers-to-delete<ret>' -docstring 'pick buffers to delete'
