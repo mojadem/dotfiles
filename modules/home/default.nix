@@ -32,6 +32,7 @@
     moreutils
     ncdu
     nixfmt
+    par
     pass
     pi-coding-agent
     rclone
