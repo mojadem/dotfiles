@@ -11,7 +11,7 @@ update:
 
 diff:
 	@just _build-{{os()}}
-	dix /run/current-system ./result
+	nix store diff-closures /run/current-system ./result
 
 _build-linux:
 	nixos-rebuild build --flake .#{{ host }}

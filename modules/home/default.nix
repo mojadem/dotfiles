@@ -16,7 +16,6 @@
     bat
     btop
     claude-code
-    dix
     fd
     ffmpeg
     fzf
