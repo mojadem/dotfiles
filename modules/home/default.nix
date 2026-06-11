@@ -23,6 +23,7 @@
     git
     glow
     gnupg
+    hyperfine
     jq
     just
     kakoune
