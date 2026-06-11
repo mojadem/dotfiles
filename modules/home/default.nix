@@ -21,6 +21,7 @@
     fzf
     gh
     git
+    glow
     gnupg
     jq
     just
