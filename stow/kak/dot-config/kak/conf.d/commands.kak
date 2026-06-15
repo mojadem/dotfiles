@@ -187,3 +187,10 @@ define-command -override open-file-explorer %{
         done
     }
 }
+
+define-command -override open-pr-diff %{
+    edit -scratch
+    rename-buffer *pr-diff*
+    set-option buffer filetype diff
+    execute-keys '|gh pr diff<ret>gg'
+}
