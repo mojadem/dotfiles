@@ -10,13 +10,21 @@ function pick-pr
     if test (count $argv) -gt 1
         echo 'pick-pr: expected at most one AUTHOR' >&2
         return 2
+    else if test (count $argv) = 1
+        set author $argv
+    else
+        set author me
     end
-    set author (test (count $argv) = 1; and echo $argv; or echo me)
 
-    set state (set -q _flag_state; and echo $_flag_state; or echo open)
-    if not contains -- $state open closed
-        echo 'pick-pr: --state must be open or closed' >&2
-        return 2
+    if set -q _flag_state
+        if not contains -- $_flag_state open closed
+            echo 'pick-pr: --state must be open or closed' >&2
+            return 2
+        else
+            set state $_flag_state
+        end
+    else
+        set state open
     end
 
     if test "$author" = me
@@ -28,7 +36,7 @@ function pick-pr
     else
         gh search prs --author "@$author" --state $state --json repository,number,title
     end |
-        jq '.[] | "\(.repository.nameWithOwner)#\(.number)\t\(.title)"' -r |
+        jq -r '.[] | "\(.repository.nameWithOwner)#\(.number)\t\(.title)"' |
         fzf -m |
         awk '{print $1}' |
         string replace --all '#' ' ' |
