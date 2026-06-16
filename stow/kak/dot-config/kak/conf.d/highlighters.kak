@@ -22,6 +22,12 @@ define-command -override toggle-wrap %{
     }
 }
 
+define-command -override zen-enable %{
+    try %{ remove-highlighter window/column }
+    try %{ remove-highlighter window/number-lines }
+    try %{ remove-highlighter window/git-diff }
+}
+
 
 # Add number lines and column to buffers with names not wrapped in asterisks.
 # This will affect source files, not utility buffers.

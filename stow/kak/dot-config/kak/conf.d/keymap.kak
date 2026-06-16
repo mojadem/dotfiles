@@ -23,6 +23,7 @@ map global user s ':spell<ret>' -docstring 'spell check'
 map global user S ':spell-clear<ret>' -docstring 'clear spell check'
 map global user t ':touch-new-file<ret>' -docstring 'touch new file'
 map global user y '<a-|>copy<ret>:echo yanked selection to system clipboard<ret>' -docstring 'yank to system clipboard'
+map global user z ':zen-enable<ret>' -docstring 'enable zen mode'
 
 map global user | ':enter-user-mode pipe<ret>' -docstring 'pipe mode'
 map global pipe p '|par s0T4w80<ret>' -docstring 'par'
