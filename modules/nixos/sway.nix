@@ -7,6 +7,7 @@
       cliphist
       fuzzel
       grim
+      libnotify
       mako
       mpv
       slurp
