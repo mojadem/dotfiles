@@ -68,11 +68,13 @@ bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
 bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+
 
-# screenshots
-bindsym Print exec grim && notify-send "Screenshot saved" --expire-time 3000
-bindsym Ctrl+Print exec grim - | wl-copy && notify-send "Screenshot copied" --expire-time 3000
-bindsym Shift+Print exec slurp | grim -g - && notify-send "Screenshot saved" --expire-time 3000
-bindsym Ctrl+Shift+Print exec slurp | grim -g - - | wl-copy && notify-send "Screenshot copied" --expire-time 3000
+# screencap (mac style)
+bindsym Super+Shift+3      exec fish -N ~/.config/sway/scripts/screencap.fish screenshot
+bindsym Super+Shift+Ctrl+3 exec fish -N ~/.config/sway/scripts/screencap.fish screenshot --copy
+bindsym Super+Shift+4      exec fish -N ~/.config/sway/scripts/screencap.fish screenshot --slurp
+bindsym Super+Shift+Ctrl+4 exec fish -N ~/.config/sway/scripts/screencap.fish screenshot --copy --slurp
+bindsym Super+Shift+5      exec fish -N ~/.config/sway/scripts/screencap.fish record
+bindsym Super+Shift+Ctrl+5 exec fish -N ~/.config/sway/scripts/screencap.fish record --slurp
 
 # pickers
 bindsym Super+Shift+v exec cliphist list | fuzzel --prompt 'clipboard> ' --dmenu --lines 30 --width 60 --tabs 1 | cliphist decode | wl-copy
