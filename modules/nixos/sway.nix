@@ -13,6 +13,7 @@
       slurp
       swayimg
       swaylock
+      wf-recorder
       wl-clipboard
     ];
   };
