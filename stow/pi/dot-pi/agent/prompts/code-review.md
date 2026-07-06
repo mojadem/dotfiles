@@ -18,12 +18,12 @@ Structure:
 
 ## Summary
 
-<overview: what and why>
+<overview: what this PR does and why>
 
 ## Changes
 
 1. <added, modified, or deleted>: <file name>
-- <summary of change>
+- <what change was made and why>
 - ...
 2. ...
 ```
