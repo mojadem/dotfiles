@@ -1,13 +1,14 @@
 { pkgs, ... }:
 
 {
+  imports = [ ./programs/ghostty.nix ];
+
   home.packages = with pkgs; [
-    bitwarden-desktop
     discord
-    ghostty
     firefox
-    spotify
-    qbittorrent
     proton-vpn
+    qbittorrent
+    spotify
   ];
+
 }
