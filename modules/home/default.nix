@@ -18,6 +18,7 @@
     claude-code
     fd
     ffmpeg
+    figlet
     fzf
     gh
     git
