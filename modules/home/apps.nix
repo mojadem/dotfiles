@@ -1,11 +1,13 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./programs/ghostty.nix ];
+  imports = [
+    ./programs/firefox.nix
+    ./programs/ghostty.nix
+  ];
 
   home.packages = with pkgs; [
     discord
-    firefox
     proton-vpn
     qbittorrent
     spotify
