@@ -2,4 +2,3 @@
 .fdignore
 .ignore
 .kakrc
-**/.claude/settings.local.json
