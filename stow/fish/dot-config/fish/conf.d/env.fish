@@ -4,7 +4,6 @@ set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_STATE_HOME $HOME/.local/state
 
 set -x CARGO_HOME $XDG_DATA_HOME/cargo
-set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 set -x GOPATH $XDG_DATA_HOME/go
 set -x IPFS_PATH $XDG_DATA_HOME/ipfs
 set -x PNPM_HOME $XDG_DATA_HOME/pnpm
