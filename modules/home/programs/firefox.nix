@@ -5,6 +5,7 @@ let
     "uBlock0@raymondhill.net" = "ublock-origin";
     "{446900e4-71c2-419f-a6a7-df9c091e268b}" = "bitwarden-password-manager";
     "{fd4fdeb0-5a65-4978-81c5-3488d4d56426}" = "gruvboxtheme";
+    "tridactyl.vim@cmcaine.co.uk" = "tridactyl-vim";
   };
 in
 {
