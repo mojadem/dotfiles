@@ -9,6 +9,7 @@
     ../../modules/home
     ../../modules/home/apps.nix
     ../../modules/home/email.nix
+    ../../modules/home/torrent.nix
   ];
 
   home.pointerCursor = {

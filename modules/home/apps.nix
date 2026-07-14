@@ -8,9 +8,6 @@
 
   home.packages = with pkgs; [
     discord
-    proton-vpn
-    qbittorrent
     spotify
   ];
-
 }
