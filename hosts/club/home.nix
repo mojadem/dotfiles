@@ -25,7 +25,7 @@
     enable = true;
     createDirectories = true;
 
-    # Opt into the new default; was `true` in stateVersion < 26.05.
+    # Adopt default; was `true` in stateVersion < 26.05.
     setSessionVariables = false;
 
     desktop = "${config.home.homeDirectory}/desktop";
