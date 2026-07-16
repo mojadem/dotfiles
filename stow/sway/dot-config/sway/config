@@ -21,6 +21,5 @@ client.focused_inactive $bg_dark $bg      $fg      $bg_dark  $bg_dark
 client.unfocused        $bg_dark $bg_dark $fg_dark $bg_dark  $bg_dark
 client.urgent           $bg_dark $bg_dark $fg_dark $red      $red
 
-for_window [class="feh"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [class="REAPER"] floating enable
