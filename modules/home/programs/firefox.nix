@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 let
   extensionSlugs = {
@@ -11,6 +11,9 @@ in
 {
   programs.firefox = {
     enable = true;
+
+    # Adopt default; was `~/.mozilla/firefox` in stateVersion < 26.05.
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
 
     policies.ExtensionSettings = builtins.mapAttrs (_id: slug: {
       installation_mode = "normal_installed";
