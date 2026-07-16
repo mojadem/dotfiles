@@ -48,6 +48,7 @@
     tmux
     tree
     typescript-language-server
+    unzip
     wget
     yamlfmt
     yubikey-manager
