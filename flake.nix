@@ -22,6 +22,13 @@
       ...
     }@inputs:
 
+    let
+      overlaysModule = {
+        nixpkgs.overlays = [
+          (import ./overlays/pi-coding-agent)
+        ];
+      };
+    in
     {
       nixosConfigurations = {
         club = nixpkgs.lib.nixosSystem {
@@ -30,7 +37,10 @@
             inherit inputs;
             username = "mojadem";
           };
-          modules = [ ./hosts/club ];
+          modules = [
+            overlaysModule
+            ./hosts/club
+          ];
         };
 
         spade = nixpkgs.lib.nixosSystem {
@@ -39,7 +49,10 @@
             inherit inputs;
             username = "mojadem";
           };
-          modules = [ ./hosts/spade ];
+          modules = [
+            overlaysModule
+            ./hosts/spade
+          ];
         };
       };
 
@@ -49,7 +62,10 @@
             inherit inputs;
             username = "mojadem";
           };
-          modules = [ ./hosts/heart ];
+          modules = [
+            overlaysModule
+            ./hosts/heart
+          ];
         };
 
         diamond = nix-darwin.lib.darwinSystem {
@@ -57,7 +73,10 @@
             inherit inputs;
             username = "mattdembiczak";
           };
-          modules = [ ./hosts/diamond ];
+          modules = [
+            overlaysModule
+            ./hosts/diamond
+          ];
         };
       };
     };
