@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, username, inputs, ... }:
 
 {
   nix.settings.experimental-features = [
@@ -13,6 +13,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    extraSpecialArgs = { inherit inputs; };
   };
 
   users.users.${username} = {
