@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./programs/firefox.nix
     ./programs/ghostty.nix
     ./programs/glide.nix
   ];
