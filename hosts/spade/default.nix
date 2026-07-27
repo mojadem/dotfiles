@@ -7,6 +7,7 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
+    ../../modules/system
     ../../modules/nixos
     ../../modules/nixos/controller.nix
     ../../modules/nixos/kiosk.nix

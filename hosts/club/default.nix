@@ -12,6 +12,7 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./hardware-configuration.nix
+    ../../modules/system
     ../../modules/nixos
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/gaming.nix
