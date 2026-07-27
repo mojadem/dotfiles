@@ -15,3 +15,5 @@ glide.styles.add(css`
     visibility: collapse !important;
   }
 `);
+
+glide.keymaps.set("normal", "<leader>t", "tab_new");
