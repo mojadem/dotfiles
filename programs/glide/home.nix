@@ -1,15 +1,13 @@
-{ inputs, lib, ... }:
+{
+  config,
+  inputs,
+  lib,
+  ...
+}:
 
 let
-  configFiles =
-    lib.sort builtins.lessThan (
-      builtins.filter (file: lib.hasSuffix ".ts" (toString file)) (
-        lib.filesystem.listFilesRecursive ./config/conf.d
-      )
-    )
-    ++ [ ./config/glide.ts ];
-
-  config = lib.concatMapStringsSep "\n" builtins.readFile configFiles;
+  cfg = config.programs.glide-browser;
+  files = lib.sort builtins.lessThan (lib.filesystem.listFilesRecursive ./config/conf.d);
 in
 
 {
@@ -17,7 +15,15 @@ in
     inputs.glide.homeModules.default
   ];
 
-  programs.glide-browser.enable = true;
+  options.programs.glide-browser.extraConfig = lib.mkOption {
+    type = lib.types.lines;
+    default = "";
+  };
 
-  xdg.configFile."glide/glide.ts".text = config;
+  config = {
+    programs.glide-browser.enable = true;
+    xdg.configFile."glide/glide.ts".text = lib.concatStringsSep "\n" (
+      (map builtins.readFile files) ++ [ cfg.extraConfig ]
+    );
+  };
 }
