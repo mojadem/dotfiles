@@ -1,39 +1,15 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  ...
-}:
+{ inputs, lib, ... }:
 
 let
-  configDir = ./config;
-  confDir = configDir + "/conf.d";
-
-  files = lib.sort builtins.lessThan (
-    builtins.filter (file: lib.hasSuffix ".ts" (toString file)) (
-      lib.filesystem.listFilesRecursive confDir
+  configFiles =
+    lib.sort builtins.lessThan (
+      builtins.filter (file: lib.hasSuffix ".ts" (toString file)) (
+        lib.filesystem.listFilesRecursive ./config/conf.d
+      )
     )
-  );
+    ++ [ ./config/glide.ts ];
 
-  includeLines = map (
-    file:
-    let
-      relativePath = lib.removePrefix "${toString configDir}/" (toString file);
-    in
-    "glide.include(${builtins.toJSON relativePath});"
-  ) files;
-
-  generatedManifest = pkgs.writeTextDir "conf.d.generated.ts" (
-    lib.concatStringsSep "\n" includeLines
-  );
-
-  configWithManifest = pkgs.symlinkJoin {
-    name = "glide-config";
-    paths = [
-      configDir
-      generatedManifest
-    ];
-  };
+  config = lib.concatMapStringsSep "\n" builtins.readFile configFiles;
 in
 
 {
@@ -43,8 +19,5 @@ in
 
   programs.glide-browser.enable = true;
 
-  xdg.configFile."glide" = {
-    source = configWithManifest;
-    recursive = true;
-  };
+  xdg.configFile."glide/glide.ts".text = config;
 }

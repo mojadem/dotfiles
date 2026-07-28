@@ -1,5 +1,3 @@
-glide.include("conf.d.generated.ts");
-
 glide.addons.install(
   "https://addons.mozilla.org/firefox/downloads/file/4888680/ublock_origin-1.72.2.xpi",
   { private_browsing_allowed: true },
