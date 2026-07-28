@@ -11,4 +11,6 @@
   home.packages = with pkgs; [
     mark
   ];
+
+  programs.glide-browser.extraConfig = builtins.readFile ../../programs/glide/config/diamond.glide.ts;
 }
