@@ -37,6 +37,7 @@
     par
     pass
     pi-coding-agent
+    prettier
     rclone
     ripgrep
     rsync
