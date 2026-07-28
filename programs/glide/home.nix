@@ -6,4 +6,9 @@
   ];
 
   programs.glide-browser.enable = true;
+
+  xdg.configFile."glide" = {
+    source = ./config;
+    recursive = true;
+  };
 }
