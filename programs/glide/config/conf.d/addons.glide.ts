@@ -14,3 +14,9 @@ glide.addons.install(
   "https://addons.mozilla.org/firefox/downloads/file/4875950/bitwarden_password_manager-2026.6.1.xpi",
   { private_browsing_allowed: true },
 );
+
+// Gruvbox Theme
+glide.addons.install(
+  "https://addons.mozilla.org/firefox/downloads/file/3835316/gruvboxtheme-1.0.xpi",
+  { private_browsing_allowed: true },
+);
