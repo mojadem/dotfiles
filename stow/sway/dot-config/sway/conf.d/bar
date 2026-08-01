@@ -8,7 +8,8 @@ bar {
   # but this seems to be vertical horizontal?
   gaps 5 10
 
-  status_command fish ~/.config/sway/scripts/status_command.fish
+  # TODO: link to slstatus module once sway is migrated to programs/
+  status_command slstatus -s
   
   colors {
     font "Monaspace Neon Bold"
