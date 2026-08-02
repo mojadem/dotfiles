@@ -15,6 +15,7 @@
     aspellDicts.en-computers
     bat
     btop
+    clang-tools
     claude-code
     fd
     ffmpeg

@@ -39,6 +39,7 @@ evaluate-commands %sh{
         "
     }
 
+    set_formatcmd c clang-format
     set_formatcmd fish fish_indent
     set_formatcmd go gofmt
     set_formatcmd json 'jq'
@@ -53,6 +54,7 @@ evaluate-commands %sh{
     set_formatcmd zig 'zig fmt --stdin'
 }
 
+autoformat-enable c
 autoformat-enable fish
 autoformat-enable go
 autoformat-enable go
