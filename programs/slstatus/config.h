@@ -72,6 +72,8 @@ static const struct arg args[] = {
     {temp, "gpu %s°C ", "/sys/class/hwmon/hwmon5/temp1_input"},
     {ram_used, "ram %s | "},
     {run_command, "vol %s | ",
-     "wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d ' ' -f 2"},
+     "echo "
+     "$(wpctl get-volume @DEFAULT_SINK@ | kak -f 'sVolume: <ret>d') "
+     "$(wpctl inspect @DEFAULT_SINK@ | rg nick | kak -f 'ght\"dxs\"<ret>d')"},
     {datetime, "%s", "%a %b %d %I:%M:%S %p"},
 };
