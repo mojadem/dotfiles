@@ -54,7 +54,6 @@ evaluate-commands %sh{
     set_formatcmd zig 'zig fmt --stdin'
 }
 
-autoformat-enable c
 autoformat-enable fish
 autoformat-enable go
 autoformat-enable go
