@@ -7,6 +7,7 @@ default:
 
 update:
 	nix flake update
+	nix flake check
 	@just diff
 
 diff:
