@@ -74,6 +74,6 @@ static const struct arg args[] = {
     {run_command, "vol %s | ",
      "echo "
      "$(wpctl get-volume @DEFAULT_SINK@ | kak -f 'sVolume: <ret>d') "
-     "$(wpctl inspect @DEFAULT_SINK@ | rg nick | kak -f 'ght\"dxs\"<ret>d')"},
+     "$(wpctl inspect @DEFAULT_SINK@ | rg nick | kak -f '`ght\"dxs\"<ret>d')"},
     {datetime, "%s", "%a %b %d %I:%M:%S %p"},
 };
