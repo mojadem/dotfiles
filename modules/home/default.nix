@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -35,7 +35,6 @@
     ncdu
     nixfmt
     par
-    pass
     pi-coding-agent
     prettier
     rclone
@@ -61,6 +60,13 @@
     pinentry.package = pkgs.pinentry-curses;
     defaultCacheTtl = 86400;
     maxCacheTtl = 86400;
+  };
+
+  programs.password-store = {
+    enable = true;
+    settings = {
+      PASSWORD_STORE_DIR = "${config.xdg.dataHome}/pass";
+    };
   };
 
   xdg.enable = true;
