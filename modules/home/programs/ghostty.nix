@@ -16,7 +16,7 @@
         "alt+arrow_right=unbind"
       ];
       macos-titlebar-style = "hidden";
-      shell-integration = "none";
+      shell-integration-features = "no-cursor";
       theme = "Gruvbox Dark";
       window-padding-x = 6;
       window-padding-y = 6;
