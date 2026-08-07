@@ -8,6 +8,7 @@
     inputs.home-manager.darwinModules.home-manager
     ../../modules/system
     ../../modules/darwin
+    ../../programs/glide
   ];
 
   home-manager.users.${username} = ./home.nix;
