@@ -1,4 +1,9 @@
-{ pkgs, username, inputs, ... }:
+{
+  pkgs,
+  username,
+  inputs,
+  ...
+}:
 
 {
   nix.settings.experimental-features = [
