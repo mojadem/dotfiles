@@ -30,3 +30,10 @@ function _init_mise --on-event init_done
 
     functions --erase _init_mise
 end
+
+function pi --wraps pi
+    set -lx OPENAI_API_KEY (pass show api/openai)
+    set -lx ANTHROPIC_API_KEY (pass show api/anthropic)
+
+    command pi $argv
+end
