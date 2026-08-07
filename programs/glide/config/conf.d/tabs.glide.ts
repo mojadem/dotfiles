@@ -6,6 +6,12 @@ browser.tabs.onActivated.addListener(({ previousTabId, windowId }) => {
   }
 });
 
+browser.tabs.onRemoved.addListener(async (_tabId, { isWindowClosing }) => {
+  if (!isWindowClosing) {
+    await glide.excmds.execute("mode_change normal");
+  }
+});
+
 glide.keymaps.set(
   "normal",
   "<leader>a",
