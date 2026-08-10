@@ -15,7 +15,6 @@
     aspellDicts.en-computers
     bat
     btop
-    claude-code
     fd
     ffmpeg
     figlet
