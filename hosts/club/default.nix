@@ -17,7 +17,6 @@
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/gaming.nix
     ../../modules/nixos/music.nix
-    ../../modules/nixos/plasma.nix
     ../../modules/nixos/sunshine.nix
     ../../modules/nixos/sway.nix
     ../../programs/glide
