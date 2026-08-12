@@ -2,7 +2,6 @@
   config,
   inputs,
   lib,
-  pkgs,
   ...
 }:
 
@@ -22,12 +21,7 @@ in
   };
 
   config = {
-    programs.glide-browser = {
-      enable = true;
-    }
-    // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
-      package = inputs.glide.packages.${pkgs.stdenv.hostPlatform.system}.glide-browser-bin-unwrapped;
-    };
+    programs.glide-browser.enable = true;
     xdg.configFile."glide/glide.ts".text = lib.concatStringsSep "\n" (
       (map builtins.readFile files) ++ [ cfg.extraConfig ]
     );
