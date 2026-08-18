@@ -53,6 +53,11 @@
     yubikey-manager
   ];
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   programs.gpg.enable = true;
   services.gpg-agent = {
     enable = true;
