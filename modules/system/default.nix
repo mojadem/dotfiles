@@ -6,7 +6,10 @@
 }:
 
 {
-  imports = [ ../../programs/fish ];
+  imports = [
+    ../../programs/fish
+    ../../programs/pi
+  ];
 
   nix.settings.experimental-features = [
     "nix-command"
