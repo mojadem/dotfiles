@@ -66,6 +66,16 @@
     maxCacheTtl = 86400;
   };
 
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user = {
+        name = "Matt Dembiczak";
+        email = "matt@dembiczak.net";
+      };
+    };
+  };
+
   programs.password-store = {
     enable = true;
     settings = {
