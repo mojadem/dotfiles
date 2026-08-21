@@ -11,5 +11,6 @@
   users.users.${username}.extraGroups = [
     "video"
     "render"
+    "uinput"
   ];
 }
