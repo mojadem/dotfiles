@@ -15,6 +15,7 @@
     aspellDicts.en-computers
     bat
     btop
+    chafa
     fd
     ffmpeg
     figlet
