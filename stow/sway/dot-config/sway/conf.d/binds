@@ -84,6 +84,7 @@ bindsym Super+Shift+b exec fish ~/.config/sway/scripts/bitwarden_picker.fish
 # misc
 bindsym Super+q kill
 bindsym Super+Ctrl+n exec makoctl dismiss
+bindsym Super+Ctrl+s exec pgrep wlsunset && pkill wlsunset || wlsunset -T 4500
 
 # drag windows with Super+LMB, resize with Super+RMB
 floating_modifier Super normal

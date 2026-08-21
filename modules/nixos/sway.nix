@@ -15,6 +15,7 @@
       swaylock
       wf-recorder
       wl-clipboard
+      wlsunset
     ];
   };
 }
