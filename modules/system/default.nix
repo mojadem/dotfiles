@@ -9,6 +9,7 @@
   imports = [
     ../../programs/fish
     ../../programs/pi
+    ../../programs/tmux
   ];
 
   nix.settings.experimental-features = [
