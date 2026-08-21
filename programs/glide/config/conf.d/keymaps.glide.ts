@@ -1,3 +1,6 @@
+glide.keymaps.set("normal", "<A-left>", "back");
+glide.keymaps.set("normal", "<A-right>", "forward");
+
 glide.keymaps.set("normal", "<leader>c", "config_reload");
 glide.keymaps.set("normal", "<leader>t", "tab_new");
 glide.keymaps.set("normal", "<leader>u", "tab_reopen");
