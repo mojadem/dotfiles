@@ -10,19 +10,9 @@ Structure:
 ```markdown
 # PLAN
 
+## Summary
+
 <overview: what and why>
-
-## Discovery
-<key findings>
-
-## Questions
-<open questions, if any>
-
-1. **Q1. <question>**
-   **Answer:** TBD
-
-2. **Q2. <question>**
-   **Answer:** TBD
 
 ## Implementation
 
