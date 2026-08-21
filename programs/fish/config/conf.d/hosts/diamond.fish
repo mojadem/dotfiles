@@ -37,3 +37,11 @@ function pi --wraps pi
 
     command pi $argv
 end
+
+function mark --wraps mark
+    set -lx MARK_BASE_URL "https://khanacademy.atlassian.net/wiki"
+    set -lx MARK_USERNAME "mattdembiczak@khanacademy.org"
+    set -lx MARK_PASSWORD (pass show api/confluence)
+
+    command mark $argv
+end
