@@ -19,8 +19,6 @@
     ../../modules/nixos/music.nix
     ../../modules/nixos/sunshine.nix
     ../../modules/nixos/sway.nix
-    ../../programs/glide
-    ../../programs/slstatus
   ];
 
   home-manager.users.${username} = ./home.nix;

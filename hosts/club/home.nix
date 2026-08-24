@@ -10,6 +10,7 @@
     ../../modules/home/apps.nix
     ../../modules/home/email.nix
     ../../modules/home/torrent.nix
+    ../../modules/home/programs/slstatus
   ];
 
   home.pointerCursor = {

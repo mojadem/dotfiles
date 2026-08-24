@@ -12,5 +12,5 @@
     mark
   ];
 
-  programs.glide-browser.extraConfig = builtins.readFile ../../programs/glide/config/diamond.glide.ts;
+  programs.glide-browser.extraConfig = builtins.readFile ../../modules/home/programs/glide/config/diamond.glide.ts;
 }

@@ -6,12 +6,6 @@
 }:
 
 {
-  imports = [
-    ../../programs/fish
-    ../../programs/pi
-    ../../programs/tmux
-  ];
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -31,6 +25,7 @@
     description = "Matt Dembiczak";
     shell = pkgs.fish;
   };
+  programs.fish.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   time.timeZone = "America/New_York";

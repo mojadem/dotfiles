@@ -2,6 +2,9 @@
 
 {
   imports = [
+    ./programs/fish
+    ./programs/pi
+    ./programs/tmux
     ./programs/zathura.nix
   ];
 
