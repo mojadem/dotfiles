@@ -5,7 +5,6 @@
     ./programs/fish
     ./programs/pi
     ./programs/tmux
-    ./programs/zathura.nix
   ];
 
   home.stateVersion = "25.11";
