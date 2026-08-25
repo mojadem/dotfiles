@@ -19,18 +19,9 @@
     };
 
     passwordCommand = "pass show email/personal";
-
-    thunderbird.enable = true;
   };
 
   home.packages = with pkgs; [
     pass
   ];
-
-  programs.thunderbird = {
-    enable = true;
-    profiles.default = {
-      isDefault = true;
-    };
-  };
 }
