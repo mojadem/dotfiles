@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   programs.fish = {
@@ -8,12 +8,10 @@
 
   xdg.configFile = {
     "fish/conf.d" = {
-      source = ./config/conf.d;
-      recursive = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dev/mojadem/dotfiles/modules/home/programs/fish/config/conf.d";
     };
     "fish/functions" = {
-      source = ./config/functions;
-      recursive = true;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dev/mojadem/dotfiles/modules/home/programs/fish/config/functions";
     };
   };
 }
