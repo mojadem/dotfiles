@@ -77,6 +77,6 @@ switch $mode
         # 6: record + slurp
         wf-recorder -g (slurp) -f $out
 end
-notify-send "Saved to $out"
-not test $out = clipboard
+and notify-send "Saved to $out"
+and not test $out = clipboard
 and echo -n $out | copy
