@@ -4,6 +4,8 @@
   networking.hostName = "heart";
   system.stateVersion = 6;
 
+  homebrew.casks = [ "iina" ];
+
   imports = [
     inputs.home-manager.darwinModules.home-manager
     ../../modules/system
