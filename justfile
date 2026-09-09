@@ -44,3 +44,13 @@ mk-package PACKAGE:
 rm-package PACKAGE:
     stow --delete --dir stow/ --target ~ --dotfiles {{ PACKAGE }}
     rm -rf stow/{{ PACKAGE }}
+
+sync-pi-deps:
+    version="$(pi --version)" && \
+    nix shell --inputs-from . nixpkgs#nodejs --command npm \
+        --prefix modules/home/programs/pi install \
+        --save-dev --save-exact \
+        "@earendil-works/pi-ai@$version" \
+        "@earendil-works/pi-coding-agent@$version" \
+        "@earendil-works/pi-tui@$version" \
+        --no-package-lock --ignore-scripts --no-audit --no-fund
