@@ -5,7 +5,9 @@ Plan: $@
 
 Inspect relevant files until the implementation is clear, then write a concise `PLAN.md`. Do not edit any other project files.
 
-Briefly explain what is changing and why. Group file changes into atomic implementation steps, each suitable for a separate commit. Each change should include the actual proposed code diff.
+Briefly explain what is changing and why. Group file changes into atomic implementation steps, each suitable for a separate commit.
+
+Each change should include a diff code block. If the change is purely additive, instead prefer a code block in the correct language.
 
 Structure:
 
