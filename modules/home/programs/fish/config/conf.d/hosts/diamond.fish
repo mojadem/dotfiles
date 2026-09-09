@@ -5,6 +5,9 @@ fish_add_path ~/dev/khan/google-cloud-sdk/bin
 fish_add_path ~/dev/khan/khan-dotfiles/bin
 fish_add_path ~/dev/khan/webapp/genfiles/go/bin
 
+set -x DBT_TARGET_PATH /tmp/dbt/dbt-artifacts
+set -x DBT_LOG_PATH /tmp/dbt/logs
+
 set -q JAVA_HOME || set -x JAVA_HOME (/usr/libexec/java_home)
 fish_add_path "/opt/homebrew/opt/openjdk@21/bin"
 
