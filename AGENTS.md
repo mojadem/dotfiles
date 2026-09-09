@@ -8,4 +8,4 @@ Four hosts are managed:
 3. `diamond`: Work MacBook
 4. `spade`: NixOS Mini PC (kiosk/server)
 
-Program configuration is symlinked to its destination via home-manager. Prefer declarative configuration over imperative.
+All persistent configuration edits should be made in this repository. Program configuration is symlinked to its destination via home-manager. Prefer declarative configuration over imperative.
