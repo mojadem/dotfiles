@@ -15,6 +15,7 @@ in
 
     ".pi/agent/extensions" = link "extensions";
     ".pi/agent/prompts" = link "prompts";
+    ".pi/agent/skills" = link "skills";
     ".pi/agent/themes" = link "themes";
   };
 }
