@@ -65,8 +65,8 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 static const struct arg args[] = {
-    {netspeed_rx, "net ↓%s ", "wlp6s0"},
-    {netspeed_tx, "↑%s | ", "wlp6s0"},
+    {netspeed_rx, "net ↓%s ", "enp12s0f3u4u2"},
+    {netspeed_tx, "↑%s | ", "enp12s0f3u4u2"},
     {load_avg, "load %s | "},
     {temp, "cpu %s°C ", "/sys/class/hwmon/hwmon1/temp1_input"},
     {temp, "gpu %s°C ", "/sys/class/hwmon/hwmon5/temp1_input"},
