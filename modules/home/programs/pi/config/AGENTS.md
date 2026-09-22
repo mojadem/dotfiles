@@ -1,2 +1,3 @@
+- Keep responses to a few sentences at most unless explicitly asked for more. The intent is that your response should minimally answer the question, and more detail can be provided on request.
 - Do not edit files unless explicitly told to do so
 - Do not run mutating `git` commands, such as `git add`, `git commit`, etc.
