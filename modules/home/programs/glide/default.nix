@@ -2,6 +2,7 @@
   config,
   inputs,
   lib,
+  pkgs,
   ...
 }:
 
@@ -21,7 +22,13 @@ in
   };
 
   config = {
-    programs.glide-browser.enable = true;
+    programs.glide-browser = {
+      enable = true;
+      # Preserve the native macOS launcher so LaunchServices can deliver URLs.
+      package = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin (
+        inputs.glide.packages.${pkgs.stdenv.hostPlatform.system}.glide-browser-bin-unwrapped
+      );
+    };
     xdg.configFile."glide/glide.ts".text = lib.concatStringsSep "\n" (
       (map builtins.readFile files) ++ [ cfg.extraConfig ]
     );
