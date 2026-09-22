@@ -6,7 +6,7 @@ import {
 import { fuzzyFilter, Input, SelectList } from "@earendil-works/pi-tui";
 
 export default function (pi: ExtensionAPI) {
-  pi.registerShortcut("ctrl+shift+t", {
+  pi.registerShortcut("alt+t", {
     description: "Select thinking level",
     handler: async (ctx) => {
       if (ctx.mode !== "tui") return;

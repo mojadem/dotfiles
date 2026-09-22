@@ -1,3 +1,4 @@
 {
-  "app.editor.external": "alt+e"
+  "app.editor.external": "alt+e",
+  "app.model.select": "alt+m"
 }
