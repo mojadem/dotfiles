@@ -1,29 +1,41 @@
-import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import type {
+  ExtensionAPI,
+  SessionEntry,
+} from "@earendil-works/pi-coding-agent";
 
 export default function (pi: ExtensionAPI) {
   pi.registerCommand("undo", {
     description: "Undo the latest prompt and restore it to the editor",
     handler: async (_args, ctx) => {
       if (!ctx.isIdle() || ctx.hasPendingMessages()) {
-        ctx.ui.notify(
-          "Stop the agent and clear queued messages before /undo.",
-          "warning",
-        );
+        ctx.ui.notify("undo: agent is not idle", "warning");
         return;
       }
+
+      const isUserMessage = (entry: SessionEntry) => {
+        if (entry.type !== "message") {
+          return false;
+        }
+
+        switch (entry.message.role) {
+          case "user":
+          case "bashExecution":
+            return true;
+          default:
+            return false;
+        }
+      };
 
       const target = ctx.sessionManager
         .getBranch()
-        .findLast(
-          (entry) => entry.type === "message" && entry.message.role === "user",
-        );
+        .findLast((entry) => isUserMessage(entry));
 
-      if (!target) {
-        ctx.ui.notify("No user message to undo.", "info");
+      if (!target || !target.parentId) {
+        ctx.ui.notify("undo: no target", "info");
         return;
       }
 
-      await ctx.navigateTree(target.id, { summarize: false });
+      await ctx.navigateTree(target.parentId, { summarize: false });
     },
   });
 }
