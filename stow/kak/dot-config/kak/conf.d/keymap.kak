@@ -31,5 +31,4 @@ map global pipe s '|sort<ret>' -docstring 'sort'
 map global pipe d '|date -u +%Y-%m-%d<ret>' -docstring 'date'
 
 map global user w ':enter-user-mode window<ret>' -docstring 'window mode'
-map global window v ':tmux-terminal-horizontal kak -c %val{session}<ret>' -docstring 'vertical split'
-map global window s ':tmux-terminal-vertical kak -c %val{session}<ret>' -docstring 'horizontal split'
+map global window v ':tmux-terminal-horizontal fish -ic "titled kak -c %val{session}"<ret>' -docstring 'vertical split'
