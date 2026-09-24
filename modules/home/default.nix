@@ -3,6 +3,7 @@
 {
   imports = [
     ./programs/fish
+    ./programs/kak
     ./programs/pi
     ./programs/tmux
   ];
