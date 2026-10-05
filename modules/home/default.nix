@@ -15,7 +15,6 @@
     age
     aspell
     aspellDicts.en
-    aspellDicts.en-computers
     bat
     chafa
     fd
