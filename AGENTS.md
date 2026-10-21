@@ -9,3 +9,5 @@ Four hosts are managed:
 4. `spade`: NixOS Mini PC (kiosk/server)
 
 All persistent configuration edits should be made in this repository. Program configuration is symlinked to its destination via home-manager. Prefer declarative configuration over imperative.
+
+Refer to `justfile` for build commands.
