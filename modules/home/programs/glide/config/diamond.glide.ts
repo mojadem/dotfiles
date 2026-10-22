@@ -12,8 +12,8 @@ glide.search_engines.add({
   favicon_url: "https://khanacademy.atlassian.net",
 });
 glide.search_engines.add({
-  name: "KORE Jira",
-  keyword: "kore",
-  search_url: "https://khanacademy.atlassian.net/browse/KORE-{searchTerms}",
+  name: "AICODE Jira",
+  keyword: "AICODE",
+  search_url: "https://khanacademy.atlassian.net/browse/AICODE-{searchTerms}",
   favicon_url: "https://khanacademy.atlassian.net",
 });
