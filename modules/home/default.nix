@@ -17,6 +17,7 @@
     aspellDicts.en
     bat
     chafa
+    diffr
     fd
     ffmpeg
     figlet
