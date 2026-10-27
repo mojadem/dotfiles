@@ -39,6 +39,4 @@
     matchConfig.MACAddress = "b4:e9:b8:6c:eb:27";
     linkConfig.Name = "eth";
   };
-
-  boot.initrd.systemd.enable = true;
 }
