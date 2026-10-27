@@ -9,7 +9,6 @@
   home.packages = with pkgs; [
     bitwarden-desktop
     discord
-    ente-desktop
     spotify
   ];
 }

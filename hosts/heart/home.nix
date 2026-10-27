@@ -8,4 +8,8 @@
     ../../modules/home/email.nix
     ../../modules/home/torrent.nix
   ];
+
+  home.packages = with pkgs; [
+    ente-desktop
+  ];
 }

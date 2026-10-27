@@ -13,6 +13,10 @@
     ../../modules/home/programs/slstatus
   ];
 
+  home.packages = with pkgs; [
+    ente-desktop
+  ];
+
   home.pointerCursor = {
     enable = true;
     name = "Adwaita";
