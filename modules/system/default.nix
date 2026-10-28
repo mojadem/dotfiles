@@ -11,6 +11,8 @@
     "flakes"
   ];
 
+  nix.gc.automatic = true;
+
   fonts.packages = with pkgs; [
     monaspace
   ];
