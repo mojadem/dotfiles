@@ -10,6 +10,7 @@
     "nix-command"
     "flakes"
   ];
+  nix.settings.warn-dirty = false;
 
   nix.gc.automatic = true;
 
