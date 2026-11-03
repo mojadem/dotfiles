@@ -1,7 +1,6 @@
 # Global Agent Instructions
 
-Operate with a strong bias towards simplicity.
-
+Operate with a strong bias towards simplicity. All complexity must be warranted.
 ## Response Style
 
 Keep responses to a few sentences at most unless explicitly asked for more. The intent is that your response should minimally answer the question, and more detail can be provided on request.
