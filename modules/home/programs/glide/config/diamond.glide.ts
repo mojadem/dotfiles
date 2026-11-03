@@ -17,3 +17,9 @@ glide.search_engines.add({
   search_url: "https://khanacademy.atlassian.net/browse/AICODE-{searchTerms}",
   favicon_url: "https://khanacademy.atlassian.net",
 });
+glide.search_engines.add({
+  name: "AIPLAT Jira",
+  keyword: "AIPLAT",
+  search_url: "https://khanacademy.atlassian.net/browse/AIPLAT-{searchTerms}",
+  favicon_url: "https://khanacademy.atlassian.net",
+});
