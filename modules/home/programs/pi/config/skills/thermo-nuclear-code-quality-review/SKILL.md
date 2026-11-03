@@ -26,18 +26,12 @@ Review only unless implementation is requested. Ground each finding in the curre
 
 Apply the baseline prompt above, plus these explicit review rules:
 
-0. **Be ambitious about structural simplification.**
+1. **Be ambitious about structural simplification.**
    - Do not stop at "this could be a bit cleaner."
    - Look for opportunities to reframe the change so that whole branches, helpers, modes, conditionals, or layers disappear entirely.
    - Prefer the solution that makes the code feel inevitable in hindsight.
    - Assume there is often a "code judo" move available: a re-organization that uses the existing architecture more effectively and makes the change dramatically simpler and more elegant.
    - If you see a path to delete complexity rather than rearrange it, push hard for that path.
-
-1. **Do not let a PR push a file from under 1k lines to over 1k lines without a very strong reason.**
-   - Treat this as a strong code-quality smell by default.
-   - Prefer extracting helpers, subcomponents, modules, or local abstractions instead of letting a file sprawl past 1000 lines.
-   - If the diff crosses that threshold, explicitly ask whether the code should be decomposed first.
-   - Only waive this if there is a compelling structural reason and the resulting file is still clearly organized.
 
 2. **Do not allow random spaghetti growth in existing code.**
    - Be highly suspicious of new ad-hoc conditionals, scattered special cases, or one-off branches inserted into unrelated flows.
@@ -80,7 +74,7 @@ For every meaningful change, ask:
 - Did the diff add branching complexity where a better abstraction should exist?
 - Did a previously cohesive module become more coupled, more stateful, or harder to scan?
 - Is this logic living in the right file and layer?
-- Did this change enlarge a file or component past a healthy size boundary?
+- Did this change make a file or component harder to navigate or maintain?
 - Are there repeated conditionals that signal a missing model or missing helper?
 - Is the implementation direct and legible, or does it rely on special cases and incidental control flow?
 - Is this abstraction actually earning its keep, or is it just a wrapper?
@@ -94,7 +88,6 @@ Escalate findings when you see:
 
 - A complicated implementation where a cleaner reframing could delete whole categories of complexity.
 - Refactors that move code around but fail to reduce the number of concepts a reader must hold in their head.
-- A file crossing 1000 lines due to the PR, especially if the new code could be split out.
 - New conditionals bolted onto unrelated code paths.
 - One-off booleans, nullable modes, or flags that complicate existing control flow.
 - Feature-specific logic leaking into general-purpose modules.
@@ -143,7 +136,6 @@ If the implementation missed an opportunity for a dramatic simplification, say t
 
 Good phrases:
 
-- `this pushes the file past 1k lines. can we decompose this first?`
 - `this adds another special-case branch into an already busy flow. can we move this behind its own abstraction?`
 - `this works, but it makes the surrounding code more spaghetti. let's keep the behavior and restructure the implementation.`
 - `this feels like feature logic leaking into a shared path. can we isolate it?`
@@ -185,7 +177,6 @@ The bar for approval is:
 Treat these as presumptive blockers unless the author can justify them clearly:
 
 - the PR preserves a lot of incidental complexity when there is a plausible code-judo move that would delete it
-- the PR pushes a file from below 1000 lines to above 1000 lines
 - the PR adds ad-hoc branching that makes an existing flow more tangled
 - the PR solves a local problem by scattering feature checks across shared code
 - the PR adds an unnecessary abstraction, wrapper, or cast-heavy contract that makes the design more indirect
