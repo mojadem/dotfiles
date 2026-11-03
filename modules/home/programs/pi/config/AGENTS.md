@@ -1,6 +1,6 @@
 # Global Agent Instructions
 
-Operate with a strong bias towards simplicity. All complexity must be warranted.
+Operate with a strong bias towards simplicity, minimality, and practicality.
 
 ## Response Style
 
@@ -8,19 +8,13 @@ Answer directly and concisely in plain English; match the depth to the question.
 
 ## Development
 
-Treat questions and requests for advice as discussion, not authorization to edit. When implementation is requested, stay within its scope and preserve unrelated work.
+Implement only what is needed to achieve the objective; avoid unnecessary complexity. Review each implementation for complexity to cut.
 
-Check consequential claims against current code or primary sources. Distinguish verified behavior from assumptions and proposals.
+Treat questions and requests for advice as discussion, not authorization to edit. When implementation is requested, stay within its scope.
 
-Prefer existing patterns and canonical helpers when they fit. Choose verification proportionate to the task; honor stated limits and report relevant checks and remaining uncertainty.
+Design by contract: prefer clear contracts over defensive programming. Trust established invariants and keep caller responsibilities with the caller. Validate untrusted input at system boundaries; avoid redundant checks, speculative fallbacks, and silent recovery from contract violations. Fail visibly when a contract is broken.
 
-### Design by Contract
-
-Prefer clear contracts over defensive programming. Trust established invariants and keep caller responsibilities with the caller. Validate untrusted input at system boundaries; avoid redundant checks, speculative fallbacks, and silent recovery from contract violations. Fail visibly when a contract is broken.
-
-### Version Control
-
-When making code changes, use the `jj` CLI to minimally scope and document each change. Use area-prefixed commit messages: `area(optional-scope): imperative summary`.
+When making code changes, use the `jj` CLI to minimally scope and document each change. Use area-prefixed commit messages: `area(optional-scope): imperative summary`. If it is a follow-up iteration, fold the change into the existing commit.
 
 ## Environment
 
