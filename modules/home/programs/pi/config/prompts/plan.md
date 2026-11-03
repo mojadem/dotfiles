@@ -9,6 +9,8 @@ Briefly explain what is changing and why. Group file changes into atomic impleme
 
 Each change should include a diff code block. If the change is purely additive, instead prefer a code block in the correct language.
 
+Surface material unresolved questions. Once answered, incorporate the decisions into the plan and remove the resolved questions.
+
 Structure:
 
 ```markdown
@@ -29,4 +31,8 @@ Structure:
 ## Step 2: <brief summary>
 
 ...
+
+## Open questions (if needed)
+
+<material unresolved decisions>
 ```
