@@ -5,6 +5,8 @@ fish_add_path ~/dev/khan/google-cloud-sdk/bin
 fish_add_path ~/dev/khan/khan-dotfiles/bin
 fish_add_path ~/dev/khan/webapp/genfiles/go/bin
 
+fish_add_path ~/.local/share/pnpm
+
 set -x DBT_TARGET_PATH /tmp/dbt/dbt-artifacts
 set -x DBT_LOG_PATH /tmp/dbt/logs
 
