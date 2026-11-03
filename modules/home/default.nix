@@ -76,6 +76,12 @@
         name = "Matt Dembiczak";
         email = "matt@dembiczak.net";
       };
+      signing = {
+        backend = "ssh";
+        behavior = "drop";
+        backends.ssh.program = "${pkgs.openssh}/bin/ssh-keygen";
+      };
+      git.sign-on-push = true;
     };
   };
 
