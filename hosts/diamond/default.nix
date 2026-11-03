@@ -11,4 +11,6 @@
   ];
 
   home-manager.users.${username} = ./home.nix;
+
+  nix.linux-builder.enable = true;
 }
