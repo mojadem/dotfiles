@@ -8,6 +8,12 @@ Keep responses to a few sentences at most unless explicitly asked for more. The 
 
 ## Development
 
+### Design by Contract
+
+Prefer clear contracts over defensive programming. Trust established invariants and keep caller responsibilities with the caller. Validate untrusted input at system boundaries; avoid redundant checks, speculative fallbacks, and silent recovery from contract violations. Fail visibly when a contract is broken.
+
+### Version Control
+
 When making code changes, use the `jj` CLI to minimally scope and document each change. Use area-prefixed commit messages: `area(optional-scope): imperative summary`.
 
 ## Environment
