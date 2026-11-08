@@ -35,6 +35,9 @@
 
   services.pcscd.enable = true;
 
+  services.openssh.enable = true;
+  services.avahi.enable = true;
+
   systemd.network.links."10-monitor-eth" = {
     matchConfig.MACAddress = "b4:e9:b8:6c:eb:27";
     linkConfig.Name = "eth";
