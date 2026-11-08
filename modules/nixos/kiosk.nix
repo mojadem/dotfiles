@@ -2,11 +2,21 @@
 
 let
   kodi = pkgs.kodi-gbm.withPackages (p: [ p.joystick ]);
+  firefox = pkgs.wrapFirefox pkgs.firefox-unwrapped {
+    extraPolicies = {
+      ExtensionSettings = {
+        "uBlock0@raymondhill.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+        };
+      };
+    };
+  };
   kiosk-session = pkgs.writeShellScript "kiosk-session" ''
     while true; do
       ${pkgs.cage}/bin/cage -s -- ${pkgs.moonlight-qt}/bin/moonlight
       ${kodi}/bin/kodi-standalone
-      ${pkgs.cage}/bin/cage -s -- ${pkgs.firefox}/bin/firefox https://mojadem.dev
+      ${pkgs.cage}/bin/cage -s -- ${firefox}/bin/firefox https://mojadem.dev
     done
   '';
 in
