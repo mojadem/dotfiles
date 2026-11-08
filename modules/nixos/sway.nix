@@ -13,6 +13,7 @@
       slurp
       swayimg
       swaylock
+      tesseract
       wf-recorder
       wl-clipboard
       wlsunset

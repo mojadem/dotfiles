@@ -76,6 +76,8 @@ bindsym Super+Shift+Ctrl+4 exec fish -N ~/.config/sway/scripts/screencap.fish sc
 bindsym Super+Shift+5      exec fish -N ~/.config/sway/scripts/screencap.fish record
 bindsym Super+Shift+Ctrl+5 exec fish -N ~/.config/sway/scripts/screencap.fish record --slurp
 
+bindsym Super+Shift+6 exec grim -g "$(slurp)" - | tesseract stdin stdout | wl-copy
+
 # pickers
 bindsym Super+Shift+v exec cliphist list | fuzzel --prompt 'clipboard> ' --dmenu --lines 30 --width 60 --tabs 1 | cliphist decode | ifne wl-copy
 bindsym Super+Shift+e exec fish ~/.config/sway/scripts/emoji_picker.fish
