@@ -16,5 +16,5 @@
   home-manager.users.${username} = ./home.nix;
 
   services.openssh.enable = true;
-
+  services.avahi.enable = true;
 }
