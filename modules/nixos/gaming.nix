@@ -10,6 +10,11 @@
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
+    package = pkgs.steam.override {
+      extraEnv = {
+        PROTON_ENABLE_WAYLAND = "1";
+      };
+    };
   };
 
   programs.gamemode.enable = true;
