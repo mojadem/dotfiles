@@ -13,7 +13,7 @@
         behavior = "drop";
         backends.ssh.program = "${pkgs.openssh}/bin/ssh-keygen";
       };
-      git.sign-on-push = true;
+      revsets.git-sign-on-push = "~signed() & mine()";
 
       aliases.vdiff = [
         "util"
