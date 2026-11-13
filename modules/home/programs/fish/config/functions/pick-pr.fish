@@ -28,7 +28,7 @@ function pick-pr
 
     set -l user @me
     if test (count $argv) = 1
-        set user "@$user"
+        set user "@$argv"
     end
 
     set -l gh_args search prs \
